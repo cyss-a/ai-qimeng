@@ -357,8 +357,8 @@
   color: var(--fg);
 }
 
-/* body 内标题：h3 作为子分区 */
-.gd-section--lesson .gd-section__body h3 {
+/* body 内标题：h3 作为子分区（排除日报卡片等已有独立样式的 h3） */
+.gd-section--lesson .gd-section__body h3:not(.daily-card__title) {
   font-family: var(--font-family-display);
   font-size: var(--text-xl);
   font-weight: var(--weight-emphasize);
@@ -366,7 +366,7 @@
   margin: var(--space-6) 0 var(--space-3);
   scroll-margin-top: 88px;
 }
-.gd-section--lesson .gd-section__body h3:first-child { margin-top: 0; }
+.gd-section--lesson .gd-section__body h3:not(.daily-card__title):first-child { margin-top: 0; }
 
 /* body 内段落 */
 .gd-section--lesson .gd-section__body p {
