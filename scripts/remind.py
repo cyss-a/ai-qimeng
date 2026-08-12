@@ -100,6 +100,16 @@ TREES = {
             ("迭代", ["持续迭代降沟通成本", "按行业批量定制"]),
         ],
     },
+    "8-1-agent-four-layers.md": {
+        "aria": "Agent 四层架构思维导图",
+        "root": ("Agent 四层架构", "LLM+协议+工具+技能"),
+        "branches": [
+            ("决策层 Decision", ["大模型 LLM", "读懂需求生成意图"]),
+            ("协议层 Protocol", ["Function Calling", "意图格式程序可读"]),
+            ("执行层 Execution", ["Tool 本地执行", "MCP 对接外部服务"]),
+            ("组织层 Orchestration", ["Skill 按需加载", "避免一次塞太多"]),
+        ],
+    },
 }
 
 # Branch accent palette. Each branch topic + its leaves share a hue.

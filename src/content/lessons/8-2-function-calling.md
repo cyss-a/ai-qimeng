@@ -29,7 +29,7 @@ Function Calling 的本质，是给模型一份"工具说明书"，然后让它�
   <span class="callout__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
   <div class="callout__body">
     <p class="callout__title">术语卡</p>
-    <div class="callout__content"><p>Function Calling 不是"模型自己运行了函数"。模型全程不碰任何外部系统，它只是输出一段约定好的 JSON，告诉你的程序"该调哪个、传什么"。真正的执行权一直在你的代码手里。所以它是"协议层"而不是"执行层"——它定义格式，不干粗活。理解这一点，你才不会被"模型会自己调 API"的说法吓到。</p></div>
+    <div class="callout__content"><p>Function Calling 不是"模型自己运行了函数"。模型全程不碰任何外部系统，它只是输出一段约定好的 JSON，告诉你的程序"该调哪个、传什么"。真正的执行权一直在你的代码手里。所以它是"协议层"而不是"执行层"——它定义格式，不干粗活。理解这一点，你才不会被"模型会自己调 API"的说法吓到。补充一句：上面是为建立直觉写的简化格式；真实平台（如 OpenAI、Anthropic）会把工具名和参数分别放进 name 与 arguments 字段里，字段名略有差别，但"模型只出意图、代码才执行"的本质不变。</p></div>
   </div>
 </aside>
 

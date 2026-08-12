@@ -24,6 +24,50 @@ status: published
 
 可以这样想一个公司：老板（LLM）只发指令；秘书（Function Calling）把指令写成标准工单；员工（Tool）在本地执行，或经"外接办公室"（MCP）去对接外部服务；而 Skill 像挂在墙上的标准作业手册，遇到对应任务才取下来用。决策、协议、执行、组织，四层各司其职，才让"动嘴的老板"变成了"能办事的团队"。
 
+<div class="mindmap" role="img" aria-label="Agent 四层架构思维导图"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 448" width="100%" role="img" aria-label="Agent 四层架构思维导图">
+  <g fill="none" stroke-width="2" stroke-linecap="round">
+    <path d="M212,224 C236,224 236,105 260,105" stroke="var(--mindmap-b1-line)"/>
+    <path d="M447,105 C506,105 507,96 566,96" stroke="var(--mindmap-b1-line)"/>
+    <path d="M447,105 C506,105 507,142 566,142" stroke="var(--mindmap-b1-line)"/>
+    <path d="M212,224 C236,224 236,197 260,197" stroke="var(--mindmap-b2-line)"/>
+    <path d="M447,197 C506,197 507,188 566,188" stroke="var(--mindmap-b2-line)"/>
+    <path d="M447,197 C506,197 507,234 566,234" stroke="var(--mindmap-b2-line)"/>
+    <path d="M212,224 C236,224 236,289 260,289" stroke="var(--mindmap-b3-line)"/>
+    <path d="M460,289 C513,289 513,280 566,280" stroke="var(--mindmap-b3-line)"/>
+    <path d="M460,289 C513,289 513,326 566,326" stroke="var(--mindmap-b3-line)"/>
+    <path d="M212,224 C236,224 236,381 260,381" stroke="var(--mindmap-b4-line)"/>
+    <path d="M514,381 C540,381 540,372 566,372" stroke="var(--mindmap-b4-line)"/>
+    <path d="M514,381 C540,381 540,418 566,418" stroke="var(--mindmap-b4-line)"/>
+  </g>
+  <rect x="40" y="188" width="172" height="72" rx="16" fill="var(--surface)" stroke="var(--fg-2)" stroke-width="1.5"/>
+  <text x="126" y="218" text-anchor="middle" dominant-baseline="central" font-size="16" font-weight="600" fill="var(--fg)">Agent 四层架构</text>
+  <text x="126" y="241" text-anchor="middle" dominant-baseline="central" font-size="12" fill="var(--muted)">LLM+协议+工具+技能</text>
+  <rect x="260" y="86" width="187" height="38" rx="19" fill="var(--mindmap-b1)"/>
+  <text x="353" y="105" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#FFFFFF">决策层 Decision</text>
+  <rect x="566" y="82" width="121" height="28" rx="14" fill="var(--mindmap-b1-soft)" stroke="var(--mindmap-b1-line)" stroke-width="1"/>
+  <text x="626" y="96" text-anchor="middle" dominant-baseline="central" font-size="12" fill="var(--mindmap-b1-ink)">大模型 LLM</text>
+  <rect x="566" y="128" width="134" height="28" rx="14" fill="var(--mindmap-b1-soft)" stroke="var(--mindmap-b1-line)" stroke-width="1"/>
+  <text x="633" y="142" text-anchor="middle" dominant-baseline="central" font-size="12" fill="var(--mindmap-b1-ink)">读懂需求生成意图</text>
+  <rect x="260" y="178" width="187" height="38" rx="19" fill="var(--mindmap-b2)"/>
+  <text x="353" y="197" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#FFFFFF">协议层 Protocol</text>
+  <rect x="566" y="174" width="240" height="28" rx="14" fill="var(--mindmap-b2-soft)" stroke="var(--mindmap-b2-line)" stroke-width="1"/>
+  <text x="686" y="188" text-anchor="middle" dominant-baseline="central" font-size="12" fill="var(--mindmap-b2-ink)">Function Calling</text>
+  <rect x="566" y="220" width="134" height="28" rx="14" fill="var(--mindmap-b2-soft)" stroke="var(--mindmap-b2-line)" stroke-width="1"/>
+  <text x="633" y="234" text-anchor="middle" dominant-baseline="central" font-size="12" fill="var(--mindmap-b2-ink)">意图格式程序可读</text>
+  <rect x="260" y="270" width="200" height="38" rx="19" fill="var(--mindmap-b3)"/>
+  <text x="360" y="289" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#FFFFFF">执行层 Execution</text>
+  <rect x="566" y="266" width="147" height="28" rx="14" fill="var(--mindmap-b3-soft)" stroke="var(--mindmap-b3-line)" stroke-width="1"/>
+  <text x="639" y="280" text-anchor="middle" dominant-baseline="central" font-size="12" fill="var(--mindmap-b3-ink)">Tool 本地执行</text>
+  <rect x="566" y="312" width="161" height="28" rx="14" fill="var(--mindmap-b3-soft)" stroke="var(--mindmap-b3-line)" stroke-width="1"/>
+  <text x="646" y="326" text-anchor="middle" dominant-baseline="central" font-size="12" fill="var(--mindmap-b3-ink)">MCP 对接外部服务</text>
+  <rect x="260" y="362" width="254" height="38" rx="19" fill="var(--mindmap-b4)"/>
+  <text x="387" y="381" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#FFFFFF">组织层 Orchestration</text>
+  <rect x="566" y="358" width="161" height="28" rx="14" fill="var(--mindmap-b4-soft)" stroke="var(--mindmap-b4-line)" stroke-width="1"/>
+  <text x="646" y="372" text-anchor="middle" dominant-baseline="central" font-size="12" fill="var(--mindmap-b4-ink)">Skill 按需加载</text>
+  <rect x="566" y="404" width="121" height="28" rx="14" fill="var(--mindmap-b4-soft)" stroke="var(--mindmap-b4-line)" stroke-width="1"/>
+  <text x="626" y="418" text-anchor="middle" dominant-baseline="central" font-size="12" fill="var(--mindmap-b4-ink)">避免一次塞太多</text>
+</svg></div>
+
 ## 真实例子：一句话查气温，背后四层接力
 
 你说"帮我查东京现在多少度"。老板 LLM 不会自己联网，它产出一张工单：调用天气工具、地点东京。秘书按格式把工单递出去，执行层真的去查了，把"28℃"拿回来交给老板，老板再组织成一句人话回你。整条链路就是这四层在接力——你只看到最后那句回答，底下已经跑完一整套分工。

@@ -33,7 +33,7 @@ MCP 的解法叫"能力自描述"：服务方自己说清楚"我能提供哪些�
   <span class="callout__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
   <div class="callout__body">
     <p class="callout__title">术语卡</p>
-    <div class="callout__content"><p>MCP（Model Context Protocol，模型上下文协议）把"工具怎么接"标准化了，类比 USB-C：不同设备插同一个口都能用，不用每种组合单独做一根线。Server 是能力提供方（比如一个暴露"查合同"功能的服务），Client 是消费方（你的 Agent 编辑器）。有了这套协议，客户端和服务端从 N×M 的乱麻，变成"都遵守同一套插头标准"的清爽对接。</p></div>
+    <div class="callout__content"><p>MCP（Model Context Protocol，模型上下文协议）把"工具怎么接"标准化了，类比 USB-C：不同设备插同一个口都能用，不用每种组合单独做一根线。Server 是能力提供方（比如一个暴露"查合同"功能的服务），Client 是消费方（你的 Agent 编辑器）。有了这套协议，客户端和服务端从 N×M 的乱麻，变成"都遵守同一套插头标准"的清爽对接，并和 Function Calling 分工：Function Calling 负责"模型怎么把意图格式化成调用指令"，MCP 负责"工具怎么被标准化接进来、被动态发现"——前者在模型侧，后者在连接侧，两者接力而非替代，MCP 接好的工具最终还是经由 Function Calling 交给模型去挑选。</p></div>
   </div>
 </aside>
 
