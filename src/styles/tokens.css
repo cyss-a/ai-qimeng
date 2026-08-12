@@ -219,7 +219,6 @@ img { max-width: 100%; height: auto; }
 /* 移动端触感优化：去除点按灰色高亮、消除 300ms 点击延迟（iOS/Android 通用） */
 a,
 button,
-.site-nav__trigger,
 .mobile-nav__trigger,
 .copy-btn,
 .catalog__item,
