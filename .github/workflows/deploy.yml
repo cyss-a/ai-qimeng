@@ -49,6 +49,16 @@ jobs:
           git diff --cached --quiet || git commit -m "chore: daily AI news $(date +%F) [skip ci]"
           git push
 
+      # 从仓库内的 news-url.txt 读取 R2 公开地址，注入构建环境（前端运行时拉取用，公开值无涉密）
+      - name: Inject R2 news URL
+        run: |
+          if [ -f news-url.txt ]; then
+            echo "PUBLIC_NEWS_JSON_URL=$(cat news-url.txt | tr -d '[:space:]' | tr -d '\r')" >> "$GITHUB_ENV"
+            echo "已注入 PUBLIC_NEWS_JSON_URL"
+          else
+            echo "未找到 news-url.txt，前端将走 build-time 兜底"
+          fi
+
       - run: npm install --no-audit --no-fund
       - run: npm run build
 
