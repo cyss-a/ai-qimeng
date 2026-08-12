@@ -8,7 +8,8 @@
   .lesson__toc--desktop { display: none; }
   .mobile-nav { display: block; }
   .hero__grid { grid-template-columns: 1fr; gap: var(--space-8); }
-  .hero__media { order: -1; max-width: 420px; margin-inline: auto; }
+  .hero__copy { padding-left: 0; }
+  .hero__media { order: -1; max-width: 360px; margin-inline: auto; }
   .quick-modules__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .tool-cards__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .catalog__grid { grid-template-columns: 1fr; }
@@ -41,7 +42,8 @@
   .catalog__module,
   .reader h2,
   .reader h3 { scroll-margin-top: 112px; }
-  .hero__title { font-size: clamp(28px, 8vw, 40px); }
+  .hero__title { font-size: clamp(26px, 7.5vw, 34px); }
+  .hero__title-line { white-space: normal; }
   .hero__value { font-size: var(--text-base); }
   .hero__meta { gap: var(--space-3); }
   .quick-modules__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

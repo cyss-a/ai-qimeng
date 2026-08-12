@@ -1,5 +1,5 @@
 ---
-// Hero 右侧场景插图：3D 玻璃科技风 AI 助手
+// Hero 右侧场景插图：3D 玻璃科技风 AI 助手（参考圆润机器人头 + 玻璃屏 + 蓝色圆台）
 // 颜色全部走当前 design token；无外部图片依赖；支持深色主题。
 ---
 
@@ -7,134 +7,158 @@
   viewBox="0 0 480 360"
   xmlns="http://www.w3.org/2000/svg"
   role="img"
-  aria-label="一个带耳机的玻璃质感 AI 机器人，前方悬浮着显示 AI 字样的透明屏幕，底部有蓝色光环"
+  aria-label="一个圆润的玻璃质感 AI 机器人头，前方悬浮着显示 AI 字样的透明玻璃屏，底部是蓝色圆台"
   class="hero-illustration"
 >
   <defs>
-    <!-- 柔和光晕 -->
-    <radialGradient id="aiHalo" cx="50%" cy="55%" r="55%">
-      <stop offset="0%" stop-color="var(--m2, #2563EB)" stop-opacity="0.18" />
-      <stop offset="60%" stop-color="var(--accent, #0D9488)" stop-opacity="0.08" />
+    <!-- 柔和环境光晕 -->
+    <radialGradient id="aiGlow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="var(--m2, #2563EB)" stop-opacity="0.14" />
+      <stop offset="55%" stop-color="var(--m2, #2563EB)" stop-opacity="0.05" />
       <stop offset="100%" stop-color="var(--m2, #2563EB)" stop-opacity="0" />
     </radialGradient>
-    <!-- 玻璃屏本体 -->
-    <linearGradient id="glassFace" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.45" />
-      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.18" />
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.06" />
+
+    <!-- 机器人头盔：白色高光球体 -->
+    <radialGradient id="helmetGrad" cx="35%" cy="28%" r="75%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.98" />
+      <stop offset="35%" stop-color="var(--m2-bg, #E8F1FE)" stop-opacity="0.9" />
+      <stop offset="75%" stop-color="var(--m2, #2563EB)" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="var(--m2, #2563EB)" stop-opacity="0.12" />
+    </radialGradient>
+
+    <!-- 玻璃面板：前层屏幕 -->
+    <linearGradient id="glassPanel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55" />
+      <stop offset="45%" stop-color="#FFFFFF" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="var(--m2, #2563EB)" stop-opacity="0.12" />
     </linearGradient>
-    <!-- 玻璃屏边缘反光 -->
     <linearGradient id="glassRim" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.7" />
-      <stop offset="100%" stop-color="var(--m2, #2563EB)" stop-opacity="0.25" />
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="var(--m2, #2563EB)" stop-opacity="0.35" />
     </linearGradient>
-    <!-- 机器人头部球体 -->
-    <radialGradient id="botHead" cx="35%" cy="30%" r="70%">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
-      <stop offset="45%" stop-color="var(--m2-bg, #E8EFFD)" stop-opacity="0.75" />
-      <stop offset="100%" stop-color="var(--m2, #2563EB)" stop-opacity="0.22" />
-    </radialGradient>
-    <!-- 平台光环 -->
-    <linearGradient id="baseRing" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="var(--m2, #2563EB)" stop-opacity="0.15" />
-      <stop offset="45%" stop-color="var(--accent, #0D9488)" stop-opacity="0.55" />
-      <stop offset="55%" stop-color="var(--accent, #0D9488)" stop-opacity="0.55" />
-      <stop offset="100%" stop-color="var(--m2, #2563EB)" stop-opacity="0.15" />
+
+    <!-- 蓝色圆台 -->
+    <linearGradient id="baseTop" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="var(--m2, #2563EB)" stop-opacity="0.18" />
+      <stop offset="50%" stop-color="var(--m2, #2563EB)" stop-opacity="0.38" />
+      <stop offset="100%" stop-color="var(--m2, #2563EB)" stop-opacity="0.18" />
     </linearGradient>
-    <!-- 平台阴影 -->
-    <radialGradient id="baseShadow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="var(--m2, #2563EB)" stop-opacity="0.22" />
+    <linearGradient id="baseSide" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="var(--m2, #2563EB)" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="var(--m2, #2563EB)" stop-opacity="0.08" />
+    </linearGradient>
+
+    <!-- 投影 -->
+    <radialGradient id="dropShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="var(--m2, #2563EB)" stop-opacity="0.18" />
       <stop offset="100%" stop-color="var(--m2, #2563EB)" stop-opacity="0" />
     </radialGradient>
+
+    <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" />
+    </filter>
+    <filter id="shadowBlur" x="-30%" y="-10%" width="160%" height="140%">
+      <feGaussianBlur stdDeviation="6" />
+    </filter>
   </defs>
 
   <!-- 环境光晕 -->
-  <ellipse cx="240" cy="195" rx="190" ry="145" fill="url(#aiHalo)" />
+  <ellipse cx="240" cy="180" rx="205" ry="150" fill="url(#aiGlow)" />
 
-  <!-- 平台底座 -->
-  <ellipse cx="240" cy="306" rx="156" ry="28" fill="url(#baseShadow)" />
-  <ellipse cx="240" cy="300" rx="146" ry="22" fill="var(--surface)" stroke="var(--border)" stroke-width="1" />
-  <ellipse cx="240" cy="300" rx="146" ry="22" fill="url(#baseRing)" />
-  <ellipse cx="240" cy="300" rx="110" ry="14" fill="none" stroke="var(--m2)" stroke-width="1.5" opacity="0.35" />
+  <!-- 底部投影 -->
+  <ellipse cx="240" cy="312" rx="130" ry="22" fill="url(#dropShadow)" filter="url(#shadowBlur)" />
 
-  <!-- 机器人身体/颈部 -->
-  <path d="M220 250 L260 250 L252 296 L228 296 Z" fill="var(--surface)" stroke="var(--border)" stroke-width="1" />
-  <rect x="234" y="256" width="12" height="34" rx="3" fill="var(--m2-bg)" opacity="0.6" />
+  <!-- 蓝色圆台底座 -->
+  <g transform="translate(240, 298)">
+    <!-- 底座厚度 -->
+    <ellipse cx="0" cy="8" rx="120" ry="24" fill="url(#baseSide)" />
+    <!-- 底座顶面 -->
+    <ellipse cx="0" cy="0" rx="120" ry="24" fill="var(--surface, #FFFFFF)" stroke="var(--border, #E2E8F0)" stroke-width="1" />
+    <ellipse cx="0" cy="0" rx="120" ry="24" fill="url(#baseTop)" />
+    <!-- 内环 -->
+    <ellipse cx="0" cy="2" rx="86" ry="16" fill="none" stroke="var(--m2, #2563EB)" stroke-width="1.5" opacity="0.35" />
+    <ellipse cx="0" cy="2" rx="52" ry="9" fill="none" stroke="var(--m2, #2563EB)" stroke-width="1.5" opacity="0.22" />
+  </g>
 
-  <!-- 机器人头部 -->
-  <g transform="translate(170, 80)">
-    <!-- 外侧耳机环 -->
-    <circle cx="70" cy="80" r="72" fill="var(--m2)" opacity="0.08" />
-    <circle cx="70" cy="80" r="66" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
-    <!-- 玻璃质感头 -->
-    <circle cx="70" cy="80" r="56" fill="url(#botHead)" stroke="url(#glassRim)" stroke-width="2" />
+  <!-- 机器人头盔 -->
+  <g transform="translate(240, 148)">
+    <!-- 耳机外环（后） -->
+    <ellipse cx="-82" cy="8" rx="22" ry="36" fill="var(--m2, #2563EB)" opacity="0.12" />
+    <ellipse cx="82" cy="8" rx="22" ry="36" fill="var(--m2, #2563EB)" opacity="0.12" />
+
+    <!-- 头盔主体 -->
+    <circle cx="0" cy="0" r="82" fill="url(#helmetGrad)" />
+    <circle cx="0" cy="0" r="82" fill="none" stroke="url(#glassRim)" stroke-width="2" />
+
     <!-- 顶部高光 -->
-    <ellipse cx="54" cy="52" rx="22" ry="14" fill="#FFFFFF" opacity="0.35" transform="rotate(-30 54 52)" />
-    <!-- 面罩 -->
-    <rect x="30" y="72" width="80" height="32" rx="16" fill="var(--m2)" opacity="0.85" />
-    <!-- 眼睛 -->
-    <circle cx="54" cy="88" r="6" fill="#FFFFFF" />
-    <circle cx="86" cy="88" r="6" fill="#FFFFFF" />
-    <!-- 瞳孔 -->
-    <circle cx="55" cy="88" r="2.5" fill="var(--m2-ink)" />
-    <circle cx="87" cy="88" r="2.5" fill="var(--m2-ink)" />
-    <!-- 耳机 -->
-    <rect x="2" y="64" width="14" height="38" rx="7" fill="var(--m2)" />
-    <rect x="124" y="64" width="14" height="38" rx="7" fill="var(--m2)" />
-    <!-- 天线 -->
-    <line x1="70" y1="24" x2="70" y2="4" stroke="var(--border)" stroke-width="3" stroke-linecap="round" />
-    <circle cx="70" cy="4" r="5" fill="var(--accent)" />
-    <circle cx="70" cy="4" r="9" fill="var(--accent)" opacity="0.25" />
+    <ellipse cx="-26" cy="-44" rx="34" ry="18" fill="#FFFFFF" opacity="0.45" transform="rotate(-28 -26 -44)" />
+    <ellipse cx="-18" cy="-52" rx="12" ry="6" fill="#FFFFFF" opacity="0.7" transform="rotate(-28 -18 -52)" />
+
+    <!-- 蓝色护目/面罩带 -->
+    <path d="M -70 -2 Q 0 -22 70 -2 L 70 18 Q 0 -2 -70 18 Z" fill="var(--m2, #2563EB)" opacity="0.78" />
+    <!-- 护目高光 -->
+    <path d="M -58 -6 Q 0 -22 58 -6" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.55" fill="none" stroke-linecap="round" />
+
+    <!-- 耳机耳罩 -->
+    <rect x="-100" y="-24" width="26" height="52" rx="13" fill="var(--m2, #2563EB)" />
+    <rect x="-96" y="-18" width="16" height="40" rx="8" fill="var(--m2-bg, #DBEAFE)" opacity="0.7" />
+    <rect x="74" y="-24" width="26" height="52" rx="13" fill="var(--m2, #2563EB)" />
+    <rect x="80" y="-18" width="16" height="40" rx="8" fill="var(--m2-bg, #DBEAFE)" opacity="0.7" />
+
+    <!-- 下巴/颈部连接 -->
+    <path d="M -28 74 Q 0 88 28 74 L 24 108 Q 0 118 -24 108 Z" fill="var(--surface, #FFFFFF)" stroke="var(--border, #E2E8F0)" stroke-width="1" />
+    <rect x="-10" y="82" width="20" height="28" rx="6" fill="var(--m2-bg, #DBEAFE)" opacity="0.5" />
   </g>
 
   <!-- 前方玻璃屏 -->
-  <g transform="translate(96, 145)">
-    <!-- 屏幕后光 -->
-    <rect x="-8" y="-8" width="168" height="126" rx="22" fill="var(--m2)" opacity="0.08" />
+  <g transform="translate(160, 195)">
+    <!-- 屏幕背光 -->
+    <rect x="-10" y="-8" width="164" height="118" rx="24" fill="var(--m2, #2563EB)" opacity="0.08" />
     <!-- 玻璃主体 -->
-    <rect x="0" y="0" width="152" height="110" rx="16" fill="url(#glassFace)" stroke="url(#glassRim)" stroke-width="1.5" />
-    <!-- 顶部反光条 -->
-    <path d="M12 8 L140 8" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2.5" stroke-linecap="round" />
-    <!-- AI 大字 -->
+    <rect x="0" y="0" width="144" height="102" rx="18" fill="url(#glassPanel)" stroke="url(#glassRim)" stroke-width="1.5" />
+    <!-- 顶部反光 -->
+    <path d="M 14 10 L 130 10" stroke="#FFFFFF" stroke-width="3" stroke-opacity="0.6" stroke-linecap="round" />
+    <!-- 侧边反光 -->
+    <path d="M 10 18 L 10 84" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.25" stroke-linecap="round" />
+    <!-- AI 文字 -->
     <text
-      x="76"
-      y="68"
+      x="72"
+      y="66"
       text-anchor="middle"
-      font-family="Inter, system-ui, sans-serif"
-      font-size="46"
+      font-family="Inter, system-ui, -apple-system, sans-serif"
+      font-size="48"
       font-weight="800"
-      fill="var(--m2)"
-      opacity="0.92"
-      style="letter-spacing: -0.03em;"
+      fill="var(--m2, #2563EB)"
+      opacity="0.9"
+      style="letter-spacing: -0.02em;"
     >AI</text>
-    <!-- 底部进度光点 -->
-    <circle cx="52" cy="92" r="4" fill="var(--accent)" />
-    <circle cx="70" cy="92" r="4" fill="var(--m2)" />
-    <circle cx="88" cy="92" r="4" fill="var(--m3)" />
-    <circle cx="106" cy="92" r="4" fill="var(--m2)" opacity="0.35" />
+    <!-- 底部状态点 -->
+    <circle cx="54" cy="86" r="4" fill="var(--m2, #2563EB)" />
+    <circle cx="72" cy="86" r="4" fill="var(--accent, #0D9488)" />
+    <circle cx="90" cy="86" r="4" fill="var(--m2, #2563EB)" opacity="0.35" />
   </g>
 
-  <!-- 左侧漂浮小卡片：数据 -->
-  <g transform="translate(42, 110)">
-    <rect x="0" y="0" width="58" height="46" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="1" />
-    <rect x="10" y="10" width="28" height="5" rx="2.5" fill="var(--m2)" opacity="0.5" />
-    <rect x="10" y="20" width="38" height="4" rx="2" fill="var(--muted)" opacity="0.35" />
-    <rect x="10" y="28" width="26" height="4" rx="2" fill="var(--muted)" opacity="0.25" />
+  <!-- 左侧漂浮小面板 -->
+  <g transform="translate(54, 128)">
+    <rect x="0" y="0" width="64" height="52" rx="12" fill="var(--surface, #FFFFFF)" stroke="var(--border, #E2E8F0)" stroke-width="1" />
+    <rect x="0" y="0" width="64" height="52" rx="12" fill="url(#glassPanel)" opacity="0.6" />
+    <rect x="10" y="12" width="30" height="6" rx="3" fill="var(--m2, #2563EB)" opacity="0.45" />
+    <rect x="10" y="24" width="44" height="5" rx="2.5" fill="var(--muted, #64748B)" opacity="0.35" />
+    <rect x="10" y="34" width="28" height="5" rx="2.5" fill="var(--muted, #64748B)" opacity="0.22" />
   </g>
 
-  <!-- 右侧漂浮小卡片：完成 -->
-  <g transform="translate(390, 130)">
-    <rect x="0" y="0" width="52" height="44" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="1" />
-    <circle cx="26" cy="18" r="10" fill="var(--success)" opacity="0.12" />
-    <path d="M21 18l4 4 8-8" stroke="var(--success)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-    <rect x="12" y="34" width="28" height="4" rx="2" fill="var(--muted)" opacity="0.3" />
+  <!-- 右侧漂浮小面板：对勾 -->
+  <g transform="translate(374, 148)">
+    <rect x="0" y="0" width="56" height="50" rx="12" fill="var(--surface, #FFFFFF)" stroke="var(--border, #E2E8F0)" stroke-width="1" />
+    <rect x="0" y="0" width="56" height="50" rx="12" fill="url(#glassPanel)" opacity="0.6" />
+    <circle cx="28" cy="20" r="12" fill="var(--success, #10B981)" opacity="0.12" />
+    <path d="M 21 20 L 27 26 L 37 16" stroke="var(--success, #10B981)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="14" y="38" width="28" height="4" rx="2" fill="var(--muted, #64748B)" opacity="0.3" />
   </g>
 
-  <!-- 漂浮光点 -->
-  <circle cx="60" cy="210" r="4" fill="var(--accent)" opacity="0.5" />
-  <circle cx="420" cy="100" r="3" fill="var(--m2)" opacity="0.45" />
-  <circle cx="410" cy="240" r="5" fill="var(--m3)" opacity="0.35" />
-
-  <!-- 底部细线 -->
-  <rect x="90" y="338" width="300" height="2" rx="1" fill="var(--border-soft)" />
+  <!-- 漂浮装饰圆点 -->
+  <circle cx="64" cy="228" r="5" fill="var(--m2, #2563EB)" opacity="0.35" />
+  <circle cx="410" cy="116" r="4" fill="var(--accent, #0D9488)" opacity="0.4" />
+  <circle cx="424" cy="256" r="6" fill="var(--m2, #2563EB)" opacity="0.22" />
+  <circle cx="120" cy="96" r="3" fill="var(--m2, #2563EB)" opacity="0.28" />
 </svg>
