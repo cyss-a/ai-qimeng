@@ -1,6 +1,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-// 课程模块元数据（M1–M9），frontmatter 仅含 module 代码，展示名在此集中管理
+// 课程模块元数据：frontmatter 仅含 module 代码，展示名在此集中管理。
+// M7「AI 热点日报」置顶展示且不带 M 编号（直接显示「AI 热点日报」），其余模块顺延。
 export const MODULES = {
   M1: { id: 'M1', title: '认知篇', subtitle: '先搞懂 AI 是什么、能替你做什么' },
   M2: { id: 'M2', title: '工具篇', subtitle: '主流工具地图与怎么选' },
@@ -17,7 +18,8 @@ export const MODULES = {
 export type ModuleId = keyof typeof MODULES;
 export type LessonEntry = CollectionEntry<'lessons'>;
 
-const MODULE_ORDER: ModuleId[] = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10'];
+// M7（AI 热点日报）置顶、其余顺延；M7 展示时不带 M 编号
+const MODULE_ORDER: ModuleId[] = ['M7', 'M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M8', 'M9', 'M10'];
 
 // 内容层（Astro 7）下 entry.id 取自首字的 frontmatter `slug`（如 m1/1-1-renzhi），
 // 已含模块前缀，直接用做作业 URL。

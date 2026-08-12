@@ -6,9 +6,11 @@ import Icon from '../components/Icon.astro';
 import { MODULES, getLessons, lessonHref, withBase, type ModuleId } from '../lib/course';
 
 const lessons = await getLessons();
-const first = lessons[0];
+// 「开始第一讲」指向首个教学讲次（跳过 M7 每日日报），置顶 M7 后仍需正确落到 M1
+const first = lessons.find((l) => l.data.module !== 'M7') ?? lessons[0];
 const firstHref = lessonHref(first);
-const moduleOrder = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10'] as ModuleId[];
+// 模块顺序：M7（AI 热点日报）置顶且不带 M 编号，其余顺延
+const moduleOrder = ['M7', 'M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M8', 'M9', 'M10'] as ModuleId[];
 
 const byModule: Record<string, typeof lessons> = {};
 for (const l of lessons) {
@@ -200,7 +202,6 @@ const zsxqUrl = 'https://t.zsxq.com';
           return (
             <div class="catalog__module" id="m7" data-mod="M7">
               <div class="catalog__module-head">
-                <span class="catalog__module-tag">{mid}</span>
                 <h2 class="catalog__module-name">{mod.title}</h2>
                 <p class="catalog__module-sub">{mod.subtitle}</p>
               </div>

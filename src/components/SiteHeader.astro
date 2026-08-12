@@ -34,7 +34,7 @@ const homeUrl = import.meta.env.BASE_URL;
             return (
               <li>
                 <a class="site-nav__link" href={anchor}>
-                  <span class="site-nav__tag">{mid}</span>
+                  {mid !== 'M7' && <span class="site-nav__tag">{mid}</span>}
                   <span class="site-nav__title">{mod.title}</span>
                 </a>
               </li>
