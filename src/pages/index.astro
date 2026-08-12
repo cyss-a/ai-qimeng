@@ -7,7 +7,7 @@ import { MODULES, getLessons, lessonHref, withBase, type ModuleId } from '../lib
 const lessons = await getLessons();
 const first = lessons[0];
 const firstHref = lessonHref(first);
-const moduleOrder = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7'] as ModuleId[];
+const moduleOrder = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8'] as ModuleId[];
 
 const byModule: Record<string, typeof lessons> = {};
 for (const l of lessons) {
