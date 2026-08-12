@@ -42,6 +42,7 @@
   .prompt-card__head { flex-direction: column; align-items: stretch; }
   .prompt-card__head .copy-btn { width: 100%; }
   .reader table { font-size: var(--text-xs); }
+  .hero__strip-text { display: none; }
 }
 
 /* 减少动效偏好 */

@@ -28,18 +28,25 @@ const zsxqUrl = 'https://t.zsxq.com';
 
   <!-- 课程头：直接呈现真实内容，不放空洞 Hero -->
   <section class="hero">
-    <div class="hero__strip" aria-hidden="true">
-      <span style="--c: var(--m1)"></span>
-      <span style="--c: var(--m2)"></span>
-      <span style="--c: var(--m3)"></span>
-      <span style="--c: var(--m4)"></span>
-      <span style="--c: var(--m5)"></span>
-      <span style="--c: var(--m6)"></span>
-      <span style="--c: var(--m7)"></span>
-      <span style="--c: var(--m8)"></span>
-      <span style="--c: var(--m9)"></span>
-      <span style="--c: var(--m10)"></span>
-    </div>
+    <nav class="hero__strip" aria-label="模块导航">
+      {
+        moduleOrder.map((mid) => {
+          const mod = MODULES[mid];
+          const anchor = mid === 'M7' ? '#m7' : `#m${mid.replace('M', '')}`;
+          return (
+            <a
+              href={anchor}
+              class="hero__strip-link"
+              style={`--c: var(--${mid.toLowerCase()})`}
+              aria-label={`${mod.title}：${mod.subtitle}`}
+            >
+              <span class="hero__strip-bar" aria-hidden="true" />
+              <span class="hero__strip-text">{mod.title}</span>
+            </a>
+          );
+        })
+      }
+    </nav>
     <div class="hero__brand">
       <span class="hero__mark" aria-hidden="true"></span>
       <span class="hero__eyebrow">AI 启蒙 · 职场提效</span>

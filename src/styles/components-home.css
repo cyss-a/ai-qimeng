@@ -213,12 +213,55 @@
   display: flex;
   gap: 6px;
   margin-bottom: var(--space-8);
-  height: 6px;
+  align-items: flex-start;
 }
-.hero__strip span {
+.hero__strip-link {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+}
+.hero__strip-link:hover,
+.hero__strip-link:focus-visible {
+  outline: none;
+}
+.hero__strip-bar {
+  width: 100%;
+  height: 6px;
   border-radius: var(--radius-pill);
   background: var(--c);
+  transition: height var(--motion-base) var(--motion-ease),
+              border-radius var(--motion-base) var(--motion-ease);
+}
+.hero__strip-link:hover .hero__strip-bar,
+.hero__strip-link:focus-visible .hero__strip-bar {
+  height: 32px;
+  border-radius: var(--radius-md);
+}
+.hero__strip-text {
+  font-size: var(--text-xs);
+  line-height: 1;
+  color: var(--fg-2);
+  margin-top: 6px;
+  padding: 0 2px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity var(--motion-base) var(--motion-ease),
+              transform var(--motion-base) var(--motion-ease);
+  pointer-events: none;
+}
+.hero__strip-link:hover .hero__strip-text,
+.hero__strip-link:focus-visible .hero__strip-text {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ---------- 工具起点匹配表 ---------- */
