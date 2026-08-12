@@ -249,6 +249,7 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-raised);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
 }
@@ -311,20 +312,20 @@
   white-space: nowrap;
 }
 .tool-badge--free {
-  background: rgba(16, 185, 129, 0.12);
-  color: #047857;
+  background: color-mix(in srgb, var(--success) 12%, transparent);
+  color: var(--success);
 }
 .tool-badge--vpn {
-  background: rgba(245, 158, 11, 0.12);
-  color: #B45309;
+  background: color-mix(in srgb, var(--warn) 12%, transparent);
+  color: var(--warn);
 }
 [data-theme="dark"] .tool-badge--free {
-  background: rgba(16, 185, 129, 0.18);
-  color: #34D399;
+  background: color-mix(in srgb, var(--success) 18%, transparent);
+  color: var(--success);
 }
 [data-theme="dark"] .tool-badge--vpn {
-  background: rgba(245, 158, 11, 0.18);
-  color: #FBBF24;
+  background: color-mix(in srgb, var(--warn) 18%, transparent);
+  color: var(--warn);
 }
 @media (max-width: 768px) {
   .tool-picker__table { min-width: 680px; }

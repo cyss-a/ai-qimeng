@@ -216,6 +216,19 @@ a:hover { text-decoration: underline; }
 
 img { max-width: 100%; height: auto; }
 
+/* 移动端触感优化：去除点按灰色高亮、消除 300ms 点击延迟（iOS/Android 通用） */
+a,
+button,
+.site-nav__trigger,
+.mobile-nav__trigger,
+.copy-btn,
+.catalog__item,
+.pager__link,
+.to-top {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
 /* 键盘可达：统一 focus ring */
 :focus { outline: none; }
 :focus-visible {

@@ -21,12 +21,12 @@ const homeUrl = import.meta.env.BASE_URL;
     </a>
 
     <nav class="site-nav" aria-label="课程目录">
-      <button class="site-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false">
+      <button class="site-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="site-nav-menu">
         <Icon name="list" size={16} />
         <span>课程目录</span>
         <Icon name="chevron-down" size={16} />
       </button>
-      <ul class="site-nav__menu">
+      <ul class="site-nav__menu" id="site-nav-menu">
         {
           moduleOrder.map((mid) => {
             const mod = MODULES[mid];

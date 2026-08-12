@@ -24,7 +24,7 @@
 /* ---------- 顶部阅读进度条 ---------- */
 .progress {
   position: fixed;
-  top: 0;
+  top: env(safe-area-inset-top, 0px);
   left: 0;
   right: 0;
   height: 3px;
@@ -65,6 +65,7 @@
   position: sticky;
   top: 0;
   z-index: 40;
+  padding-top: env(safe-area-inset-top, 0px);
   background: var(--glass-bg);
   border-bottom: 1px solid var(--glass-border);
   backdrop-filter: blur(var(--glass-blur));
@@ -73,7 +74,8 @@
 .site-header__inner {
   max-width: var(--container-max);
   margin-inline: auto;
-  padding: 10px 24px;
+  padding-block: 10px;
+  padding-inline: max(24px, env(safe-area-inset-left, 0px));
   display: flex;
   align-items: center;
   gap: var(--space-4);
@@ -154,7 +156,11 @@
   transform: translateX(100%);
   transition: transform var(--motion-base) var(--motion-ease);
   overflow-y: auto;
-  padding: var(--space-5);
+  -webkit-overflow-scrolling: touch;
+  padding: calc(var(--space-5) + env(safe-area-inset-top, 0px))
+           calc(var(--space-5) + env(safe-area-inset-right, 0px))
+           calc(var(--space-5) + env(safe-area-inset-bottom, 0px))
+           var(--space-5);
 }
 .mobile-nav__drawer.is-open { transform: translateX(0); }
 .mobile-nav__head {
@@ -194,7 +200,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  height: 40px;
+  min-height: 44px;
   padding: 0 14px;
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
@@ -214,6 +220,7 @@
   top: calc(100% + 8px);
   left: 0;
   min-width: 260px;
+  max-width: calc(100vw - 32px);
   list-style: none;
   margin: 0;
   padding: var(--space-2);
@@ -232,7 +239,8 @@
   z-index: 45;
 }
 .site-nav:hover .site-nav__menu,
-.site-nav:focus-within .site-nav__menu {
+.site-nav:focus-within .site-nav__menu,
+.site-nav.is-open .site-nav__menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -264,8 +272,8 @@
 /* ---------- 全局返回顶部按钮 ---------- */
 .to-top {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: calc(20px + env(safe-area-inset-right, 0px));
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
   width: 44px;
   height: 44px;
   display: inline-flex;
