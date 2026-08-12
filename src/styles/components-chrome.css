@@ -45,12 +45,14 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
-  background: var(--surface);
+  background: var(--glass-bg);
   color: var(--fg);
   cursor: pointer;
   transition: border-color var(--motion-fast) var(--motion-ease);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
 }
 .theme-toggle:hover { border-color: var(--accent); }
 .theme-toggle__icon { display: inline-flex; width: 20px; height: 20px; }
@@ -63,8 +65,10 @@
   position: sticky;
   top: 0;
   z-index: 40;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
+  background: var(--glass-bg);
+  border-bottom: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
 }
 .site-header__inner {
   max-width: var(--container-max);
@@ -128,13 +132,15 @@
   gap: 6px;
   height: 44px;
   padding: 0 12px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
-  background: var(--surface);
+  background: var(--glass-bg);
   color: var(--fg);
   font-size: var(--text-sm);
   font-family: var(--font-family-body);
   cursor: pointer;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
 }
 .mobile-nav__drawer {
   position: fixed;

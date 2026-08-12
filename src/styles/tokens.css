@@ -107,6 +107,11 @@
   --shadow-ring: 0 0 0 1px var(--border);
   --shadow-raised: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
 
+  /* 毛玻璃 Token：低透明叠在 surface 上，P0 合规（无紫粉渐变/无发光边框套路） */
+  --glass-bg: color-mix(in srgb, var(--surface) 76%, transparent);
+  --glass-border: color-mix(in srgb, var(--border) 55%, transparent);
+  --glass-blur: 12px;
+
   /* ---------- 动效 ---------- */
   --motion-fast: 150ms;
   --motion-base: 200ms;
@@ -169,6 +174,9 @@
   --mindmap-b6: #22D3EE; --mindmap-b6-soft: rgba(34,211,238,0.18); --mindmap-b6-ink: #A5F3FC; --mindmap-b6-line: #06B6D4;
 
   --shadow-raised: 0 1px 3px rgba(0, 0, 0, 0.20), 0 8px 24px rgba(0, 0, 0, 0.28);
+
+  --glass-bg: color-mix(in srgb, var(--surface) 78%, transparent);
+  --glass-border: color-mix(in srgb, var(--border) 70%, transparent);
 }
 
 /* ============================================================================

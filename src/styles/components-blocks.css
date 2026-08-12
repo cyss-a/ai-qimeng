@@ -7,11 +7,13 @@
 .callout {
   display: flex;
   gap: var(--space-3);
-  background: var(--surface-warm);
+  background: var(--glass-bg);
   border-left: 3px solid var(--accent);
   border-radius: var(--radius-md);
   padding: var(--space-4) var(--space-5);
   margin: var(--space-6) 0;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
 }
 .callout__icon { color: var(--accent); flex: none; margin-top: 2px; display: inline-flex; }
 .callout__title { font-weight: var(--weight-emphasize); margin: 0 0 var(--space-1); }
@@ -29,11 +31,13 @@
 /* ---------- 提示词模板卡 ---------- */
 .prompt-card {
   position: relative;
-  background: var(--surface-warm);
-  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   margin: var(--space-6) 0;
   overflow: hidden;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
 }
 .prompt-card__head {
   display: flex;
@@ -41,8 +45,8 @@
   justify-content: space-between;
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--border);
-  background: var(--surface);
+  border-bottom: 1px solid var(--glass-border);
+  background: var(--glass-bg);
 }
 .prompt-card__title {
   font-size: var(--text-sm);
@@ -121,17 +125,21 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--space-4);
   margin-top: var(--space-16);
-  padding-top: var(--space-8);
-  border-top: 1px solid var(--border);
+  padding: var(--space-4);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
   max-width: var(--container-read);
   margin-inline: auto;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
 }
 .pager__link {
   display: flex;
   align-items: center;
   gap: var(--space-3);
   padding: var(--space-4);
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   color: var(--fg);
   min-height: 44px;
