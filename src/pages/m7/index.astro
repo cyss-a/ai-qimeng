@@ -20,6 +20,14 @@ const latest = entries[0];
 const archive = entries.slice(1, 11); // 最多展示近 10 期
 const latestDate = latest ? dateOf(latest) : null;
 const { Content } = latest ? await render(latest) : { Content: null };
+
+// 构建期日报的最新日期：M7 lesson id 形如 m7/YYYY-MM-DD，从中提取日期取最大值。
+// 注入客户端脚本作为 BUILD_DATE，用于「仅当 R2 日期严格晚于构建期才覆盖」的守卫。
+const buildDate = entries
+  .map((e) => (e.id.match(/(\d{4}-\d{2}-\d{2})/) || [, ''])[1])
+  .filter(Boolean)
+  .sort()
+  .reverse()[0] || '';
 ---
 
 <BaseLayout
@@ -69,6 +77,181 @@ const { Content } = latest ? await render(latest) : { Content: null };
     </nav>
   </main>
 </BaseLayout>
+
+{/*
+  运行时覆盖所需的样式：build-time 卡片样式来自 components-lesson.css（全局）。
+  此处仅补充 build-time 不存在、但运行时脚本会注入的类：
+  - .daily-card--cN .daily-card__title：与 fetch-news.py 一致的 10 色轮换配色机制
+    （m1..m8 → success → m10，注意项目无 --m9 token）
+  - .daily-card__source / .daily-grid__updated：来源时间行 / 「更新于」小标
+  必须 is:global，否则 Astro 作用域属性不会命中脚本动态创建的 DOM 节点。
+  全部走 design token，禁止硬编码色值。
+*/}
+<style is:global>
+  /* 10 色轮换：与 scripts/fetch-news.py 的 TITLE_COLORS 顺序一致（无 --m9） */
+  .daily-card--c1 .daily-card__title { color: var(--m1); }
+  .daily-card--c2 .daily-card__title { color: var(--m2); }
+  .daily-card--c3 .daily-card__title { color: var(--m3); }
+  .daily-card--c4 .daily-card__title { color: var(--m4); }
+  .daily-card--c5 .daily-card__title { color: var(--m5); }
+  .daily-card--c6 .daily-card__title { color: var(--m6); }
+  .daily-card--c7 .daily-card__title { color: var(--m7); }
+  .daily-card--c8 .daily-card__title { color: var(--m8); }
+  .daily-card--c9 .daily-card__title { color: var(--success); }
+  .daily-card--c10 .daily-card__title { color: var(--m10); }
+
+  /* 运行时注入：来源 + 发布时间（build-time 该信息内联在链接文案，此处独立成行） */
+  .daily-card__source {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* 运行时注入：网格上方「更新于」小标 */
+  .daily-grid__updated {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    margin: 0 0 var(--space-3);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* 无有效外链时整卡不可点 */
+  .daily-card--no-link { cursor: default; }
+</style>
+
+{/*
+  运行时覆盖脚本（经 define:vars 注入构建期常量 BUILD_DATE 与服务端读取的 NEWS_JSON_URL）。
+  脚本以 inline module 形式内联，故服务端变量经 define:vars 传入，不依赖客户端 import.meta.env。
+  - 未配置 PUBLIC_NEWS_JSON_URL（NEWS_JSON_URL 为空串）→ 直接 return，保留 build-time SSR 内容（兜底 + SEO）。
+  - 已配置 → fetch R2 的 latest.json（cache:'no-store'）；仅当 envelope.date 严格晚于构建期
+    BUILD_DATE（或 BUILD_DATE 为空）才用 DOM 重建 .daily-grid，否则保留 build-time 兜底。
+  - 安全：所有文本走 textContent，链接 href 走 setAttribute 且仅放行 http/https，杜绝 XSS。
+  - 失败（网络/JSON 异常）→ 静默保留 build-time 内容并 console.warn。
+*/}
+<script define:vars={{ BUILD_DATE: buildDate, NEWS_JSON_URL: (import.meta.env.PUBLIC_NEWS_JSON_URL ?? '') }}>
+  (function () {
+    'use strict';
+
+    // 构建期日报最新日期（服务端注入），用于「仅当 R2 日期严格晚于构建期才覆盖」的守卫。
+    // 此处的 BUILD_DATE / NEWS_JSON_URL 均由 Astro define:vars 注入为字面量常量。
+
+    // 运行时覆盖开关：NEWS_JSON_URL 由服务端经 define:vars 注入（取自 PUBLIC_NEWS_JSON_URL，未配置则为空串）。
+    if (!NEWS_JSON_URL) return; // 未部署 Worker，保留 build-time 兜底
+
+    var grid = document.querySelector('.daily-grid');
+    if (!grid) return; // 无网格可覆盖（如日报生成中）
+
+    fetch(NEWS_JSON_URL, { cache: 'no-store' })
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (!data || !Array.isArray(data.items) || data.items.length === 0) return;
+        // 守卫：仅当 R2 日期严格晚于构建期（或构建期为空）才覆盖；同日/更早保留 build-time 兜底。
+        // YYYY-MM-DD 字符串比较语义正确（字典序 == 日期序）。
+        if (BUILD_DATE && data.date && data.date <= BUILD_DATE) {
+          console.log('R2 日报不比构建期新，保留 build-time 兜底');
+          return;
+        }
+        renderGrid(grid, data);
+      })
+      .catch(function (err) {
+        // 静默失败：保留 build-time 内容
+        console.warn('[每日新闻] 运行时拉取失败，已保留构建期内容：', err);
+      });
+
+    // 仅放行 http / https，阻挡 javascript: 等危险协议（XSS 防护）
+    function safeUrl(url) {
+      if (typeof url !== 'string' || url.trim() === '') return null;
+      try {
+        var u = new URL(url, window.location.href);
+        if (u.protocol === 'http:' || u.protocol === 'https:') return u.href;
+      } catch (e) {}
+      return null;
+    }
+
+    // 与 fetch-news.py 一致的 10 色轮换顺序（注意项目无 --m9 token）
+    var COLOR_TOKENS = ['--m1', '--m2', '--m3', '--m4', '--m5', '--m6', '--m7', '--m8', '--success', '--m10'];
+
+    function fmtTime(ts) {
+      if (!ts) return '';
+      var d = new Date(ts);
+      if (isNaN(d.getTime())) return String(ts);
+      var p = function (n) { return (n < 10 ? '0' : '') + n; };
+      return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) +
+             ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+    }
+
+    function renderGrid(grid, data) {
+      var parent = grid.parentNode;
+
+      // 清理可能残留的旧「更新于」小标，避免重复
+      var old = parent && parent.querySelector('.daily-grid__updated');
+      if (old) old.remove();
+
+      // 清空 build-time 卡片：textContent='' 安全移除所有子节点（不拼接任何原始字符串）
+      grid.textContent = '';
+
+      var stamp = fmtTime(data.generatedAt || data.date);
+      if (stamp) {
+        var badge = document.createElement('p');
+        badge.className = 'daily-grid__updated';
+        badge.textContent = '更新于 ' + stamp;
+        parent.insertBefore(badge, grid);
+      }
+
+      data.items.forEach(function (item, idx) {
+        var colorIdx = idx % COLOR_TOKENS.length;
+        var card = document.createElement('a');
+        card.className = 'daily-card daily-card--c' + (colorIdx + 1);
+        card.setAttribute('target', '_blank');
+        card.setAttribute('rel', 'noopener');
+
+        var href = safeUrl(item.url);
+        if (href) {
+          card.setAttribute('href', href);
+        } else {
+          card.setAttribute('aria-disabled', 'true');
+          card.classList.add('daily-card--no-link');
+        }
+
+        var title = document.createElement('h3');
+        title.className = 'daily-card__title';
+        title.textContent = '热点 ' + (idx + 1) + '：' + (item.title || '无标题');
+
+        var sourceText = item.source || '';
+        var pubText = item.pubDate || '';
+        var sourceNode = null;
+        if (sourceText || pubText) {
+          sourceNode = document.createElement('p');
+          sourceNode.className = 'daily-card__source';
+          sourceNode.textContent = [sourceText, pubText].filter(Boolean).join(' · ');
+        }
+
+        var summary = document.createElement('p');
+        summary.className = 'daily-card__summary';
+        summary.textContent = item.summary || '暂无摘要，点击阅读原文查看详情。';
+
+        var link = document.createElement('span');
+        link.className = 'daily-card__link';
+        if (href) {
+          link.textContent = '阅读全文 →';
+        } else {
+          link.classList.add('daily-card__link--disabled');
+          link.textContent = sourceText ? '阅读全文 · ' + sourceText : '阅读全文';
+        }
+
+        card.appendChild(title);
+        if (sourceNode) card.appendChild(sourceNode);
+        card.appendChild(summary);
+        card.appendChild(link);
+        grid.appendChild(card);
+      });
+    }
+  })();
+</script>
 
 <style>
   .daily-page {

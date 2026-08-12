@@ -1,0 +1,7 @@
+# Wrangler 本地产物
+.wrangler/
+worker-configuration.d.ts
+
+# 本地密钥（本项目无需，留空）
+.dev.vars
+.env

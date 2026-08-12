@@ -1,0 +1,14 @@
+{
+  "name": "ai-qimeng-daily-news",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AI 启梦每日科技/AI 新闻聚合 Worker（Cloudflare Worker + R2）",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

@@ -1,0 +1,16 @@
+name = "ai-qimeng-daily-news"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+
+# 部署到 https://<subdomain>.workers.dev（手动刷新 ?refresh=1 即用此地址）
+workers_dev = true
+
+# R2 公开桶：存放归一化后的日报 JSON
+# 桶名与代码中 env.NEWS_BUCKET 对应（不在此处写任何密钥）
+[[r2_buckets]]
+binding = "NEWS_BUCKET"
+bucket_name = "ai-qimeng-news"
+
+# 定时触发：UTC 01:00 = 北京时间 09:00 每日自动生成日报
+[triggers]
+crons = ["0 1 * * *"]
