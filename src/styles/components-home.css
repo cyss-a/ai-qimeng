@@ -36,17 +36,17 @@
 }
 .hero__title {
   font-family: var(--font-family-display);
-  font-size: clamp(28px, 5vw, var(--text-4xl));
+  font-size: clamp(26px, 4.4vw, 36px);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-display);
   font-weight: var(--weight-announce);
   margin: var(--space-3) 0 0;
 }
 .hero__value {
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   color: var(--fg-2);
-  max-width: 60ch;
-  margin: var(--space-5) 0 0;
+  max-width: 58ch;
+  margin: var(--space-4) 0 0;
   line-height: var(--leading-body);
 }
 .hero__meta {
@@ -63,7 +63,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
-  margin: var(--space-8) 0 0;
+  margin: var(--space-6) 0 0;
 }
 
 /* ---------- 课程目录 Catalog ---------- */
@@ -87,6 +87,7 @@
   margin-bottom: var(--space-8);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
+  scroll-margin-top: 76px;
 }
 .catalog__module-head {
   display: flex;
@@ -257,8 +258,7 @@
   border-collapse: collapse;
   font-size: var(--text-base);
 }
-/* 代表工具与费用列保持单行，超出时容器横向滚动 */
-.tool-picker__table td:nth-child(3),
+/* 代表工具（第3列）允许换行；费用/网络（第4列）保持单行，避免 badge 断开 */
 .tool-picker__table td:nth-child(4) { white-space: nowrap; }
 .tool-picker__table thead {
   background: var(--surface-warm);

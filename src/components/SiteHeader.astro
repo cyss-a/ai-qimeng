@@ -1,0 +1,51 @@
+---
+// SiteHeader.astro — 首页顶部导航：品牌 + 课程目录悬停下拉（锚点跳转各版块）+ 主题切换
+// 悬停（:hover）或键盘聚焦（:focus-within）展开下拉，纯 CSS 交互，无额外 JS。
+import Icon from './Icon.astro';
+import ThemeToggle from './ThemeToggle.astro';
+import { MODULES, type ModuleId } from '../lib/course';
+
+interface Props {
+  moduleOrder: ModuleId[];
+  siteName?: string;
+}
+const { moduleOrder, siteName = 'AI 小白赋能' } = Astro.props;
+const homeUrl = import.meta.env.BASE_URL;
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href={homeUrl}>
+      <span class="site-header__mark" aria-hidden="true"></span>
+      <span class="site-header__name">{siteName}</span>
+    </a>
+
+    <nav class="site-nav" aria-label="课程目录">
+      <button class="site-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false">
+        <Icon name="list" size={16} />
+        <span>课程目录</span>
+        <Icon name="chevron-down" size={16} />
+      </button>
+      <ul class="site-nav__menu">
+        {
+          moduleOrder.map((mid) => {
+            const mod = MODULES[mid];
+            const anchor = '#m' + mid.replace('M', '');
+            return (
+              <li>
+                <a class="site-nav__link" href={anchor}>
+                  <span class="site-nav__tag">{mid}</span>
+                  <span class="site-nav__title">{mod.title}</span>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <ThemeToggle />
+    </div>
+  </div>
+</header>

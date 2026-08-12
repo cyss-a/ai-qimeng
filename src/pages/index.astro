@@ -1,6 +1,7 @@
 ---
 // 课程首页：课程头（真实 meta）+ 真实课程目录（首讲高亮）+ 主/次 CTA
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 import Icon from '../components/Icon.astro';
 import { MODULES, getLessons, lessonHref, withBase, type ModuleId } from '../lib/course';
 
@@ -20,9 +21,11 @@ const zsxqUrl = 'https://t.zsxq.com';
 ---
 
 <BaseLayout
-  title="AI 新手启蒙 · 用对工具，每天省 2 小时"
+  title="AI 小白赋能 · 用对工具，每天省 2 小时"
   description="写给从没用过 AI 的职场人：从对话到落地，12 讲带你把 AI 用成可靠的提效搭子。零基础也能一天跑通。"
 >
+  <SiteHeader moduleOrder={moduleOrder} />
+
   <!-- 课程头：直接呈现真实内容，不放空洞 Hero -->
   <section class="hero">
     <div class="hero__strip" aria-hidden="true">
@@ -41,7 +44,7 @@ const zsxqUrl = 'https://t.zsxq.com';
       <span class="hero__eyebrow">AI 启蒙 · 职场提效</span>
     </div>
 
-    <h1 class="hero__title">AI 新手启蒙<br />用对工具，每天省 2 小时</h1>
+    <h1 class="hero__title">AI 小白赋能<br />用对工具，每天省 2 小时</h1>
 
     <p class="hero__value">
       写给从没用过 AI 的职场人：从对话到落地，12 讲带你把 AI 用成可靠的提效搭子。不用懂原理，照着做就能用上。
@@ -187,7 +190,7 @@ const zsxqUrl = 'https://t.zsxq.com';
         // M7 是每日自动更新的「AI 热点日报」，不按讲次罗列，单独做成板块入口
         if (mid === 'M7') {
           return (
-            <div class="catalog__module" data-mod="M7">
+            <div class="catalog__module" id="m7" data-mod="M7">
               <div class="catalog__module-head">
                 <span class="catalog__module-tag">{mid}</span>
                 <h2 class="catalog__module-name">{mod.title}</h2>
@@ -208,7 +211,7 @@ const zsxqUrl = 'https://t.zsxq.com';
         const items = byModule[mid] || [];
         if (!items.length) return null;
         return (
-          <div class="catalog__module" data-mod={mid}>
+          <div class="catalog__module" id={'m' + mid.replace('M', '')} data-mod={mid}>
             <div class="catalog__module-head">
               <span class="catalog__module-tag">{mid}</span>
               <h2 class="catalog__module-name">{mod.title}</h2>
