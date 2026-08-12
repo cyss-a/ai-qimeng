@@ -52,6 +52,37 @@ status: published
 | 访问链接 | 教程站自己都打不开 | 部署平台 7×24 在线 |
 | 数据导出 | 基本没有 | Supabase 一键导出 CSV / SQL |
 
+## 开工前须知：哪些工具需要科学上网
+
+四件套里有一半的服务在**国内需要"科学上网"（代理 / VPN）**才能稳定访问。先看清这张表，免得到时候某个网站打不开干着急。
+
+| 工具 / 服务 | 用途 | 国内要不要科学上网 | 备注 / 国内替代 |
+| --- | --- | --- | --- |
+| GitHub | 存代码仓库 | 基本能上，但 raw 资源常被墙、偶尔抽风 | 建议挂代理更稳；可用 Gitee 做镜像 |
+| Supabase | 云端数据库 / 后端 | **需要** | 无好替代，是硬需求 |
+| Vercel | 部署前端站点 | **需要** | 国内用 CloudBase / EdgeOne Pages |
+| Netlify | 部署静态站 | 经常需要 | 同上，优先 CloudBase |
+| CloudBase（腾讯云开发） | 部署 + 云函数 | 不需要 | 国内友好首选 |
+| EdgeOne Pages（腾讯） | 部署静态站 | 不需要 | 国内友好 |
+| GitHub Pages | 免费静态部署 | 基本能上（同 GitHub） | 国内访问有时偏慢 |
+| Lovable | AI 生成全栈网站 | **需要** | — |
+| Bolt | 浏览器内 AI 编码 | **需要** | — |
+| v0 | AI 生成 UI 组件 | **需要** | — |
+| Cursor | 本地 AI 编辑器 | 下载 / 登录有时需要 | 有 cursor.com.cn 国内镜像 |
+| ChatGPT / Claude | 对话式 AI | **需要** | 国内可用 DeepSeek / 通义 / 豆包 |
+| DeepSeek API | 免费模型 API | 不需要 | 国内直连 |
+| 硅基流动 SiliconFlow | 免费模型 API | 不需要 | 国内直连 |
+
+<aside class="callout callout--info" role="note">
+  <span class="callout__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
+  <div class="callout__body">
+    <p class="callout__title">怎么判断要不要代理</p>
+    <div class="callout__content"><p>上面的"需要"是按普遍情况标的。最准的办法：打开网站，如果转半天打不开、或提示"连接被重置"，就说明你当前网络需要挂代理。国内直连的服务（CloudBase、EdgeOne Pages、DeepSeek、硅基流动）不用代理，优先用它们能少很多麻烦。</p></div>
+  </div>
+</aside>
+
+小提醒：下一讲（10-2）开始就动手了，涉及 Supabase、Lovable / Bolt / v0 的，提前把代理准备好。
+
 ## "永久有效"到底指什么
 
 说人话：**即使你电脑坏了、浏览器清了、教程站关了，你的工作台还在**——因为代码在 GitHub、数据在 Supabase、站点在部署平台。这三处都跑在"别人家"的服务器上，不依赖你这一台设备。
