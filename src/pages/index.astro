@@ -2,7 +2,6 @@
 // 课程首页：稿定风格信息卡片 + Hero
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
-import HeroIllustration from '../components/HeroIllustration.astro';
 import Icon from '../components/Icon.astro';
 import { MODULES, getLessons, lessonHref, withBase, type ModuleId } from '../lib/course';
 
@@ -190,7 +189,15 @@ const testimonials = [
       </div>
 
       <div class="hero__media" aria-hidden="true">
-        <HeroIllustration />
+        <img
+          class="hero-illustration"
+          src={withBase('/images/hero-illustration.jpg')}
+          alt="AI 工具与数据 3D 插图"
+          loading="eager"
+          decoding="async"
+          width="880"
+          height="560"
+        />
       </div>
     </div>
   </section>
