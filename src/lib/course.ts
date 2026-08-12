@@ -9,12 +9,13 @@ export const MODULES = {
   M5: { id: 'M5', title: '避坑篇', subtitle: '这些坑别踩' },
   M6: { id: 'M6', title: '变现实战篇', subtitle: '把 AI 智能体打包卖给个体户' },
   M7: { id: 'M7', title: 'AI 热点日报', subtitle: '每天 09:00 自动更新 · 中文科技媒体 AI 热点精选' },
+  M8: { id: 'M8', title: 'Agent 架构篇', subtitle: '从 Function Calling 到 MCP 与 Skill 的进阶分层' },
 } as const;
 
 export type ModuleId = keyof typeof MODULES;
 export type LessonEntry = CollectionEntry<'lessons'>;
 
-const MODULE_ORDER: ModuleId[] = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7'];
+const MODULE_ORDER: ModuleId[] = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8'];
 
 // 内容层（Astro 7）下 entry.id 取自首字的 frontmatter `slug`（如 m1/1-1-renzhi），
 // 已含模块前缀，直接用做作业 URL。
