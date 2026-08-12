@@ -41,7 +41,7 @@
   .catalog__module,
   .reader h2,
   .reader h3 { scroll-margin-top: 112px; }
-  .hero__title { font-size: clamp(26px, 7vw, 32px); }
+  .hero__title { font-size: clamp(28px, 8vw, 40px); }
   .hero__value { font-size: var(--text-base); }
   .hero__meta { gap: var(--space-3); }
   .quick-modules__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
