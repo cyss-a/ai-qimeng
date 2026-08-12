@@ -287,3 +287,239 @@
 
 /* 课程页 reader 里的 inline HTML 组件：重置 article 默认边距 */
 .reader .daily-card * { margin: 0; padding: 0; }
+
+/* ---------- 课程正文：gd-section 稿定卡片风格（覆盖首页同名类） ---------- */
+.gd-section--lesson {
+  --gd-mod: var(--mod, var(--accent));
+  --gd-mod-ink: var(--mod-ink, var(--accent-hover));
+  max-width: var(--container-read);
+  margin-inline: auto;
+  padding: 0 0 var(--space-6);
+}
+
+/* 卡片头部：跟随当前模块色（蓝→靛蓝渐变） */
+.gd-section--lesson .gd-section__card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-raised);
+}
+.gd-section--lesson .gd-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: linear-gradient(135deg, var(--gd-mod) 0%, color-mix(in srgb, var(--gd-mod) 60%, #1e3a8a) 100%);
+  color: #fff;
+}
+.gd-section--lesson .gd-section__title-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+.gd-section--lesson .gd-section__icon {
+  display: inline-flex;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+}
+.gd-section--lesson .gd-section__icon svg {
+  width: 20px;
+  height: 20px;
+}
+.gd-section--lesson .gd-section__title {
+  font-family: var(--font-family-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-announce);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  color: #fff;
+  margin: 0;
+  scroll-margin-top: 88px;
+}
+.gd-section--lesson .gd-section__badge {
+  flex: none;
+  font-family: var(--font-family-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: #fff;
+  opacity: 0.85;
+}
+
+/* 卡片内容区 */
+.gd-section--lesson .gd-section__body {
+  padding: var(--space-6) var(--space-5);
+  color: var(--fg);
+}
+
+/* body 内标题：h3 作为子分区 */
+.gd-section--lesson .gd-section__body h3 {
+  font-family: var(--font-family-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-emphasize);
+  color: var(--fg);
+  margin: var(--space-6) 0 var(--space-3);
+  scroll-margin-top: 88px;
+}
+.gd-section--lesson .gd-section__body h3:first-child { margin-top: 0; }
+
+/* body 内段落 */
+.gd-section--lesson .gd-section__body p {
+  font-family: var(--font-family-read);
+  font-size: var(--text-read);
+  line-height: var(--leading-read);
+  letter-spacing: var(--tracking-read);
+  color: var(--fg);
+  margin: 0 0 var(--space-5);
+  text-align: left;
+}
+.gd-section--lesson .gd-section__body p:last-child { margin-bottom: 0; }
+
+/* body 内列表：gd-list 风格（编号圆标 + 标题/描述） */
+.gd-section--lesson .gd-section__body > ul,
+.gd-section--lesson .gd-section__body > ol {
+  list-style: none;
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+.gd-section--lesson .gd-section__body > ul:last-child,
+.gd-section--lesson .gd-section__body > ol:last-child { margin-bottom: 0; }
+
+.gd-section--lesson .gd-section__body > ul > li,
+.gd-section--lesson .gd-section__body > ol > li {
+  position: relative;
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4) var(--space-3) 44px;
+  border-radius: var(--radius-md);
+  background: var(--surface-warm);
+  margin: 0;
+}
+.gd-section--lesson .gd-section__body > ul > li::before,
+.gd-section--lesson .gd-section__body > ol > li::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--gd-mod) 15%, transparent);
+  border: 2px solid color-mix(in srgb, var(--gd-mod) 40%, transparent);
+}
+.gd-section--lesson .gd-section__body > ol {
+  counter-reset: gd-list;
+}
+.gd-section--lesson .gd-section__body > ol > li {
+  counter-increment: gd-list;
+}
+.gd-section--lesson .gd-section__body > ol > li::before {
+  content: counter(gd-list);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-emphasize);
+  color: var(--gd-mod);
+  background: color-mix(in srgb, var(--gd-mod) 12%, transparent);
+  border: none;
+  top: 11px;
+  left: 10px;
+}
+.gd-section--lesson .gd-section__body > ul > li > strong:first-child,
+.gd-section--lesson .gd-section__body > ol > li > strong:first-child,
+.gd-section--lesson .gd-section__body > ul > li > p:first-child > strong:first-child,
+.gd-section--lesson .gd-section__body > ol > li > p:first-child > strong:first-child {
+  font-size: var(--text-base);
+  color: var(--gd-mod-ink);
+  font-weight: var(--weight-emphasize);
+}
+
+/* body 内嵌套列表 */
+.gd-section--lesson .gd-section__body li > ul,
+.gd-section--lesson .gd-section__body li > ol {
+  margin: var(--space-2) 0 0;
+  padding-left: 1.2em;
+}
+.gd-section--lesson .gd-section__body li > ul > li,
+.gd-section--lesson .gd-section__body li > ol > li {
+  padding-left: 0;
+  background: transparent;
+}
+.gd-section--lesson .gd-section__body li > ul > li::before,
+.gd-section--lesson .gd-section__body li > ol > li::before {
+  display: none;
+}
+
+/* body 内引用：模块色边条 */
+.gd-section--lesson .gd-section__body blockquote {
+  margin: var(--space-5) 0;
+  padding: var(--space-1) 0 var(--space-1) var(--space-5);
+  border-left: 3px solid var(--gd-mod);
+  color: var(--fg-2);
+  background: transparent;
+}
+.gd-section--lesson .gd-section__body blockquote p:last-child { margin-bottom: 0; }
+
+/* body 内表格 */
+.gd-section--lesson .gd-section__body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-5) 0;
+  font-size: var(--text-sm);
+  font-family: var(--font-family-body);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.gd-section--lesson .gd-section__body th,
+.gd-section--lesson .gd-section__body td {
+  border: 1px solid var(--border);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+}
+.gd-section--lesson .gd-section__body th {
+  background: var(--surface-warm);
+  font-weight: var(--weight-emphasize);
+}
+
+/* body 内代码块 */
+.gd-section--lesson .gd-section__body pre {
+  background: var(--surface-warm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  overflow-x: auto;
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  margin: var(--space-5) 0;
+}
+
+/* body 内特殊组件：callout / prompt-card 保持独立风格，与 body 背景区分 */
+.gd-section--lesson .gd-section__body .callout,
+.gd-section--lesson .gd-section__body .prompt-card {
+  margin: var(--space-5) 0;
+}
+
+/* 第一个 h2 之前的导语/引言：作为独立引言区 */
+.reader > p:first-of-type {
+  font-family: var(--font-family-read);
+  font-size: var(--text-lg);
+  line-height: var(--leading-body);
+  color: var(--fg-2);
+  margin: 0 0 var(--space-8);
+  padding: var(--space-5) var(--space-5);
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  box-shadow: var(--shadow-raised);
+}

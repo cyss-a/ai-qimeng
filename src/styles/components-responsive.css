@@ -44,6 +44,29 @@
   }
   .gd-section__badge { margin-left: auto; }
   .gd-section__body { padding: var(--space-5); }
+  /* 课程内页卡片 */
+  .gd-section--lesson .gd-section__title {
+    font-size: var(--text-base);
+    white-space: normal;
+    word-break: break-word;
+  }
+  .gd-section--lesson .gd-section__body {
+    padding: var(--space-5);
+  }
+  .gd-section--lesson .gd-section__body > ul > li,
+  .gd-section--lesson .gd-section__body > ol > li {
+    padding: var(--space-3) var(--space-3) var(--space-3) 40px;
+  }
+  .gd-section--lesson .gd-section__body > ol > li::before {
+    width: 22px;
+    height: 22px;
+    top: 10px;
+    left: 10px;
+  }
+  .reader > p:first-of-type {
+    padding: var(--space-4);
+    font-size: var(--text-base);
+  }
   /* 刘海屏头部更高，锚点跳转预留更大上边距，避免目录/标题被吸顶遮挡 */
   html { scroll-padding-top: 112px; }
   .catalog__module,
@@ -76,6 +99,33 @@
   .gd-section { padding-left: 16px; padding-right: 16px; }
   .gd-section__title { font-size: var(--text-base); }
   .gd-section__body { padding: var(--space-4); }
+  /* 课程内页更紧凑 */
+  .gd-section--lesson .gd-section__body {
+    padding: var(--space-4);
+  }
+  .gd-section--lesson .gd-section__body > ul > li,
+  .gd-section--lesson .gd-section__body > ol > li {
+    padding: var(--space-3) var(--space-3) var(--space-3) 36px;
+    font-size: var(--text-sm);
+  }
+  .gd-section--lesson .gd-section__body > ol > li::before {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    top: 11px;
+    left: 8px;
+  }
+  .gd-section--lesson .gd-section__body p {
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
+  }
+  .gd-section--lesson .gd-section__body h3 {
+    font-size: var(--text-lg);
+  }
+  .reader > p:first-of-type {
+    padding: var(--space-3);
+    font-size: var(--text-sm);
+  }
   .quick-modules__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-2);

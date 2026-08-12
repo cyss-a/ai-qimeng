@@ -7,6 +7,8 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 import MobileNav from '../components/MobileNav.astro';
 import Icon from '../components/Icon.astro';
 import type { MarkdownHeading } from 'astro';
+import fs from 'node:fs';
+import path from 'node:path';
 
 interface Props {
   title: string;
@@ -21,6 +23,64 @@ interface Props {
 }
 
 const { title, description, module, moduleTitle, lessonLabel, headings, duration, prev, next } = Astro.props;
+
+// 课程正文按首页 gd-section 稿定卡片风格包装：每个 h2 及其后续内容包成一张卡片
+const moduleBadge: Record<string, string> = {
+  M1: 'COGNITION',
+  M2: 'WRITING',
+  M3: 'PROMPT',
+  M4: 'OFFICE',
+  M5: 'TRAPS',
+  M6: 'AGENT',
+  M7: 'DAILY',
+  M8: 'AGENT-TECH',
+  M9: 'PRACTICE',
+  M10: 'FULLSTACK',
+};
+const badgeText = moduleBadge[module] ?? module;
+
+const iconPath = path.resolve(process.cwd(), 'src/icons/book-open.svg');
+const bookOpenSvg = fs.readFileSync(iconPath, 'utf-8').replace(/\s*<!--.*?-->/gs, '').trim();
+
+const rawContent = await Astro.slots.render('default');
+
+function wrapLessonH2Sections(html: string): string {
+  // 按 <h2 开头切分，保留每个 h2 及其后直到下一 h2 的内容
+  const parts = html.split(/(?=<h2\b)/i);
+  if (parts.length <= 1) return html;
+
+  let result = '';
+  let startIndex = 0;
+  if (!parts[0].trim().match(/^<h2\b/i)) {
+    // h2 之前的引言/导语保持原样
+    result += parts[0];
+    startIndex = 1;
+  }
+
+  for (let i = startIndex; i < parts.length; i++) {
+    const part = parts[i];
+    const closeIdx = part.indexOf('</h2>');
+    if (closeIdx === -1) {
+      result += `<section class="gd-section gd-section--lesson"><div class="gd-section__card">${part}</div></section>`;
+      continue;
+    }
+
+    const h2Html = part.slice(0, closeIdx + 5);
+    const bodyHtml = part.slice(closeIdx + 5);
+
+    // 把 h2 改写成标题条结构：图标 + 标题 + badge，保留 id 等属性
+    const headerHtml = h2Html.replace(
+      /^<h2(\b[^>]*)>([\s\S]*)<\/h2>$/i,
+      `<div class="gd-section__title-wrap"><span class="gd-section__icon" aria-hidden="true">${bookOpenSvg}</span><h2$1 class="gd-section__title">$2</h2></div><span class="gd-section__badge">${badgeText}</span>`
+    );
+
+    result += `<section class="gd-section gd-section--lesson"><div class="gd-section__card"><div class="gd-section__header">${headerHtml}</div><div class="gd-section__body">${bodyHtml}</div></div></section>`;
+  }
+
+  return result;
+}
+
+const processedContent = wrapLessonH2Sections(rawContent);
 ---
 
 <BaseLayout title={title} description={description}>
@@ -54,7 +114,7 @@ const { title, description, module, moduleTitle, lessonLabel, headings, duration
       </p>
 
       <article class="reader">
-        <slot />
+        <Fragment set:html={processedContent} />
       </article>
 
       <nav class="lesson__pager" aria-label="相邻章节">
