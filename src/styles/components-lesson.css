@@ -337,7 +337,11 @@
   font-weight: var(--weight-announce);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-display);
-  color: #fff;
+  color: #fff !important;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   margin: 0;
   scroll-margin-top: 88px;
 }
