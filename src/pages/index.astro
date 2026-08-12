@@ -8,7 +8,7 @@ import { MODULES, getLessons, lessonHref, withBase, type ModuleId } from '../lib
 const lessons = await getLessons();
 const first = lessons[0];
 const firstHref = lessonHref(first);
-const moduleOrder = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9'] as ModuleId[];
+const moduleOrder = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10'] as ModuleId[];
 
 const byModule: Record<string, typeof lessons> = {};
 for (const l of lessons) {
@@ -22,7 +22,7 @@ const zsxqUrl = 'https://t.zsxq.com';
 
 <BaseLayout
   title="AI 小白赋能 · 用对工具，每天省 2 小时"
-  description="写给从没用过 AI 的职场人：从对话到落地，12 讲带你把 AI 用成可靠的提效搭子。零基础也能一天跑通。"
+  description={`写给从没用过 AI 的职场人：从对话到落地，${totalLessons} 讲带你把 AI 用成可靠的提效搭子。零基础也能一天跑通。`}
 >
   <SiteHeader moduleOrder={moduleOrder} />
 
@@ -38,6 +38,7 @@ const zsxqUrl = 'https://t.zsxq.com';
       <span style="--c: var(--m7)"></span>
       <span style="--c: var(--m8)"></span>
       <span style="--c: var(--m9)"></span>
+      <span style="--c: var(--m10)"></span>
     </div>
     <div class="hero__brand">
       <span class="hero__mark" aria-hidden="true"></span>
@@ -47,7 +48,7 @@ const zsxqUrl = 'https://t.zsxq.com';
     <h1 class="hero__title">AI 小白赋能<br />用对工具，每天省 2 小时</h1>
 
     <p class="hero__value">
-      写给从没用过 AI 的职场人：从对话到落地，12 讲带你把 AI 用成可靠的提效搭子。不用懂原理，照着做就能用上。
+      写给从没用过 AI 的职场人：从对话到落地，{totalLessons} 讲带你把 AI 用成可靠的提效搭子。不用懂原理，照着做就能用上。
     </p>
 
     <div class="hero__cta">

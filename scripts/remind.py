@@ -131,6 +131,28 @@ TREES = {
             ("第四步·打磨上线", ["统一风格", "自查后部署"]),
         ],
     },
+    "10-2-universal-prompt.md": {
+        "aria": "通用提示词六要素思维导图",
+        "root": ("通用提示词", "六要素"),
+        "branches": [
+            ("角色 Role", ["让 AI 扮产品助理", "只给自己用的工具"]),
+            ("目标 Goal", ["解决什么", "给谁用"]),
+            ("页面 Pages", ["要哪几个页面", "各自放什么"]),
+            ("功能 Features", ["增删改查", "要不要登录筛选"]),
+            ("数据 Data", ["存哪些字段", "必须存云端Supabase"]),
+            ("风格 Style", ["参考谁", "什么气质"]),
+        ],
+    },
+    "10-5-github-deploy.md": {
+        "aria": "工作台上线四步与永久三保险思维导图",
+        "root": ("工作台上线", "四步+三保险"),
+        "branches": [
+            ("推 GitHub", ["代码永不下线", "新建仓库连工具"]),
+            ("选部署平台", ["Vercel/Netlify", "CloudBase/GitHub Pages"]),
+            ("一键部署", ["连仓库点 Deploy", "拿到永久网址"]),
+            ("永久三保险", ["代码在GitHub", "数据在Supabase", "站点在部署"]),
+        ],
+    },
 }
 
 # Branch accent palette. Each branch topic + its leaves share a hue.
