@@ -7,7 +7,7 @@ import { MODULES, getLessons, lessonHref, withBase, type ModuleId } from '../lib
 const lessons = await getLessons();
 const first = lessons[0];
 const firstHref = lessonHref(first);
-const moduleOrder = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8'] as ModuleId[];
+const moduleOrder = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9'] as ModuleId[];
 
 const byModule: Record<string, typeof lessons> = {};
 for (const l of lessons) {
@@ -34,6 +34,7 @@ const zsxqUrl = 'https://t.zsxq.com';
       <span style="--c: var(--m6)"></span>
       <span style="--c: var(--m7)"></span>
       <span style="--c: var(--m8)"></span>
+      <span style="--c: var(--m9)"></span>
     </div>
     <div class="hero__brand">
       <span class="hero__mark" aria-hidden="true"></span>
@@ -123,7 +124,8 @@ const zsxqUrl = 'https://t.zsxq.com';
               <a class="tool-picker__link" href="https://www.ima.qq.com/" target="_blank" rel="noopener noreferrer">ima</a><span class="tool-picker__sep">·</span>
               <a class="tool-picker__link" href="https://www.notion.so/" target="_blank" rel="noopener noreferrer">Notion</a><span class="tool-picker__sep">·</span>
               <a class="tool-picker__link" href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">Perplexity</a><span class="tool-picker__sep">·</span>
-              <a class="tool-picker__link" href="https://www.feishu.cn/product/minutes" target="_blank" rel="noopener noreferrer">飞书妙记</a>
+              <a class="tool-picker__link" href="https://www.feishu.cn/product/minutes" target="_blank" rel="noopener noreferrer">飞书妙记</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://obsidian.md/" target="_blank" rel="noopener noreferrer">Obsidian</a>
             </td>
             <td><span class="tool-badge tool-badge--free">基础免费</span><span class="tool-picker__sep">·</span><span class="tool-badge tool-badge--vpn">Notion/Perplexity 需梯子</span></td>
           </tr>
@@ -134,9 +136,11 @@ const zsxqUrl = 'https://t.zsxq.com';
               <a class="tool-picker__link" href="https://www.marscode.cn/" target="_blank" rel="noopener noreferrer">豆包 MarsCode</a><span class="tool-picker__sep">·</span>
               <a class="tool-picker__link" href="https://tongyi.aliyun.com/lingma/" target="_blank" rel="noopener noreferrer">通义灵码</a><span class="tool-picker__sep">·</span>
               <a class="tool-picker__link" href="https://cursor.sh/" target="_blank" rel="noopener noreferrer">Cursor</a><span class="tool-picker__sep">·</span>
-              <a class="tool-picker__link" href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">GitHub Copilot</a>
+              <a class="tool-picker__link" href="https://openai.com/codex/" target="_blank" rel="noopener noreferrer">Codex</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">GitHub Copilot</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
             </td>
-            <td><span class="tool-badge tool-badge--free">国产免费</span><span class="tool-picker__sep">·</span><span class="tool-badge tool-badge--vpn">Cursor/Copilot 需梯子</span></td>
+            <td><span class="tool-badge tool-badge--free">国产免费</span><span class="tool-picker__sep">·</span><span class="tool-badge tool-badge--vpn">Cursor/Copilot/Codex 需梯子</span></td>
           </tr>
           <tr>
             <td>做数据分析、建表、写 SQL</td>
@@ -144,9 +148,19 @@ const zsxqUrl = 'https://t.zsxq.com';
             <td>
               <a class="tool-picker__link" href="https://docs.qq.com/sheet/" target="_blank" rel="noopener noreferrer">腾讯文档智能表</a><span class="tool-picker__sep">·</span>
               <a class="tool-picker__link" href="https://www.feishu.cn/product/base" target="_blank" rel="noopener noreferrer">飞书多维表格</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://supabase.com/" target="_blank" rel="noopener noreferrer">Supabase</a><span class="tool-picker__sep">·</span>
               <a class="tool-picker__link" href="https://sqlitebrowser.org/" target="_blank" rel="noopener noreferrer">DB Browser for SQLite</a>
             </td>
-            <td><span class="tool-badge tool-badge--free">全部免费</span><span class="tool-picker__sep">·</span><span class="tool-badge tool-badge--vpn">无需梯子</span></td>
+            <td><span class="tool-badge tool-badge--free">基础免费</span><span class="tool-picker__sep">·</span><span class="tool-badge tool-badge--vpn">Supabase 需梯子</span></td>
+          </tr>
+          <tr>
+            <td>想给自己的项目接 AI 能力（要免费 API）</td>
+            <td><span class="tool-picker__tag">模型 API 平台</span></td>
+            <td>
+              <a class="tool-picker__link" href="https://platform.deepseek.com/" target="_blank" rel="noopener noreferrer">DeepSeek API</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://cloud.siliconflow.cn/" target="_blank" rel="noopener noreferrer">硅基流动 SiliconFlow</a>
+            </td>
+            <td><span class="tool-badge tool-badge--free">国内可用</span><span class="tool-picker__sep">·</span><span class="tool-badge tool-badge--vpn">注册需手机号</span></td>
           </tr>
           <tr>
             <td>搭个人工作台、让 AI 帮我协作</td>

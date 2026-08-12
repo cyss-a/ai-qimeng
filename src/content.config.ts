@@ -8,7 +8,7 @@ const lessons = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/lessons' }),
   schema: z.object({
     title: z.string(),
-    module: z.enum(['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8']),
+    module: z.enum(['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9']),
     order: z.number(),
     description: z.string(),
     duration: z.string(),

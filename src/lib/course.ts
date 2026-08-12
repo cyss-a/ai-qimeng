@@ -1,6 +1,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-// 课程模块元数据（M1–M7），frontmatter 仅含 module 代码，展示名在此集中管理
+// 课程模块元数据（M1–M9），frontmatter 仅含 module 代码，展示名在此集中管理
 export const MODULES = {
   M1: { id: 'M1', title: '认知篇', subtitle: '先搞懂 AI 是什么、能替你做什么' },
   M2: { id: 'M2', title: '工具篇', subtitle: '主流工具地图与怎么选' },
@@ -10,12 +10,13 @@ export const MODULES = {
   M6: { id: 'M6', title: '变现实战篇', subtitle: '把 AI 智能体打包卖给个体户' },
   M7: { id: 'M7', title: 'AI 热点日报', subtitle: '每天 09:00 自动更新 · 中文科技媒体 AI 热点精选' },
   M8: { id: 'M8', title: 'Agent 架构篇', subtitle: '从 Function Calling 到 MCP 与 Skill 的进阶分层' },
+  M9: { id: 'M9', title: '用 AI 做网站', subtitle: 'vibe coding 入门：从想法到上线' },
 } as const;
 
 export type ModuleId = keyof typeof MODULES;
 export type LessonEntry = CollectionEntry<'lessons'>;
 
-const MODULE_ORDER: ModuleId[] = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8'];
+const MODULE_ORDER: ModuleId[] = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9'];
 
 // 内容层（Astro 7）下 entry.id 取自首字的 frontmatter `slug`（如 m1/1-1-renzhi），
 // 已含模块前缀，直接用做作业 URL。
