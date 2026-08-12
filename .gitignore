@@ -3,6 +3,9 @@ node_modules/
 dist/
 .astro/
 
+# 锁文件不提交：CI 用官方 registry 现装，避免本地代理生成的无效版本条目
+package-lock.json
+
 # 本地记忆与工作区内部数据
 .workbuddy/
 

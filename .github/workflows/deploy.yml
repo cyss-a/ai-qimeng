@@ -29,7 +29,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
       - uses: actions/setup-python@v5
         with:
@@ -50,7 +49,7 @@ jobs:
           git diff --cached --quiet || git commit -m "chore: daily AI news $(date +%F) [skip ci]"
           git push || echo "push skipped"
 
-      - run: npm ci
+      - run: npm install --no-audit --no-fund
       - run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
