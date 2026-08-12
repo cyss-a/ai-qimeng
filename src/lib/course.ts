@@ -21,8 +21,17 @@ const MODULE_ORDER: ModuleId[] = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7'];
 export function lessonSlug(entry: LessonEntry): string {
   return entry.id;
 }
+
+// 基址感知：GitHub Pages 项目页部署在 /ai-qimeng/ 子路径下，
+// Astro 不会自动重写裸 <a href> 字面量，所有内部链接必须显式拼接 base。
+export function withBase(path: string): string {
+  const base = import.meta.env.BASE_URL || '/';
+  const b = base.endsWith('/') ? base.slice(0, -1) : base;
+  return b + (path.startsWith('/') ? path : '/' + path);
+}
+
 export function lessonHref(entry: LessonEntry): string {
-  return `/lessons/${entry.id}/`;
+  return withBase(`/lessons/${entry.id}/`);
 }
 
 // 按（模块顺序，章节 order）排序，全站目录与相邻导航共用

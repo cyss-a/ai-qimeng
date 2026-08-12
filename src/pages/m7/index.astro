@@ -3,6 +3,7 @@
 // 读取 M7 内容集合，按文件名中的日期取最新一天渲染，其余作为「往期归档」。
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { withBase } from '../../lib/course';
 
 function dateOf(entry: CollectionEntry<'lessons'>): string {
   const m = entry.id.match(/(\d{4}-\d{2}-\d{2})/);
@@ -52,7 +53,7 @@ const { Content } = latest ? await render(latest) : { Content: null };
           <ul class="daily-archive__list">
             {archive.map((e) => (
               <li>
-                <a class="daily-archive__link" href={`/lessons/${e.id}/`}>
+                <a class="daily-archive__link" href={withBase(`/lessons/${e.id}/`)}>
                   <span class="daily-archive__date">{dateOf(e)}</span>
                   <span class="daily-archive__arrow" aria-hidden="true">→</span>
                 </a>
@@ -64,7 +65,7 @@ const { Content } = latest ? await render(latest) : { Content: null };
     }
 
     <nav class="daily-page__back">
-      <a href="/">← 返回课程首页</a>
+      <a href={withBase('/')}>← 返回课程首页</a>
     </nav>
   </main>
 </BaseLayout>

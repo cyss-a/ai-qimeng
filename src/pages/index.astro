@@ -2,7 +2,7 @@
 // 课程首页：课程头（真实 meta）+ 真实课程目录（首讲高亮）+ 主/次 CTA
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
-import { MODULES, getLessons, lessonHref, type ModuleId } from '../lib/course';
+import { MODULES, getLessons, lessonHref, withBase, type ModuleId } from '../lib/course';
 
 const lessons = await getLessons();
 const first = lessons[0];
@@ -180,7 +180,7 @@ const zsxqUrl = 'https://t.zsxq.com';
               </div>
               <ul class="catalog__list">
                 <li>
-                  <a href="/m7/" class="catalog__item catalog__item--board">
+                  <a href={withBase('/m7/')} class="catalog__item catalog__item--board">
                     <span class="catalog__item-order">每日 09:00 更新</span>
                     <span class="catalog__item-title">查看今日 AI 热点日报</span>
                     <span class="catalog__item-arrow"><Icon name="chevron-right" size={16} /></span>
