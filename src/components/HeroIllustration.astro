@@ -1,0 +1,86 @@
+---
+// Hero 右侧场景插图：AI 辅助职场提效
+// 扁平矢量风格，颜色全部走当前 design token（通过 CSS 变量或内联 currentColor）。
+// 无外部图片依赖，零布局偏移，支持深色主题。
+---
+
+<svg
+  viewBox="0 0 480 360"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="一位职场人正在电脑前用 AI 工具处理文档、数据和对话"
+  class="hero-illustration"
+>
+  <defs>
+    <linearGradient id="heroGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--m2, #2563EB)" stop-opacity="0.14" />
+      <stop offset="100%" stop-color="var(--accent, #0D9488)" stop-opacity="0.10" />
+    </linearGradient>
+    <linearGradient id="heroGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="var(--accent, #0D9488)" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="var(--m7, #4F46E5)" stop-opacity="0.10" />
+    </linearGradient>
+  </defs>
+
+  <!-- 背景柔和色块 -->
+  <rect x="40" y="40" width="400" height="280" rx="24" fill="url(#heroGrad1)" />
+  <circle cx="380" cy="80" r="48" fill="url(#heroGrad2)" />
+  <circle cx="100" cy="290" r="36" fill="url(#heroGrad2)" />
+
+  <!-- 桌子 -->
+  <rect x="60" y="230" width="360" height="12" rx="6" fill="var(--border, #E6E8EC)" />
+  <rect x="90" y="242" width="14" height="58" rx="4" fill="var(--border-soft, #F0F1F4)" />
+  <rect x="376" y="242" width="14" height="58" rx="4" fill="var(--border-soft, #F0F1F4)" />
+
+  <!-- 显示器 -->
+  <rect x="140" y="110" width="180" height="120" rx="12" fill="var(--surface, #FFFFFF)" stroke="var(--border, #E6E8EC)" stroke-width="2" />
+  <rect x="152" y="122" width="156" height="96" rx="8" fill="var(--surface-warm, #F3F5F7)" />
+  <!-- 屏幕内容：对话框 -->
+  <rect x="164" y="138" width="92" height="28" rx="8" fill="var(--accent-bg, #E6F5F2)" />
+  <circle cx="176" cy="152" r="6" fill="var(--accent, #0D9488)" />
+  <rect x="188" y="148" width="56" height="6" rx="3" fill="var(--accent, #0D9488)" opacity="0.5" />
+  <rect x="188" y="156" width="40" height="4" rx="2" fill="var(--accent, #0D9488)" opacity="0.3" />
+
+  <rect x="212" y="174" width="88" height="28" rx="8" fill="var(--m2-bg, #E8EFFD)" />
+  <rect x="224" y="184" width="64" height="6" rx="3" fill="var(--m2, #2563EB)" opacity="0.5" />
+  <rect x="224" y="192" width="48" height="4" rx="2" fill="var(--m2, #2563EB)" opacity="0.3" />
+
+  <!-- 显示器支架 -->
+  <rect x="222" y="230" width="16" height="18" fill="var(--border, #E6E8EC)" />
+  <rect x="206" y="248" width="48" height="8" rx="4" fill="var(--border, #E6E8EC)" />
+
+  <!-- 人物上半身 -->
+  <path d="M330 180c0-22 18-40 40-40s40 18 40 40v58h-80z" fill="var(--m4-bg, #FCEFD9)" />
+  <circle cx="370" cy="156" r="18" fill="var(--fg-2, #3A3D44)" />
+  <path d="M352 156c0-10 8-18 18-18s18 8 18 18" stroke="var(--surface, #FFFFFF)" stroke-width="3" fill="none" stroke-linecap="round" />
+
+  <!-- 漂浮小卡片：数据 -->
+  <g transform="translate(80, 110)">
+    <rect x="0" y="0" width="64" height="48" rx="10" fill="var(--surface, #FFFFFF)" stroke="var(--border, #E6E8EC)" stroke-width="1.5" />
+    <rect x="10" y="12" width="28" height="5" rx="2.5" fill="var(--m3, #7C3AED)" opacity="0.5" />
+    <rect x="10" y="22" width="44" height="4" rx="2" fill="var(--muted, #6B6E76)" opacity="0.4" />
+    <rect x="10" y="30" width="36" height="4" rx="2" fill="var(--muted, #6B6E76)" opacity="0.3" />
+  </g>
+
+  <!-- 漂浮小卡片：完成 -->
+  <g transform="translate(340, 90)">
+    <rect x="0" y="0" width="56" height="44" rx="10" fill="var(--surface, #FFFFFF)" stroke="var(--border, #E6E8EC)" stroke-width="1.5" />
+    <circle cx="28" cy="18" r="10" fill="var(--success, #16A34A)" opacity="0.12" />
+    <path d="M23 18l4 4 8-8" stroke="var(--success, #16A34A)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="12" y="34" width="32" height="4" rx="2" fill="var(--muted, #6B6E76)" opacity="0.3" />
+  </g>
+
+  <!-- 键盘/鼠标 -->
+  <rect x="170" y="262" width="92" height="10" rx="5" fill="var(--border, #E6E8EC)" />
+  <ellipse cx="310" cy="268" rx="10" ry="6" fill="var(--border, #E6E8EC)" />
+
+  <!-- 左侧文档堆 -->
+  <rect x="50" y="200" width="56" height="72" rx="8" fill="var(--surface, #FFFFFF)" stroke="var(--border, #E6E8EC)" stroke-width="1.5" />
+  <rect x="58" y="214" width="40" height="4" rx="2" fill="var(--muted, #6B6E76)" opacity="0.4" />
+  <rect x="58" y="224" width="40" height="4" rx="2" fill="var(--muted, #6B6E76)" opacity="0.3" />
+  <rect x="58" y="234" width="28" height="4" rx="2" fill="var(--muted, #6B6E76)" opacity="0.3" />
+  <rect x="58" y="252" width="32" height="8" rx="4" fill="var(--accent-bg, #E6F5F2)" />
+
+  <!-- 底部装饰线 -->
+  <rect x="80" y="318" width="320" height="2" rx="1" fill="var(--border-soft, #F0F1F4)" />
+</svg>

@@ -7,6 +7,15 @@
   .lesson { grid-template-columns: minmax(0, 1fr); }
   .lesson__toc--desktop { display: none; }
   .mobile-nav { display: block; }
+  .hero__grid { grid-template-columns: 1fr; gap: var(--space-8); }
+  .hero__media { order: -1; max-width: 420px; margin-inline: auto; }
+  .quick-modules__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tool-cards__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .catalog__grid { grid-template-columns: 1fr; }
+  .testimonials__grid { grid-template-columns: 1fr; }
+  .footer-cta__inner { grid-template-columns: 1fr; text-align: center; }
+  .footer-cta__actions { justify-content: center; }
+  .footer-cta__sub { margin-inline: auto; }
 }
 
 /* 容器级安全区（刘海/圆角屏边缘内缩），避免内容贴边或被遮挡 */
@@ -14,7 +23,16 @@
   .hero,
   .catalog,
   .tool-picker,
+  .tool-cards,
+  .quick-modules,
+  .testimonials,
+  .footer-cta,
   .lesson {
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+  .section-head,
+  .section-head--centered {
     padding-left: max(20px, env(safe-area-inset-left, 0px));
     padding-right: max(20px, env(safe-area-inset-right, 0px));
   }
@@ -23,26 +41,38 @@
   .catalog__module,
   .reader h2,
   .reader h3 { scroll-margin-top: 112px; }
+  .hero__title { font-size: clamp(26px, 7vw, 32px); }
+  .hero__value { font-size: var(--text-base); }
+  .hero__meta { gap: var(--space-3); }
+  .quick-modules__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tool-cards__grid { grid-template-columns: 1fr; }
+  .testimonials__grid { grid-template-columns: 1fr; }
 }
 
 /* 小屏手机：顶部品牌名让位，避免与导航/主题按钮争空间导致横向溢出 */
 @media (max-width: 560px) {
   .site-header__name { display: none; }
-}
-
-@media (max-width: 640px) {
-  .hero { padding-top: var(--section-y-phone); }
-  .hero__title { font-size: clamp(24px, 7vw, 30px); }
   .hero__cta { flex-direction: column; align-items: stretch; }
   .hero__cta .btn { width: 100%; }
+  .hero__media { max-width: 100%; }
+  .quick-modules__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-2);
+  }
+  .quick-modules__card { padding: var(--space-3); min-height: 100px; }
+  .quick-modules__sub { display: none; }
+  .tool-cards__card { padding: var(--space-4); }
   .catalog__module { padding: var(--space-4); }
+  .catalog__module--board { grid-column: auto; }
+  .footer-cta__inner { padding: var(--space-8) var(--space-5); }
+  .footer-cta__actions { flex-direction: column; align-items: stretch; }
+  .footer-cta__actions .btn { width: 100%; }
   .lesson__title { font-size: var(--text-2xl); }
   .lesson__pager { grid-template-columns: 1fr; }
   .copy-btn { min-height: 44px; width: 100%; justify-content: center; }
   .prompt-card__head { flex-direction: column; align-items: stretch; }
   .prompt-card__head .copy-btn { width: 100%; }
   .reader table { font-size: var(--text-xs); }
-  .hero__strip-text { display: none; }
 }
 
 /* 减少动效偏好 */
@@ -50,6 +80,11 @@
   .progress__bar,
   .collapse__chevron,
   .mobile-nav__drawer,
-  .mobile-nav__backdrop { transition: none; }
+  .mobile-nav__backdrop,
+  .quick-modules__card,
+  .catalog__module,
+  .tool-cards__card,
+  .catalog__item { transition: none; }
+  .quick-modules__card:hover { transform: none; }
   html { scroll-behavior: auto; }
 }
