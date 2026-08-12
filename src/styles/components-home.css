@@ -162,6 +162,7 @@
 .catalog__module[data-mod="M5"] { --mod: var(--m5); --mod-ink: var(--m5-ink); --mod-bg: var(--m5-bg); }
 .catalog__module[data-mod="M6"] { --mod: var(--m6); --mod-ink: var(--m6-ink); --mod-bg: var(--m6-bg); }
 .catalog__module[data-mod="M7"] { --mod: var(--m7); --mod-ink: var(--m7-ink); --mod-bg: var(--m7-bg); }
+.catalog__module[data-mod="M8"] { --mod: var(--m8); --mod-ink: var(--m8-ink); --mod-bg: var(--m8-bg); }
 
 /* 模块标签 → 彩色胶囊 */
 .catalog__module-tag {
