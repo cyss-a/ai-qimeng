@@ -31,8 +31,9 @@ TARGET_DIR = "src/content/lessons/m7"
 MAX_PER_SOURCE = 10
 MAX_TOTAL = 20
 DAYS_BACK = 3
+MIN_ITEMS = 5  # 低于此数量视为抓取异常，跳过写入以保留上一期真实内容
 
-# 10 种标题色，用于卡片标题轮换（与模块 token 一致，避免新增硬编码）
+# 10 种标题色，用于卡片标题轮换（全部走 design token，禁止硬编码色值）
 TITLE_COLORS = [
     "var(--m1)",
     "var(--m2)",
@@ -41,9 +42,9 @@ TITLE_COLORS = [
     "var(--m5)",
     "var(--m6)",
     "var(--m7)",
-    "#0891B2",
-    "#16A34A",
-    "#9333EA",
+    "var(--m8)",
+    "var(--success)",
+    "var(--m10)",
 ]
 
 
@@ -224,17 +225,8 @@ def main():
 
     os.makedirs(TARGET_DIR, exist_ok=True)
 
-    existing = sorted(f for f in os.listdir(TARGET_DIR) if f.endswith(".md"))
-    order = 1
-    if existing:
-        nums = []
-        for f in existing:
-            m = re.match(r"7-(\d+)-", f)
-            if m:
-                nums.append(int(m.group(1)))
-        order = max(nums) + 1 if nums else 1
-
-    out_path = os.path.join(TARGET_DIR, f"7-{order}-{date_str}.md")
+    # 每天一个文件（按日期命名，同日覆盖），避免累积重复日期文件
+    out_path = os.path.join(TARGET_DIR, f"{date_str}.md")
 
     all_entries = []
     for source, url, lang in FEEDS:
@@ -254,18 +246,15 @@ def main():
 
     selected = deduped[:MAX_TOTAL]
 
-    if not selected:
-        print("WARN: no fresh entries fetched; generating placeholder daily.")
-        selected = [
-            {
-                "title": "今日 RSS 源暂未抓取到新内容",
-                "link": "",
-                "source": "系统",
-                "description": "请检查网络或 RSS 源可用性。脚本会在下次运行时重试。",
-            }
-        ]
+    # 抓取异常保护：条目过少时跳过写入，保留上一期真实内容，避免占位符覆盖
+    if len(selected) < MIN_ITEMS:
+        print(
+            f"WARN: only {len(selected)} fresh entries (< {MIN_ITEMS}); "
+            "skipping write to keep last good daily. Will retry next run."
+        )
+        sys.exit(0)
 
-    md = generate_markdown(today, selected, order)
+    md = generate_markdown(today, selected, order=1)
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(md)
 

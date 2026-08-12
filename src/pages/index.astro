@@ -14,7 +14,7 @@ for (const l of lessons) {
   (byModule[l.data.module] ||= []).push(l);
 }
 
-const totalLessons = lessons.length;
+const totalLessons = lessons.filter((l) => l.data.module !== 'M7').length;
 const publishedCount = lessons.filter((l) => l.data.status === 'published').length;
 const zsxqUrl = 'https://t.zsxq.com';
 ---
@@ -168,9 +168,30 @@ const zsxqUrl = 'https://t.zsxq.com';
 
     {
       moduleOrder.map((mid) => {
+        const mod = MODULES[mid];
+        // M7 是每日自动更新的「AI 热点日报」，不按讲次罗列，单独做成板块入口
+        if (mid === 'M7') {
+          return (
+            <div class="catalog__module" data-mod="M7">
+              <div class="catalog__module-head">
+                <span class="catalog__module-tag">{mid}</span>
+                <h2 class="catalog__module-name">{mod.title}</h2>
+                <p class="catalog__module-sub">{mod.subtitle}</p>
+              </div>
+              <ul class="catalog__list">
+                <li>
+                  <a href="/m7/" class="catalog__item catalog__item--board">
+                    <span class="catalog__item-order">每日 09:00 更新</span>
+                    <span class="catalog__item-title">查看今日 AI 热点日报</span>
+                    <span class="catalog__item-arrow"><Icon name="chevron-right" size={16} /></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          );
+        }
         const items = byModule[mid] || [];
         if (!items.length) return null;
-        const mod = MODULES[mid];
         return (
           <div class="catalog__module" data-mod={mid}>
             <div class="catalog__module-head">

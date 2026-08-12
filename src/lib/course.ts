@@ -8,7 +8,7 @@ export const MODULES = {
   M4: { id: 'M4', title: '场景篇', subtitle: '把 AI 用进真实工作流' },
   M5: { id: 'M5', title: '避坑篇', subtitle: '这些坑别踩' },
   M6: { id: 'M6', title: '变现实战篇', subtitle: '把 AI 智能体打包卖给个体户' },
-  M7: { id: 'M7', title: 'AI 热点日报', subtitle: '每天精选 AI 领域新鲜事，中英文科技媒体摘要' },
+  M7: { id: 'M7', title: 'AI 热点日报', subtitle: '每天 09:00 自动更新 · 中文科技媒体 AI 热点精选' },
 } as const;
 
 export type ModuleId = keyof typeof MODULES;

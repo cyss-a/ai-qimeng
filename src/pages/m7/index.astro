@@ -1,0 +1,173 @@
+---
+// AI 热点日报独立页：GET /m7/
+// 读取 M7 内容集合，按文件名中的日期取最新一天渲染，其余作为「往期归档」。
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+
+function dateOf(entry: CollectionEntry<'lessons'>): string {
+  const m = entry.id.match(/(\d{4}-\d{2}-\d{2})/);
+  if (m) return m[1];
+  const t = entry.data.title?.match(/(\d{4}-\d{2}-\d{2})/);
+  return t ? t[1] : '1970-01-01';
+}
+
+const entries = (await getCollection('lessons', (e) => e.data.module === 'M7')).sort(
+  (a, b) => dateOf(b).localeCompare(dateOf(a))
+);
+
+const latest = entries[0];
+const archive = entries.slice(1, 11); // 最多展示近 10 期
+const latestDate = latest ? dateOf(latest) : null;
+const { Content } = latest ? await render(latest) : { Content: null };
+---
+
+<BaseLayout
+  title="AI 热点日报"
+  description="每天 09:00（北京时间）自动从公开中文科技媒体 RSS 聚合更新的 AI 资讯精选，5 分钟读完今日新鲜事。"
+>
+  <main class="daily-page">
+    <header class="daily-page__head">
+      <p class="daily-page__eyebrow">M7 · AI 热点日报</p>
+      <h1 class="daily-page__title">AI 热点日报</h1>
+      <p class="daily-page__sub">
+        每天 09:00（北京时间）自动从公开中文科技媒体 RSS 聚合更新
+        {latestDate && <span class="daily-page__date">· 今日 {latestDate}</span>}
+      </p>
+    </header>
+
+    {
+      latest ? (
+        <section class="daily-page__body">
+          <Content />
+        </section>
+      ) : (
+        <p class="daily-page__empty">日报正在生成中，请稍后再来。</p>
+      )
+    }
+
+    {
+      archive.length > 0 && (
+        <section class="daily-archive" aria-label="往期日报">
+          <h2 class="daily-archive__title">往期日报</h2>
+          <ul class="daily-archive__list">
+            {archive.map((e) => (
+              <li>
+                <a class="daily-archive__link" href={`/lessons/${e.id}/`}>
+                  <span class="daily-archive__date">{dateOf(e)}</span>
+                  <span class="daily-archive__arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <nav class="daily-page__back">
+      <a href="/">← 返回课程首页</a>
+    </nav>
+  </main>
+</BaseLayout>
+
+<style>
+  .daily-page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-4) var(--space-12);
+  }
+
+  .daily-page__head {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: var(--space-5);
+    margin-bottom: var(--space-6);
+  }
+
+  .daily-page__eyebrow {
+    color: var(--m7);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    margin: 0 0 var(--space-2);
+  }
+
+  .daily-page__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-2);
+    color: var(--text-strong);
+  }
+
+  .daily-page__sub {
+    color: var(--text-muted);
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .daily-page__date {
+    color: var(--m7);
+    font-weight: 600;
+  }
+
+  .daily-page__empty {
+    color: var(--text-muted);
+    padding: var(--space-8) 0;
+  }
+
+  .daily-archive {
+    margin-top: var(--space-10);
+    border-top: 1px solid var(--border);
+    padding-top: var(--space-6);
+  }
+
+  .daily-archive__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-strong);
+    margin: 0 0 var(--space-4);
+  }
+
+  .daily-archive__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--space-3);
+  }
+
+  .daily-archive__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text);
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .daily-archive__link:hover {
+    border-color: var(--m7);
+    color: var(--m7);
+  }
+
+  .daily-archive__date {
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+  }
+
+  .daily-page__back {
+    margin-top: var(--space-10);
+  }
+
+  .daily-page__back a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .daily-page__back a:hover {
+    color: var(--m7);
+  }
+</style>

@@ -34,20 +34,20 @@ jobs:
         with:
           python-version: '3.12'
 
-      # 仅定时触发时拉取当日 AI 新闻（中文 RSS），生成 m7 日报
-      - name: Fetch daily AI news (schedule only)
-        if: github.event_name == 'schedule'
+      # 定时 / 手动触发时拉取当日 AI 新闻（中文 RSS），生成 m7 日报
+      - name: Fetch daily AI news
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/fetch-news.py
 
       # 把生成的日报提交回仓库（[skip ci] 避免再次触发本工作流）
       - name: Commit news back
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A src/content/lessons/m7
           git diff --cached --quiet || git commit -m "chore: daily AI news $(date +%F) [skip ci]"
-          git push || echo "push skipped"
+          git push
 
       - run: npm install --no-audit --no-fund
       - run: npm run build
