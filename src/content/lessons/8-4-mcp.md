@@ -29,6 +29,16 @@ MCP 的解法叫"能力自描述"：服务方自己说清楚"我能提供哪些�
 
 你新装了一个查公司合同的 MCP 服务。不用改任何代码，Agent 立刻"知道"自己多了"搜合同"的能力；用户问"上季度签了哪几份大单"，模型自动选它去查，而不是你提前在代码里写死"如果用户问合同就用 X 接口"。这就是动态发现的价值——能力随接随用。
 
+## 真实例子：Claude Code 里的 MCP 工具
+
+Claude Code 是一个具体的 Agent 编辑器。当你给它安装一个定位 MCP 服务后，它会自动在工具列表里多出一项"定位工具（MCP）"。你加载一个"出门清单助手"Skill 后问"我要出门该带什么"，Claude Code 不需要你提前写死"先调定位、再调天气"，而是：
+
+1. 从 MCP Server 读取能力清单，知道自己有定位工具；
+2. 根据 Skill 里的执行步骤，决定先调用定位；
+3. 拿到经纬度后，再决定下一步调天气或店铺搜索。
+
+这里 MCP 解决的是"工具怎么被标准化地接进来"，Function Calling 解决的是"模型怎么发出调用指令"，Skill 解决的是"按什么剧本编排调用顺序"。三者分工明确，才让一句自然语言能驱动多个外部工具自动接力。
+
 <aside class="callout callout--info" role="note">
   <span class="callout__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
   <div class="callout__body">

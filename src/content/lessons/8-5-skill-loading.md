@@ -64,6 +64,45 @@ status: published
 5. 一个输入输出示例。要求边界清晰，只解决这一件事。</code></pre>
 </div>
 
+## 一个更具体的 Skill 模板：出门清单助手
+
+视频里演示了一个 Claude Code Skill：根据实时天气告诉用户出门该带什么。一个可落地的 Skill 通常包含四个部分：
+
+<div class="prompt-card">
+  <div class="prompt-card__head">
+    <span class="prompt-card__title">提示词模板 · 出门清单助手 Skill</span>
+    <button class="copy-btn" aria-label="复制提示词模板">
+      <span class="copy-btn__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></span>
+      <span class="copy-btn__label">复制</span>
+    </button>
+  </div>
+  <pre class="prompt-card__code"><code># 目标
+你是一个贴心的「出门清单助手」。根据用户所在位置的实时天气情况，告诉用户出门必须携带的物品。
+
+# 执行步骤
+1. 调用定位工具，获取用户当前所在位置的经纬度。
+2. 将经纬度作为参数，调用天气工具，一次性获取降雨、光照强度、空气质量、风力四项数据。
+3. 根据天气数据，按下方判断规则整理需要携带的物品。
+4. 按下方输出格式向用户输出最终结果。
+
+# 判断规则
+1. 手机：无条件必带。
+2. 伞：当天气工具返回"有雨"时，必须携带。
+3. 帽子：当天气工具返回"光照强"时，必须携带。
+4. 口罩：当天气工具返回"空气质量差"时，必须携带。
+5. 防风外套：当天气工具返回"强风"时，必须携带。
+
+# 输出格式
+[结论一句话]
+一句话总结要不要带雨具等。
+
+[出门清单]
+- 物品（原因）
+- 物品（原因）</code></pre>
+</div>
+
+如果你用 Claude Code，把这个 Skill 存为 `~/.claude/skills/go-out-checklist/SKILL.md`，系统就会自动识别并加载。文件名和目录结构不是随意的——Claude Code 只认固定的 `SKILL.md` 入口，这保证了技能可以被规范化分发。
+
 ## 小结
 
 - 全量塞入提示词会撑爆上下文窗口：Token 贵、注意力散、易超限。
