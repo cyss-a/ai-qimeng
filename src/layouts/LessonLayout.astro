@@ -1,0 +1,90 @@
+---
+// LessonLayout.astro — 阅读页三栏布局（左 TOC + 中 720px 宋体阅读栏；移动端：进度条 + 抽屉目录 + 单列）
+import BaseLayout from './BaseLayout.astro';
+import Toc from '../components/Toc.astro';
+import ProgressBar from '../components/ProgressBar.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import MobileNav from '../components/MobileNav.astro';
+import Icon from '../components/Icon.astro';
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+  title: string;
+  description: string;
+  module: string;
+  moduleTitle: string;
+  lessonLabel: string;
+  headings: MarkdownHeading[];
+  duration: string;
+  prev?: { slug: string; title: string };
+  next?: { slug: string; title: string };
+}
+
+const { title, description, module, moduleTitle, lessonLabel, headings, duration, prev, next } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <ProgressBar />
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__brand" href="/">
+        <span class="site-header__mark" aria-hidden="true"></span>
+        <span class="site-header__name">AI 新手启蒙</span>
+      </a>
+      <div class="site-header__actions">
+        <ThemeToggle />
+        <MobileNav headings={headings} courseTitle={`${lessonLabel} · ${title}`} />
+      </div>
+    </div>
+  </header>
+
+  <div class="lesson" data-mod={module}>
+    <aside class="lesson__toc lesson__toc--desktop">
+      <Toc headings={headings} title="本页目录" />
+    </aside>
+
+    <main class="lesson__main" id="lesson-main">
+      <p class="lesson__eyebrow">{lessonLabel}</p>
+      <h1 class="lesson__title">{title}</h1>
+      <p class="lesson__meta">
+        <span>{module} · {moduleTitle}</span>
+        <span class="lesson__dot" aria-hidden="true">·</span>
+        <span>{duration}</span>
+      </p>
+
+      <article class="reader">
+        <slot />
+      </article>
+
+      <nav class="lesson__pager" aria-label="相邻章节">
+        {
+          prev ? (
+            <a class="pager__link pager__link--prev" href={prev.slug}>
+              <Icon name="arrow-left" size={16} />
+              <span>
+                <span class="pager__dir">上一篇</span>
+                <span class="pager__title">{prev.title}</span>
+              </span>
+            </a>
+          ) : (
+            <span class="pager__link pager__link--prev pager__link--disabled" aria-disabled="true" />
+          )
+        }
+        {
+          next ? (
+            <a class="pager__link pager__link--next" href={next.slug}>
+              <span>
+                <span class="pager__dir">下一篇</span>
+                <span class="pager__title">{next.title}</span>
+              </span>
+              <Icon name="arrow-right" size={16} />
+            </a>
+          ) : (
+            <span class="pager__link pager__link--next pager__link--disabled" aria-disabled="true" />
+          )
+        }
+      </nav>
+    </main>
+  </div>
+</BaseLayout>

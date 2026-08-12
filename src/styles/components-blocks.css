@@ -1,0 +1,144 @@
+/* ============================================================================
+ * components-blocks.css — 阅读页区块：高亮块 / 提示词卡 / 复制 / 折叠 / 前后导航
+ * 依赖 tokens.css。仅组件内局部可用 #fff / #000。
+ * ==========================================================================*/
+
+/* ---------- 高亮块 Callout ---------- */
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  background: var(--surface-warm);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  margin: var(--space-6) 0;
+}
+.callout__icon { color: var(--accent); flex: none; margin-top: 2px; display: inline-flex; }
+.callout__title { font-weight: var(--weight-emphasize); margin: 0 0 var(--space-1); }
+.callout__content > :last-child { margin-bottom: 0; }
+.callout--warn { border-left-color: var(--warn); }
+.callout--warn .callout__icon { color: var(--warn); }
+.callout--danger { border-left-color: var(--danger); }
+.callout--danger .callout__icon { color: var(--danger); }
+
+/* 术语卡（info）跟随模块色，做色块区分；非课程上下文回退 accent */
+.callout--info { border-left-color: var(--mod, var(--accent)); }
+.callout--info .callout__icon { color: var(--mod, var(--accent)); }
+.callout--info .callout__title { color: var(--mod-ink, var(--accent)); }
+
+/* ---------- 提示词模板卡 ---------- */
+.prompt-card {
+  position: relative;
+  background: var(--surface-warm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin: var(--space-6) 0;
+  overflow: hidden;
+}
+.prompt-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.prompt-card__title {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-emphasize);
+  color: var(--fg-2);
+}
+.prompt-card__code {
+  margin: 0;
+  padding: var(--space-4);
+  overflow-x: auto;
+  font-family: var(--font-family-mono);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--fg);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.prompt-card__code code { background: none; padding: 0; font-family: inherit; }
+
+/* ---------- 复制按钮 ---------- */
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: var(--text-sm);
+  font-family: var(--font-family-body);
+  cursor: pointer;
+  min-height: 40px;
+  transition: border-color var(--motion-fast) var(--motion-ease),
+              color var(--motion-fast) var(--motion-ease);
+}
+.copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+.copy-btn__icon { display: inline-flex; width: 16px; height: 16px; }
+.copy-btn.is-copied { border-color: var(--accent); color: var(--accent); }
+
+/* ---------- 折叠块 Collapse（details/summary，零 JS） ---------- */
+.collapse {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin: var(--space-6) 0;
+  background: var(--surface);
+  overflow: hidden;
+}
+.collapse__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  cursor: pointer;
+  font-weight: var(--weight-emphasize);
+  list-style: none;
+  min-height: 44px;
+}
+.collapse__summary::-webkit-details-marker { display: none; }
+.collapse__chevron {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
+  flex: none;
+  transition: transform var(--motion-fast) var(--motion-ease);
+}
+.collapse[open] .collapse__chevron { transform: rotate(180deg); }
+.collapse__content { padding: 0 var(--space-5) var(--space-5); }
+.collapse__content > :last-child { margin-bottom: 0; }
+
+/* ---------- 章节前后导航 ---------- */
+.lesson__pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-16);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--border);
+  max-width: var(--container-read);
+  margin-inline: auto;
+}
+.pager__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--fg);
+  min-height: 44px;
+  transition: border-color var(--motion-fast) var(--motion-ease);
+}
+.pager__link:hover { border-color: var(--accent); text-decoration: none; }
+.pager__link--next { justify-content: flex-end; text-align: right; }
+.pager__dir { display: block; font-size: var(--text-xs); color: var(--meta); }
+.pager__title { display: block; font-weight: var(--weight-emphasize); font-size: var(--text-sm); }
+.pager__link--disabled { visibility: hidden; }

@@ -1,0 +1,27 @@
+---
+// Toc.astro — 章节目录（当前讲高亮由全局 scrollspy 脚本驱动）
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+  headings: MarkdownHeading[];
+  title?: string;
+}
+
+const { headings, title } = Astro.props;
+const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+<nav class="toc" aria-label="本页目录">
+  {title && <p class="toc__title">{title}</p>}
+  <ul class="toc__list">
+    {
+      items.map((h) => (
+        <li class={`toc__item toc__item--d${h.depth}`}>
+          <a class="toc__link" href={`#${h.slug}`} data-toc-link={h.slug}>
+            {h.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

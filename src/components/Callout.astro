@@ -1,0 +1,22 @@
+---
+// Callout.astro — 高亮块（surface-warm + 左侧 accent 细线）
+import Icon from './Icon.astro';
+
+interface Props {
+  type?: 'info' | 'tip' | 'warn' | 'danger';
+  title?: string;
+}
+
+const { type = 'info', title } = Astro.props;
+
+const iconMap = { info: 'info', tip: 'lightbulb', warn: 'alert-triangle', danger: 'alert-triangle' } as const;
+const labelMap = { info: '说明', tip: '提示', warn: '注意', danger: '警告' } as const;
+---
+
+<aside class={`callout callout--${type}`} role="note">
+  <span class="callout__icon"><Icon name={iconMap[type]} size={20} /></span>
+  <div class="callout__body">
+    {title && <p class="callout__title">{title}</p>}
+    <div class="callout__content"><slot /></div>
+  </div>
+</aside>

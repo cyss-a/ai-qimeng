@@ -1,0 +1,281 @@
+/* ============================================================================
+ * components-lesson.css — 阅读页：三栏布局 / 目录 / 宋体阅读排版
+ * 依赖 tokens.css。仅组件内局部可用 #fff / #000。
+ * ==========================================================================*/
+
+/* ---------- 阅读页：三栏（左 TOC + 中阅读栏） ---------- */
+.lesson {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: 0 24px var(--section-y-desktop);
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+.lesson__toc--desktop {
+  position: sticky;
+  top: 72px;
+  align-self: start;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+}
+.lesson__main { min-width: 0; }
+
+.lesson__eyebrow {
+  color: var(--accent);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-emphasize);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  margin: 0 0 var(--space-2);
+}
+.lesson__title {
+  font-family: var(--font-family-display);
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  font-weight: var(--weight-announce);
+  margin: 0 0 var(--space-3);
+}
+.lesson__meta {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  margin: 0 0 var(--space-8);
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  align-items: center;
+}
+.lesson__dot { color: var(--meta); }
+
+/* ---------- 目录 TOC ---------- */
+.toc__title {
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--meta);
+  margin: 0 0 var(--space-3);
+}
+.toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--border);
+}
+.toc__item--d3 .toc__link { padding-left: var(--space-8); }
+.toc__link {
+  display: block;
+  padding: 6px var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--muted);
+  border-left: 2px solid transparent;
+  margin-left: -1px;
+  line-height: 1.5;
+  transition: color var(--motion-fast) var(--motion-ease);
+}
+.toc__link:hover { color: var(--fg); text-decoration: none; }
+.toc__link.is-active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  font-weight: var(--weight-emphasize);
+}
+
+/* ---------- 阅读正文排版（宋体 17px / 行高 1.85 / 栏宽 720） ---------- */
+.reader {
+  font-family: var(--font-family-read);
+  font-size: var(--text-read);
+  line-height: var(--leading-read);
+  letter-spacing: var(--tracking-read);
+  color: var(--fg);
+  max-width: var(--container-read);
+  margin-inline: auto;
+}
+.reader > :first-child { margin-top: 0; }
+.reader h2 {
+  font-family: var(--font-family-display);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  font-weight: var(--weight-announce);
+  margin: var(--space-12) 0 var(--space-4);
+  scroll-margin-top: 88px;
+}
+.reader h3 {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-emphasize);
+  margin: var(--space-8) 0 var(--space-3);
+  scroll-margin-top: 88px;
+}
+.reader p { margin: 0 0 var(--space-5); text-align: left; }
+.reader ul, .reader ol { margin: 0 0 var(--space-5); padding-left: 1.4em; }
+.reader li { margin-bottom: var(--space-2); }
+.reader strong { font-weight: var(--weight-emphasize); }
+.reader a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.reader blockquote {
+  margin: var(--space-6) 0;
+  padding: var(--space-1) 0 var(--space-1) var(--space-5);
+  border-left: 3px solid var(--accent);
+  color: var(--fg-2);
+}
+.reader blockquote p:last-child { margin-bottom: 0; }
+.reader code {
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+  background: var(--surface-warm);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+.reader pre {
+  background: var(--surface-warm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  overflow-x: auto;
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+.reader pre code { background: none; padding: 0; font-size: inherit; }
+.reader img {
+  border-radius: var(--radius-md);
+  margin: var(--space-6) 0;
+  border: 1px solid var(--border);
+}
+.reader figure { margin: var(--space-6) 0; }
+.reader figcaption {
+  font-size: var(--text-sm);
+  color: var(--meta);
+  text-align: center;
+  margin-top: var(--space-2);
+}
+.reader hr { border: none; border-top: 1px solid var(--border); margin: var(--space-10) 0; }
+.reader table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-6) 0;
+  font-size: var(--text-sm);
+  font-family: var(--font-family-body);
+}
+.reader th, .reader td {
+  border: 1px solid var(--border);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+}
+.reader th { background: var(--surface-warm); font-weight: var(--weight-emphasize); }
+
+/* ---------- 模块色映射（课程页跟随当前模块） ---------- */
+.lesson[data-mod="M1"] { --mod: var(--m1); --mod-ink: var(--m1-ink); --mod-bg: var(--m1-bg); }
+.lesson[data-mod="M2"] { --mod: var(--m2); --mod-ink: var(--m2-ink); --mod-bg: var(--m2-bg); }
+.lesson[data-mod="M3"] { --mod: var(--m3); --mod-ink: var(--m3-ink); --mod-bg: var(--m3-bg); }
+.lesson[data-mod="M4"] { --mod: var(--m4); --mod-ink: var(--m4-ink); --mod-bg: var(--m4-bg); }
+.lesson[data-mod="M5"] { --mod: var(--m5); --mod-ink: var(--m5-ink); --mod-bg: var(--m5-bg); }
+.lesson[data-mod="M6"] { --mod: var(--m6); --mod-ink: var(--m6-ink); --mod-bg: var(--m6-bg); }
+.lesson[data-mod="M7"] { --mod: var(--m7); --mod-ink: var(--m7-ink); --mod-bg: var(--m7-bg); }
+
+/* 课程 eyebrow → 彩色胶囊（视觉冲击 + 色块） */
+.lesson__eyebrow {
+  display: inline-block;
+  background: var(--mod-bg);
+  color: var(--mod-ink);
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+}
+
+/* 目录 TOC → 模块色（彩色边栏） */
+.toc__title { color: var(--mod-ink); }
+.toc__link.is-active {
+  color: var(--mod);
+  border-left-color: var(--mod);
+}
+
+/* 阅读正文 h2 → 色块分区（左色条 + 浅底，强视觉分区） */
+.reader h2 {
+  border-left: 4px solid var(--mod);
+  background: var(--mod-bg);
+  padding: var(--space-3) var(--space-5);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  scroll-margin-top: 88px;
+}
+/* 正文引用 → 模块色边条 */
+.reader blockquote { border-left-color: var(--mod); }
+/* 思维导图容器（干净清爽：白底、细边框、轻微阴影、无重色块） */
+.mindmap {
+  margin: var(--space-8) 0;
+  padding: var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-raised);
+}
+.mindmap svg { width: 100%; height: auto; display: block; }
+
+/* ---------- M7 AI 日报：双列卡片网格 ---------- */
+.daily-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-6) 0 var(--space-8);
+}
+.daily-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-raised);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: transform var(--motion-fast) var(--motion-ease),
+              box-shadow var(--motion-fast) var(--motion-ease);
+}
+.daily-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.daily-card__title {
+  font-family: var(--font-family-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-emphasize);
+  line-height: var(--leading-tight);
+  margin: 0;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border-soft);
+}
+.daily-card__summary {
+  font-size: var(--text-base);
+  color: var(--fg-2);
+  line-height: var(--leading-body);
+  margin: 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.daily-card__link {
+  align-self: flex-start;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-emphasize);
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.daily-card__link:hover { color: var(--accent-hover); }
+.daily-card__link--disabled {
+  color: var(--muted);
+  text-decoration: none;
+  cursor: default;
+}
+@media (max-width: 720px) {
+  .daily-grid { grid-template-columns: 1fr; }
+  .daily-card__title { font-size: var(--text-base); }
+}
+
+/* 课程页 reader 里的 inline HTML 组件：重置 article 默认边距 */
+.reader .daily-card * { margin: 0; padding: 0; }

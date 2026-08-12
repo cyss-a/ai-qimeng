@@ -1,0 +1,68 @@
+name: Deploy (build + daily news + Pages)
+
+# 触发：推送到 main / 每日定时（北京时间 09:00）/ 手动
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write      # 定时任务要把新生成的新闻 md 提交回仓库
+  pages: write
+  id-token: write
+
+# 避免并发部署互相覆盖
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # 仅定时触发时拉取当日 AI 新闻（中文 RSS），生成 m7 日报
+      - name: Fetch daily AI news (schedule only)
+        if: github.event_name == 'schedule'
+        run: python scripts/fetch-news.py
+
+      # 把生成的日报提交回仓库（[skip ci] 避免再次触发本工作流）
+      - name: Commit news back
+        if: github.event_name == 'schedule'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A src/content/lessons/m7
+          git diff --cached --quiet || git commit -m "chore: daily AI news $(date +%F) [skip ci]"
+          git push || echo "push skipped"
+
+      - run: npm ci
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,183 @@
+/* ============================================================================
+ * components-chrome.css — 站点级通用外壳：图标 / 容器 / 头部 / 主题 / 进度 / 按钮 / 移动抽屉
+ * 全部走 var(--token)。仅组件内局部可用 #fff / #000。
+ * ==========================================================================*/
+
+/* ---------- 图标尺寸类（design-tokens icon.*） ---------- */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.icon-16 { width: var(--icon-size-inline); height: var(--icon-size-inline); }
+.icon-20 { width: var(--icon-size-button); height: var(--icon-size-button); }
+.icon-24 { width: var(--icon-size-standalone); height: var(--icon-size-standalone); }
+
+/* ---------- 容器 ---------- */
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* ---------- 顶部阅读进度条 ---------- */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 50;
+  pointer-events: none;
+}
+.progress__bar {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width 80ms linear;
+}
+
+/* ---------- 主题切换 ---------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--fg);
+  cursor: pointer;
+  transition: border-color var(--motion-fast) var(--motion-ease);
+}
+.theme-toggle:hover { border-color: var(--accent); }
+.theme-toggle__icon { display: inline-flex; width: 20px; height: 20px; }
+.theme-toggle__icon--moon { display: none; }
+[data-theme="dark"] .theme-toggle__icon--moon { display: inline-flex; }
+[data-theme="dark"] .theme-toggle__icon--sun { display: none; }
+
+/* ---------- 站点头部 ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.site-header__inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+.site-header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--fg);
+  font-weight: var(--weight-emphasize);
+}
+.site-header__brand:hover { text-decoration: none; }
+.site-header__mark { width: 16px; height: 16px; border-radius: 4px; background: var(--accent); }
+.site-header__name {
+  font-family: var(--font-family-display);
+  font-size: var(--text-lg);
+  letter-spacing: var(--tracking-display);
+}
+.site-header__actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ---------- 按钮（CTA） ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 12px 22px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-base);
+  font-weight: var(--weight-emphasize);
+  font-family: var(--font-family-body);
+  cursor: pointer;
+  border: 1px solid transparent;
+  min-height: 44px;
+  transition: background-color var(--motion-fast) var(--motion-ease),
+              border-color var(--motion-fast) var(--motion-ease),
+              color var(--motion-fast) var(--motion-ease);
+}
+.btn:hover { text-decoration: none; }
+.btn-primary { background: var(--accent); color: var(--accent-on); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-secondary { background: transparent; border-color: var(--border); color: var(--fg); }
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+.btn__icon { display: inline-flex; width: 20px; height: 20px; }
+
+/* ---------- 移动端目录抽屉 ---------- */
+.mobile-nav { display: none; }
+.mobile-nav__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--fg);
+  font-size: var(--text-sm);
+  font-family: var(--font-family-body);
+  cursor: pointer;
+}
+.mobile-nav__drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(86vw, 320px);
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  z-index: 60;
+  transform: translateX(100%);
+  transition: transform var(--motion-base) var(--motion-ease);
+  overflow-y: auto;
+  padding: var(--space-5);
+}
+.mobile-nav__drawer.is-open { transform: translateX(0); }
+.mobile-nav__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-4);
+}
+.mobile-nav__title { font-weight: var(--weight-emphasize); }
+.mobile-nav__close {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: var(--fg);
+  cursor: pointer;
+}
+.mobile-nav__backdrop {
+  position: fixed;
+  inset: 0;
+  background: var(--scrim);
+  z-index: 55;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--motion-base) var(--motion-ease);
+}
+.mobile-nav__backdrop.is-open { opacity: 1; visibility: visible; }

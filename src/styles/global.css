@@ -1,0 +1,46 @@
+/* ============================================================================
+ * global.css — Tailwind v4 入口 + 设计 Token 映射
+ * - @import "tailwindcss"  加载 Tailwind v4（含 preflight）
+ * - @import tokens/components 加载本项目设计系统（来源 design-tokens.json）
+ * - @theme 将 design-tokens 映射为 Tailwind 工具类（颜色 / 字体 / 圆角）
+ *   所有颜色走 var(--*)，禁止硬编码（唯一例外 #fff / #000）。
+ * ==========================================================================*/
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./components-chrome.css";
+@import "./components-lesson.css";
+@import "./components-blocks.css";
+@import "./components-home.css";
+@import "./components-responsive.css";
+
+@theme {
+  /* 颜色（引用 tokens.css 中的 CSS 变量，运行时随主题切换） */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-warm: var(--surface-warm);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
+  --color-muted: var(--muted);
+  --color-meta: var(--meta);
+  --color-border: var(--border);
+  --color-border-soft: var(--border-soft);
+  --color-accent: var(--accent);
+  --color-accent-on: var(--accent-on);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-active: var(--accent-active);
+  --color-success: var(--success);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+
+  /* 字体 */
+  --font-display: var(--font-family-display);
+  --font-body: var(--font-family-body);
+  --font-read: var(--font-family-read);
+  --font-mono: var(--font-family-mono);
+
+  /* 圆角 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+}

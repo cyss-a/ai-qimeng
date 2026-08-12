@@ -1,0 +1,205 @@
+---
+// 课程首页：课程头（真实 meta）+ 真实课程目录（首讲高亮）+ 主/次 CTA
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { MODULES, getLessons, lessonHref, type ModuleId } from '../lib/course';
+
+const lessons = await getLessons();
+const first = lessons[0];
+const firstHref = lessonHref(first);
+const moduleOrder = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7'] as ModuleId[];
+
+const byModule: Record<string, typeof lessons> = {};
+for (const l of lessons) {
+  (byModule[l.data.module] ||= []).push(l);
+}
+
+const totalLessons = lessons.length;
+const publishedCount = lessons.filter((l) => l.data.status === 'published').length;
+const zsxqUrl = 'https://t.zsxq.com';
+---
+
+<BaseLayout
+  title="AI 新手启蒙 · 用对工具，每天省 2 小时"
+  description="写给从没用过 AI 的职场人：从对话到落地，12 讲带你把 AI 用成可靠的提效搭子。零基础也能一天跑通。"
+>
+  <!-- 课程头：直接呈现真实内容，不放空洞 Hero -->
+  <section class="hero">
+    <div class="hero__strip" aria-hidden="true">
+      <span style="--c: var(--m1)"></span>
+      <span style="--c: var(--m2)"></span>
+      <span style="--c: var(--m3)"></span>
+      <span style="--c: var(--m4)"></span>
+      <span style="--c: var(--m5)"></span>
+      <span style="--c: var(--m6)"></span>
+      <span style="--c: var(--m7)"></span>
+    </div>
+    <div class="hero__brand">
+      <span class="hero__mark" aria-hidden="true"></span>
+      <span class="hero__eyebrow">AI 启蒙 · 职场提效</span>
+    </div>
+
+    <h1 class="hero__title">AI 新手启蒙<br />用对工具，每天省 2 小时</h1>
+
+    <p class="hero__value">
+      写给从没用过 AI 的职场人：从对话到落地，12 讲带你把 AI 用成可靠的提效搭子。不用懂原理，照着做就能用上。
+    </p>
+
+    <div class="hero__cta">
+      <a class="btn btn-primary" href={firstHref}>
+        开始第一讲
+        <span class="btn__icon"><Icon name="arrow-right" size={20} /></span>
+      </a>
+      <a class="btn btn-secondary" href={zsxqUrl} target="_blank" rel="noopener noreferrer">
+        在知识星球继续阅读
+        <span class="btn__icon"><Icon name="external-link" size={20} /></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 小白 AI 工具汇总表：带直达链接、免费/需梯子标注 -->
+  <section class="tool-picker" aria-labelledby="tool-picker-title">
+    <div class="tool-picker__head">
+      <h2 id="tool-picker-title" class="tool-picker__title">小白 AI 工具汇总</h2>
+      <p class="tool-picker__sub">不知道自己该用哪个？按你想做的事直接选，点工具名就能跳转。</p>
+    </div>
+    <div class="tool-picker__table-wrap">
+      <table class="tool-picker__table">
+        <thead>
+          <tr>
+            <th scope="col">如果你常……</th>
+            <th scope="col">优先试</th>
+            <th scope="col">代表工具</th>
+            <th scope="col">费用 / 网络</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>写邮件、改话术、想文案</td>
+            <td><span class="tool-picker__tag">通用聊天助手</span></td>
+            <td>
+              <a class="tool-picker__link" href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer">DeepSeek</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://kimi.moonshot.cn/" target="_blank" rel="noopener noreferrer">Kimi</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://tongyi.aliyun.com/" target="_blank" rel="noopener noreferrer">通义千问</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://chat.openai.com/" target="_blank" rel="noopener noreferrer">ChatGPT</a>
+            </td>
+            <td><span class="tool-badge tool-badge--free">免费</span><span class="tool-picker__sep">·</span><span class="tool-badge tool-badge--vpn">ChatGPT 需梯子</span></td>
+          </tr>
+          <tr>
+            <td>在 Excel / WPS 里算数、做表</td>
+            <td><span class="tool-picker__tag">办公套件 AI</span></td>
+            <td>
+              <a class="tool-picker__link" href="https://www.wps.cn/" target="_blank" rel="noopener noreferrer">WPS AI</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://www.feishu.cn/product/base" target="_blank" rel="noopener noreferrer">飞书多维表格</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://www.microsoft.com/copilot/" target="_blank" rel="noopener noreferrer">Microsoft Copilot</a>
+            </td>
+            <td><span class="tool-badge tool-badge--free">免费基础版</span><span class="tool-picker__sep">·</span><span class="tool-badge tool-badge--vpn">Copilot 需梯子</span></td>
+          </tr>
+          <tr>
+            <td>做汇报 PPT</td>
+            <td><span class="tool-picker__tag">PPT / 演示</span></td>
+            <td>
+              <a class="tool-picker__link" href="https://gamma.app/" target="_blank" rel="noopener noreferrer">Gamma</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://www.designkit.com/ppt/" target="_blank" rel="noopener noreferrer">美图 AI PPT</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://www.wps.cn/" target="_blank" rel="noopener noreferrer">WPS AI</a>
+            </td>
+            <td><span class="tool-badge tool-badge--free">部分免费</span><span class="tool-picker__sep">·</span><span class="tool-badge tool-badge--vpn">Gamma 需梯子</span></td>
+          </tr>
+          <tr>
+            <td>要做海报、配图</td>
+            <td><span class="tool-picker__tag">绘图 / 设计</span></td>
+            <td>
+              <a class="tool-picker__link" href="https://tongyi.aliyun.com/wanxiang/" target="_blank" rel="noopener noreferrer">通义万相</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://www.canva.cn/" target="_blank" rel="noopener noreferrer">Canva</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://www.midjourney.com/" target="_blank" rel="noopener noreferrer">Midjourney</a>
+            </td>
+            <td><span class="tool-badge tool-badge--free">前两者免费</span><span class="tool-picker__sep">·</span><span class="tool-badge tool-badge--vpn">Midjourney 需梯子</span></td>
+          </tr>
+          <tr>
+            <td>整理资料、做笔记、搜信息</td>
+            <td><span class="tool-picker__tag">知识库 / 搜索</span></td>
+            <td>
+              <a class="tool-picker__link" href="https://www.ima.qq.com/" target="_blank" rel="noopener noreferrer">ima</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://www.notion.so/" target="_blank" rel="noopener noreferrer">Notion</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">Perplexity</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://www.feishu.cn/product/minutes" target="_blank" rel="noopener noreferrer">飞书妙记</a>
+            </td>
+            <td><span class="tool-badge tool-badge--free">基础免费</span><span class="tool-picker__sep">·</span><span class="tool-badge tool-badge--vpn">Notion/Perplexity 需梯子</span></td>
+          </tr>
+          <tr>
+            <td>写代码、Debug、看报错</td>
+            <td><span class="tool-picker__tag">AI 编程助手</span></td>
+            <td>
+              <a class="tool-picker__link" href="https://www.marscode.cn/" target="_blank" rel="noopener noreferrer">豆包 MarsCode</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://tongyi.aliyun.com/lingma/" target="_blank" rel="noopener noreferrer">通义灵码</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://cursor.sh/" target="_blank" rel="noopener noreferrer">Cursor</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">GitHub Copilot</a>
+            </td>
+            <td><span class="tool-badge tool-badge--free">国产免费</span><span class="tool-picker__sep">·</span><span class="tool-badge tool-badge--vpn">Cursor/Copilot 需梯子</span></td>
+          </tr>
+          <tr>
+            <td>做数据分析、建表、写 SQL</td>
+            <td><span class="tool-picker__tag">数据库 / BI</span></td>
+            <td>
+              <a class="tool-picker__link" href="https://docs.qq.com/sheet/" target="_blank" rel="noopener noreferrer">腾讯文档智能表</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://www.feishu.cn/product/base" target="_blank" rel="noopener noreferrer">飞书多维表格</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://sqlitebrowser.org/" target="_blank" rel="noopener noreferrer">DB Browser for SQLite</a>
+            </td>
+            <td><span class="tool-badge tool-badge--free">全部免费</span><span class="tool-picker__sep">·</span><span class="tool-badge tool-badge--vpn">无需梯子</span></td>
+          </tr>
+          <tr>
+            <td>搭个人工作台、让 AI 帮我协作</td>
+            <td><span class="tool-picker__tag">AI 工作台</span></td>
+            <td>
+              <a class="tool-picker__link" href="https://www.workbuddy.cn/" target="_blank" rel="noopener noreferrer">WorkBuddy</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://www.coze.cn/" target="_blank" rel="noopener noreferrer">扣子 Coze</a><span class="tool-picker__sep">·</span>
+              <a class="tool-picker__link" href="https://dify.ai/zh" target="_blank" rel="noopener noreferrer">Dify</a>
+            </td>
+            <td><span class="tool-badge tool-badge--free">均有免费额度</span><span class="tool-picker__sep">·</span><span class="tool-badge tool-badge--vpn">Dify 需梯子</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 真实课程目录 -->
+  <section class="catalog" aria-label="课程目录">
+    <p class="catalog__title">课程目录</p>
+
+    {
+      moduleOrder.map((mid) => {
+        const items = byModule[mid] || [];
+        if (!items.length) return null;
+        const mod = MODULES[mid];
+        return (
+          <div class="catalog__module" data-mod={mid}>
+            <div class="catalog__module-head">
+              <span class="catalog__module-tag">{mid}</span>
+              <h2 class="catalog__module-name">{mod.title}</h2>
+              <p class="catalog__module-sub">{mod.subtitle}</p>
+            </div>
+            <ul class="catalog__list">
+              {items.map((l) => (
+                <li>
+                  <a
+                    href={lessonHref(l)}
+                    class={`catalog__item ${l.id === first.id ? 'is-current' : ''} ${l.data.status === 'draft' ? 'is-draft' : ''}`}
+                  >
+                    <span class="catalog__item-order">第 {l.data.order} 讲</span>
+                    <span class="catalog__item-title">{l.data.title}</span>
+                    {l.data.status === 'draft' && <span class="catalog__item-badge">编写中</span>}
+                    <span class="catalog__item-arrow"><Icon name="chevron-right" size={16} /></span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })
+    }
+
+    <p class="catalog__foot">
+      共 {totalLessons} 讲 · 已全部上线 · 后续会根据你的反馈持续增补
+    </p>
+  </section>
+</BaseLayout>

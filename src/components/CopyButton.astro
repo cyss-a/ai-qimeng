@@ -1,0 +1,23 @@
+---
+// CopyButton.astro — 一键复制（全局脚本接管 click；剪贴板 + execCommand 兜底）
+// text 可选：传入则复制该文本；否则复制同级 .prompt-card__code 的代码块内容。
+import Icon from './Icon.astro';
+
+interface Props {
+  text?: string;
+  label?: string;
+  class?: string;
+}
+
+const { text = '', label = '复制', class: cls = '' } = Astro.props;
+---
+
+<button
+  type="button"
+  class={`copy-btn ${cls}`}
+  data-copy-text={text}
+  aria-label={label}
+>
+  <span class="copy-btn__icon"><Icon name="copy" size={16} /></span>
+  <span class="copy-btn__label">{label}</span>
+</button>

@@ -1,0 +1,37 @@
+---
+// Icon.astro — 内联 Lucide SVG（零运行时 JS）
+// 机制：import.meta.glob 在构建期将 src/icons/*.svg 内联为字符串并 tree-shake。
+// 缺失图标 fail-fast（构建即报错），杜绝幻觉图标 / emoji。
+interface Props {
+  name: string;
+  size?: 16 | 20 | 24;
+  class?: string;
+  title?: string;
+}
+
+const { name, size = 20, class: cls = '', title } = Astro.props;
+
+// 构建期收集所有图标源文件（?raw → 字符串）
+const modules = import.meta.glob('../icons/*.svg', { query: '?raw', eager: true }) as Record<
+  string,
+  { default: string } | string
+>;
+
+const iconMap: Record<string, string> = {};
+for (const [path, mod] of Object.entries(modules)) {
+  const fileName = path.split('/').pop() ?? '';
+  const iconName = fileName.replace(/\.svg$/, '');
+  iconMap[iconName] = typeof mod === 'string' ? mod : (mod.default ?? '');
+}
+
+if (!iconMap[name]) {
+  throw new Error(
+    `[Icon] 未知图标 "${name}"。请在 src/icons/ 提交对应的 Lucide SVG（从 lucide-static 复制），不要使用 emoji 或第二套图标库。`
+  );
+}
+
+const sizeClass = size === 16 ? 'icon-16' : size === 24 ? 'icon-24' : 'icon-20';
+const svg = iconMap[name];
+---
+
+<span class={`icon ${sizeClass} ${cls}`} data-icon set:html={svg} role={title ? 'img' : undefined} aria-label={title} aria-hidden={title ? undefined : 'true'}></span>

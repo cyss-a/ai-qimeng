@@ -1,0 +1,19 @@
+---
+// Collapse.astro — 折叠块（原生 details/summary，零 JS）
+import Icon from './Icon.astro';
+
+interface Props {
+  title: string;
+  open?: boolean;
+}
+
+const { title, open = false } = Astro.props;
+---
+
+<details class="collapse" {...(open ? { open: true } : {})}>
+  <summary class="collapse__summary">
+    <span class="collapse__title">{title}</span>
+    <span class="collapse__chevron"><Icon name="chevron-down" size={16} /></span>
+  </summary>
+  <div class="collapse__content"><slot /></div>
+</details>

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "AI 新手启蒙课程 · 轻量级静态图文课程站 — Design Token（四层体系 A1/A2/B-slot/C-extension）。所有颜色/间距/圆角/动效必须通过 Token 引用，禁止硬编码（唯一例外 #fff/#000 在组件内局部使用）。图标库锁定 Lucide，尺寸 16/20/24px，禁止 emoji。",
+  "theme": {
+    "light": {
+      "color": {
+        "bg":          { "value": "#FBFBFD", "type": "color", "role": "A1-identity", "note": "近白、极淡冷调，非奶油米色（规避 AI 模板暖中性 cliché）" },
+        "surface":     { "value": "#FFFFFF", "type": "color", "role": "A1-identity" },
+        "surface-warm":{ "value": "#F3F5F7", "type": "color", "role": "B-slot", "note": "高亮块/引用块背景" },
+        "fg":          { "value": "#1A1C20", "type": "color", "role": "A1-identity", "note": "近黑，非纯 #000" },
+        "fg-2":        { "value": "#3A3D44", "type": "color", "role": "B-slot", "note": "次级文本" },
+        "muted":       { "value": "#6B6E76", "type": "color", "role": "A1-identity", "note": "副文本/说明" },
+        "meta":        { "value": "#9A9DA4", "type": "color", "role": "B-slot", "note": "三级前景/元数据" },
+        "border":      { "value": "#E6E8EC", "type": "color", "role": "A1-identity" },
+        "border-soft": { "value": "#F0F1F4", "type": "color", "role": "B-slot" },
+        "accent":      { "value": "#0D9488", "type": "color", "role": "A1-identity", "note": "唯一强调色（青绿/Teal），克制、可信、成长感；非 #6366f1 默认靛蓝、非紫粉渐变" },
+        "accent-on":   { "value": "#FFFFFF", "type": "color", "role": "A2" },
+        "accent-hover":{ "value": "#0F766E", "type": "color", "role": "A2" },
+        "accent-active":{ "value": "#115E59", "type": "color", "role": "A2" },
+        "success":     { "value": "#16A34A", "type": "color", "role": "A2" },
+        "warn":        { "value": "#D97706", "type": "color", "role": "A2" },
+        "danger":      { "value": "#DC2626", "type": "color", "role": "A2" }
+      }
+    },
+    "dark": {
+      "color": {
+        "bg":          { "value": "#0E1116", "type": "color", "role": "A1-identity" },
+        "surface":     { "value": "#161A21", "type": "color", "role": "A1-identity" },
+        "surface-warm":{ "value": "#1E232B", "type": "color", "role": "B-slot" },
+        "fg":          { "value": "#E6E9EF", "type": "color", "role": "A1-identity" },
+        "fg-2":        { "value": "#B8BDC7", "type": "color", "role": "B-slot" },
+        "muted":       { "value": "#8A909C", "type": "color", "role": "A1-identity" },
+        "meta":        { "value": "#5C626D", "type": "color", "role": "B-slot" },
+        "border":      { "value": "#262C35", "type": "color", "role": "A1-identity" },
+        "border-soft": { "value": "rgba(255,255,255,0.06)", "type": "color", "role": "B-slot" },
+        "accent":      { "value": "#2DD4BF", "type": "color", "role": "A1-identity", "note": "暗色下提亮以保证对比度" },
+        "accent-on":   { "value": "#06231F", "type": "color", "role": "A2", "note": "亮青绿底用深字" },
+        "accent-hover":{ "value": "#14B8A6", "type": "color", "role": "A2" },
+        "accent-active":{ "value": "#0D9488", "type": "color", "role": "A2" },
+        "success":     { "value": "#34D399", "type": "color", "role": "A2" },
+        "warn":        { "value": "#FBBF24", "type": "color", "role": "A2" },
+        "danger":      { "value": "#F87171", "type": "color", "role": "A2" }
+      }
+    }
+  },
+  "font": {
+    "family": {
+      "display": { "value": "\"Noto Serif SC\", \"Source Serif 4\", Georgia, serif", "type": "fontFamily", "note": "标题/引文 — 编辑感、长文阅读舒适度" },
+      "body":    { "value": "\"Noto Sans SC\", \"Inter\", system-ui, sans-serif", "type": "fontFamily", "note": "UI 框架、导航、标签、说明" },
+      "read":    { "value": "\"Noto Serif SC\", \"Noto Sans SC\", Georgia, serif", "type": "fontFamily", "note": "长文正文 — 宋体提升中文长文阅读舒适度（得到/微信读书范式）" },
+      "mono":    { "value": "\"JetBrains Mono\", \"Fira Code\", monospace", "type": "fontFamily", "note": "代码/AI 提示词块" }
+    },
+    "size": {
+      "xs":   { "value": "12px", "type": "dimension" },
+      "sm":   { "value": "14px", "type": "dimension" },
+      "base": { "value": "16px", "type": "dimension", "note": "UI 文本基准" },
+      "read": { "value": "17px", "type": "dimension", "note": "C-extension：长文正文专用（阅读舒适度）" },
+      "lg":   { "value": "18px", "type": "dimension" },
+      "xl":   { "value": "20px", "type": "dimension" },
+      "2xl":  { "value": "24px", "type": "dimension" },
+      "3xl":  { "value": "32px", "type": "dimension" },
+      "4xl":  { "value": "40px", "type": "dimension" }
+    },
+    "leading": {
+      "body":  { "value": "1.7",  "type": "number" },
+      "read":  { "value": "1.85", "type": "number", "note": "中文正文行高，高于西文 1.5" },
+      "tight": { "value": "1.2",  "type": "number" }
+    },
+    "tracking": {
+      "display": { "value": "-0.01em", "type": "dimension", "note": "标题负字距" },
+      "caps":    { "value": "0.08em",  "type": "dimension", "note": "ALL CAPS 拉丁标签" },
+      "read":    { "value": "0.02em",  "type": "dimension", "note": "中文正文微开字距，提升可读性" }
+    },
+    "weight": {
+      "read":     { "value": "400", "type": "number" },
+      "emphasize":{ "value": "510", "type": "number" },
+      "announce": { "value": "590", "type": "number" }
+    }
+  },
+  "radius": {
+    "sm":   { "value": "8px",  "type": "dimension" },
+    "md":   { "value": "12px", "type": "dimension" },
+    "lg":   { "value": "16px", "type": "dimension" },
+    "pill": { "value": "9999px", "type": "dimension" }
+  },
+  "space": {
+    "1": { "value": "4px",  "type": "dimension" },
+    "2": { "value": "8px",  "type": "dimension" },
+    "3": { "value": "12px", "type": "dimension" },
+    "4": { "value": "16px", "type": "dimension" },
+    "5": { "value": "20px", "type": "dimension" },
+    "6": { "value": "24px", "type": "dimension" },
+    "8": { "value": "32px", "type": "dimension" },
+    "10":{ "value": "40px", "type": "dimension" },
+    "12":{ "value": "48px", "type": "dimension" },
+    "16":{ "value": "64px", "type": "dimension" },
+    "20":{ "value": "80px", "type": "dimension" }
+  },
+  "shadow": {
+    "flat":   { "value": "none", "type": "boxShadow" },
+    "ring":   { "value": "0 0 0 1px var(--border)", "type": "boxShadow" },
+    "raised": { "value": "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06)", "type": "boxShadow" }
+  },
+  "focus": {
+    "ring": { "value": "0 0 0 3px rgba(13,148,136,0.30)", "type": "boxShadow", "note": "light；dark 用 rgba(45,212,191,0.35)" }
+  },
+  "motion": {
+    "fast":  { "value": "150ms", "type": "duration" },
+    "base":  { "value": "200ms", "type": "duration" },
+    "ease":  { "value": "cubic-bezier(0.2, 0, 0, 1)", "type": "cubicBezier" }
+  },
+  "layout": {
+    "container-max": { "value": "1080px", "type": "dimension", "note": "整体容器" },
+    "container-read":{ "value": "720px",  "type": "dimension", "note": "长文阅读栏宽（约 38-42 汉字/行）" },
+    "section-y-desktop": { "value": "80px", "type": "dimension" },
+    "section-y-tablet":  { "value": "48px", "type": "dimension" },
+    "section-y-phone":   { "value": "32px", "type": "dimension" }
+  },
+  "icon": {
+    "library": { "value": "lucide", "type": "string", "note": "锁定 Lucide；与架构师技术栈保持一致（备选 Tabler）" },
+    "size-inline": { "value": "16px", "type": "dimension", "note": "行内/列表标记" },
+    "size-button": { "value": "20px", "type": "dimension", "note": "按钮内" },
+    "size-standalone":{ "value": "24px", "type": "dimension", "note": "独立图标/空状态/章节标记" },
+    "stroke": { "value": "1.75", "type": "number", "note": "描边宽度；由全局 CSS [data-icon]{stroke-width:1.75} 统一覆盖 Lucide 默认 2px，勿逐处手改" },
+    "emoji": { "value": "false", "type": "boolean", "note": "禁止 emoji 作为功能图标" }
+  }
+}

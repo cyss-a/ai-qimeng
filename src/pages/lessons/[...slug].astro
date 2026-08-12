@@ -1,0 +1,42 @@
+---
+// 阅读页：GET /lessons/[...slug]
+// 从内容集合渲染单篇图文课，左目录 + 中阅读栏 + 前后导航。
+import { render } from 'astro:content';
+import LessonLayout from '../../layouts/LessonLayout.astro';
+import { MODULES, getLessons, lessonHref } from '../../lib/course';
+
+export async function getStaticPaths() {
+  const lessons = await getLessons();
+  return lessons.map((entry, i) => {
+    const prev = lessons[i - 1];
+    const next = lessons[i + 1];
+    return {
+      params: { slug: entry.id },
+      props: {
+        entry,
+        prev: prev ? { slug: lessonHref(prev), title: prev.data.title } : undefined,
+        next: next ? { slug: lessonHref(next), title: next.data.title } : undefined,
+      },
+    };
+  });
+}
+
+const { entry, prev, next } = Astro.props;
+const { Content, headings } = await render(entry);
+const m = MODULES[entry.data.module];
+const lessonLabel = `第 ${entry.data.order} 讲`;
+---
+
+<LessonLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  module={entry.data.module}
+  moduleTitle={m.title}
+  lessonLabel={lessonLabel}
+  headings={headings}
+  duration={entry.data.duration}
+  prev={prev}
+  next={next}
+>
+  <Content />
+</LessonLayout>

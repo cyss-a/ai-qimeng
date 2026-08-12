@@ -1,0 +1,217 @@
+---
+// BaseLayout.astro — HTML 骨架、字体加载、Token CSS、主题脚本挂载
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = '写给从没用过 AI 的职场人的启蒙图文课：从对话到落地，把 AI 用成可靠的提效搭子。' } = Astro.props;
+const siteName = 'AI 新手启蒙';
+const pageTitle = title === siteName ? title : `${title} · ${siteName}`;
+---
+
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" id="theme-color" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- 字体：font-display: swap + 系统字体兜底（防 CLS，中文体积大先保证首屏可见） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+
+    <!-- 主题前置脚本：在首屏绘制前设定 data-theme，避免深浅色闪烁 -->
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t !== 'light' && t !== 'dark') t = 'light';
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+        // 主题色跟随 design token（meta 不支持 CSS 变量，运行时从 --accent 读取）
+        try {
+          var tc = document.getElementById('theme-color');
+          if (tc) {
+            var accent = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+            if (accent) tc.setAttribute('content', accent.trim());
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+
+    <!-- 渐进增强脚本：主题 / 复制 / 目录高亮 / 阅读进度 / 移动端抽屉。禁用 JS 仍可阅读。 -->
+    <script>
+      (function () {
+        'use strict';
+
+        // ---------- 复制文本（剪贴板 API + execCommand 兜底，Promise 必处理） ----------
+        function fallbackCopy(text) {
+          try {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.top = '-9999px';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            var ok = document.execCommand('copy');
+            document.body.removeChild(ta);
+            return ok;
+          } catch (e) {
+            return false;
+          }
+        }
+        function copyText(text) {
+          if (navigator.clipboard && window.isSecureContext) {
+            return navigator.clipboard
+              .writeText(text)
+              .then(function () { return true; })
+              .catch(function () { return fallbackCopy(text); });
+          }
+          return Promise.resolve(fallbackCopy(text));
+        }
+
+        // ---------- 复制按钮（事件委托） ----------
+        document.addEventListener('click', function (e) {
+          var btn = e.target.closest('.copy-btn');
+          if (!btn) return;
+          e.preventDefault();
+          var text = btn.getAttribute('data-copy-text') || '';
+          if (!text) {
+            var card = btn.closest('.prompt-card');
+            var code = card && card.querySelector('.prompt-card__code');
+            if (code) text = (code.textContent || '').trim();
+          }
+          var label = btn.querySelector('.copy-btn__label');
+          var original = label ? label.textContent : '复制';
+          copyText(text).then(function (ok) {
+            btn.classList.add('is-copied');
+            if (label) label.textContent = ok ? '已复制' : '复制失败';
+            setTimeout(function () {
+              btn.classList.remove('is-copied');
+              if (label) label.textContent = original;
+            }, 2000);
+          });
+        });
+
+        // ---------- 主题切换 ----------
+        var toggle = document.getElementById('theme-toggle');
+        if (toggle) {
+          var sync = function () {
+            toggle.setAttribute(
+              'aria-pressed',
+              document.documentElement.getAttribute('data-theme') === 'dark' ? 'true' : 'false'
+            );
+          };
+          sync();
+          toggle.addEventListener('click', function () {
+            var cur = document.documentElement.getAttribute('data-theme');
+            var next = cur === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (err) {}
+            sync();
+          });
+        }
+
+        // ---------- 目录高亮（scrollspy） ----------
+        var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc__link'));
+        if (tocLinks.length && 'IntersectionObserver' in window) {
+          var map = {};
+          tocLinks.forEach(function (l) {
+            var id = l.getAttribute('data-toc-link');
+            if (id) map[id] = l;
+          });
+          var headings = Object.keys(map)
+            .map(function (id) { return document.getElementById(id); })
+            .filter(Boolean);
+          if (headings.length) {
+            var obs = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    tocLinks.forEach(function (l) { l.classList.remove('is-active'); });
+                    var link = map[entry.target.id];
+                    if (link) link.classList.add('is-active');
+                  }
+                });
+              },
+              { rootMargin: '-72px 0px -70% 0px', threshold: 0 }
+            );
+            headings.forEach(function (h) { obs.observe(h); });
+          }
+        }
+
+        // ---------- 阅读进度条 ----------
+        var bar = document.getElementById('reading-progress');
+        if (bar) {
+          var ticking = false;
+          var update = function () {
+            var de = document.documentElement;
+            var max = de.scrollHeight - de.clientHeight;
+            var y = window.scrollY || de.scrollTop || 0;
+            var pct = max > 0 ? Math.min(100, Math.max(0, (y / max) * 100)) : 0;
+            bar.style.width = pct + '%';
+            if (bar.parentElement) bar.parentElement.setAttribute('aria-valuenow', String(Math.round(pct)));
+            ticking = false;
+          };
+          var onScroll = function () {
+            if (!ticking) {
+              ticking = true;
+              requestAnimationFrame(update);
+            }
+          };
+          window.addEventListener('scroll', onScroll, { passive: true });
+          window.addEventListener('resize', onScroll);
+          update();
+        }
+
+        // ---------- 移动端目录抽屉 ----------
+        var trigger = document.getElementById('mobile-nav-trigger');
+        var drawer = document.getElementById('mobile-nav-drawer');
+        var backdrop = document.getElementById('mobile-nav-backdrop');
+        var closeBtn = document.getElementById('mobile-nav-close');
+        if (trigger && drawer) {
+          var open = function () {
+            drawer.classList.add('is-open');
+            drawer.setAttribute('aria-hidden', 'false');
+            trigger.setAttribute('aria-expanded', 'true');
+            if (backdrop) backdrop.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+          };
+          var shut = function () {
+            drawer.classList.remove('is-open');
+            drawer.setAttribute('aria-hidden', 'true');
+            trigger.setAttribute('aria-expanded', 'false');
+            if (backdrop) backdrop.classList.remove('is-open');
+            document.body.style.overflow = '';
+          };
+          trigger.addEventListener('click', open);
+          if (closeBtn) closeBtn.addEventListener('click', shut);
+          if (backdrop) backdrop.addEventListener('click', shut);
+          Array.prototype.forEach.call(drawer.querySelectorAll('.toc__link'), function (l) {
+            l.addEventListener('click', shut);
+          });
+          document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') shut();
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

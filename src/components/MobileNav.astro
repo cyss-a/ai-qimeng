@@ -1,0 +1,41 @@
+---
+// MobileNav.astro — 移动端折叠目录抽屉（TG 触发，全局脚本托管开合）
+import Icon from './Icon.astro';
+import Toc from './Toc.astro';
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+  headings: MarkdownHeading[];
+  courseTitle?: string;
+}
+
+const { headings, courseTitle = '本页目录' } = Astro.props;
+---
+
+<div class="mobile-nav">
+  <button
+    type="button"
+    class="mobile-nav__trigger"
+    id="mobile-nav-trigger"
+    aria-label="打开目录"
+    aria-expanded="false"
+    aria-controls="mobile-nav-drawer"
+  >
+    <Icon name="menu" size={20} />
+    <span>目录</span>
+  </button>
+
+  <div class="mobile-nav__drawer" id="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-nav__head">
+      <span class="mobile-nav__title">{courseTitle}</span>
+      <button type="button" class="mobile-nav__close" id="mobile-nav-close" aria-label="关闭目录">
+        <Icon name="x" size={20} />
+      </button>
+    </div>
+    <div class="mobile-nav__body">
+      <Toc headings={headings} title="本页目录" />
+    </div>
+  </div>
+
+  <div class="mobile-nav__backdrop" id="mobile-nav-backdrop"></div>
+</div>

@@ -1,0 +1,15 @@
+---
+// ThemeToggle.astro — 明暗主题切换（localStorage + [data-theme]，全局脚本托管）
+import Icon from './Icon.astro';
+---
+
+<button
+  type="button"
+  class="theme-toggle"
+  id="theme-toggle"
+  aria-label="切换深色或浅色主题"
+  aria-pressed="false"
+>
+  <span class="theme-toggle__icon theme-toggle__icon--sun"><Icon name="sun" size={20} /></span>
+  <span class="theme-toggle__icon theme-toggle__icon--moon"><Icon name="moon" size={20} /></span>
+</button>
