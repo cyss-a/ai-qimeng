@@ -53,6 +53,16 @@ const pageTitle = title === siteName ? title : `${title} · ${siteName}`;
     </script>
   </head>
   <body>
+    <!-- 全站背景层：蓝白渐变 + 漂浮几何光斑，仅视觉装饰 -->
+    <div class="page-background" aria-hidden="true">
+      <span class="page-background__orb page-background__orb--tr"></span>
+      <span class="page-background__orb page-background__orb--accent"></span>
+      <span class="page-background__orb page-background__orb--left"></span>
+      <span class="page-background__orb page-background__orb--bottom"></span>
+      <span class="page-background__orb page-background__orb--bl"></span>
+      <span class="page-background__shape"></span>
+    </div>
+
     <slot />
 
     <!-- 全局返回顶部：滚动超过阈值后出现，点击平滑回顶（渐进增强，禁用 JS 则不可用） -->
