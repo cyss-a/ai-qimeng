@@ -1,5 +1,5 @@
 ---
-// 课程首页：飞书式左文右图 Hero + 卡片网格 + SVG 插图
+// 课程首页：稿定风格信息卡片 + Hero
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import HeroIllustration from '../components/HeroIllustration.astro';
@@ -22,7 +22,107 @@ const totalLessons = lessons.filter((l) => l.data.module !== 'M7').length;
 const publishedCount = lessons.filter((l) => l.data.status === 'published').length;
 const zsxqUrl = 'https://t.zsxq.com';
 
-// 工具速查卡数据（替代原来表格）
+// 小白 AI 工具汇总（稿定风格编号条目）
+const toolPickerRows = [
+  {
+    task: '写邮件、改话术、想文案',
+    tag: '通用聊天助手',
+    tools: [
+      { name: 'DeepSeek', href: 'https://chat.deepseek.com/' },
+      { name: 'Kimi', href: 'https://kimi.moonshot.cn/' },
+      { name: '通义千问', href: 'https://tongyi.aliyun.com/' },
+      { name: 'ChatGPT', href: 'https://chat.openai.com/' },
+    ],
+    badges: [{ text: '免费', type: 'free' }, { text: 'ChatGPT 需梯子', type: 'vpn' }],
+  },
+  {
+    task: '在 Excel / WPS 里算数、做表',
+    tag: '办公套件 AI',
+    tools: [
+      { name: 'WPS AI', href: 'https://www.wps.cn/' },
+      { name: '飞书多维表格', href: 'https://www.feishu.cn/product/base' },
+      { name: 'Microsoft Copilot', href: 'https://www.microsoft.com/copilot/' },
+    ],
+    badges: [{ text: '免费基础版', type: 'free' }, { text: 'Copilot 需梯子', type: 'vpn' }],
+  },
+  {
+    task: '做汇报 PPT',
+    tag: 'PPT / 演示',
+    tools: [
+      { name: 'Gamma', href: 'https://gamma.app/' },
+      { name: '美图 AI PPT', href: 'https://www.designkit.com/ppt/' },
+      { name: 'WPS AI', href: 'https://www.wps.cn/' },
+    ],
+    badges: [{ text: '部分免费', type: 'free' }, { text: 'Gamma 需梯子', type: 'vpn' }],
+  },
+  {
+    task: '要做海报、配图',
+    tag: '绘图 / 设计',
+    tools: [
+      { name: '通义万相', href: 'https://tongyi.aliyun.com/wanxiang/' },
+      { name: 'Canva', href: 'https://www.canva.cn/' },
+      { name: 'Midjourney', href: 'https://www.midjourney.com/' },
+    ],
+    badges: [{ text: '前两者免费', type: 'free' }, { text: 'Midjourney 需梯子', type: 'vpn' }],
+  },
+  {
+    task: '整理资料、做笔记、搜信息',
+    tag: '知识库 / 搜索',
+    tools: [
+      { name: 'ima', href: 'https://www.ima.qq.com/' },
+      { name: 'Notion', href: 'https://www.notion.so/' },
+      { name: 'Perplexity', href: 'https://www.perplexity.ai/' },
+      { name: '飞书妙记', href: 'https://www.feishu.cn/product/minutes' },
+      { name: 'Obsidian', href: 'https://obsidian.md/' },
+    ],
+    badges: [{ text: '基础免费', type: 'free' }, { text: 'Notion/Perplexity 需梯子', type: 'vpn' }],
+  },
+  {
+    task: '写代码、Debug、看报错',
+    tag: 'AI 编程助手',
+    tools: [
+      { name: '豆包 MarsCode', href: 'https://www.marscode.cn/' },
+      { name: '通义灵码', href: 'https://tongyi.aliyun.com/lingma/' },
+      { name: 'Cursor', href: 'https://cursor.sh/' },
+      { name: 'Codex', href: 'https://openai.com/codex/' },
+      { name: 'GitHub Copilot', href: 'https://github.com/features/copilot' },
+      { name: 'GitHub', href: 'https://github.com/' },
+    ],
+    badges: [{ text: '国产免费', type: 'free' }, { text: 'Cursor/Copilot/Codex 需梯子', type: 'vpn' }],
+  },
+  {
+    task: '做数据分析、建表、写 SQL',
+    tag: '数据库 / BI',
+    tools: [
+      { name: '腾讯文档智能表', href: 'https://docs.qq.com/sheet/' },
+      { name: '飞书多维表格', href: 'https://www.feishu.cn/product/base' },
+      { name: 'Supabase', href: 'https://supabase.com/' },
+      { name: 'DB Browser for SQLite', href: 'https://sqlitebrowser.org/' },
+    ],
+    badges: [{ text: '基础免费', type: 'free' }, { text: 'Supabase 需梯子', type: 'vpn' }],
+  },
+  {
+    task: '想给自己的项目接 AI 能力（要免费 API）',
+    tag: '模型 API 平台',
+    tools: [
+      { name: 'DeepSeek API', href: 'https://platform.deepseek.com/' },
+      { name: '硅基流动 SiliconFlow', href: 'https://cloud.siliconflow.cn/' },
+    ],
+    badges: [{ text: '国内可用', type: 'free' }, { text: '注册需手机号', type: 'vpn' }],
+  },
+  {
+    task: '搭个人工作台、让 AI 帮我协作',
+    tag: 'AI 工作台',
+    tools: [
+      { name: 'WorkBuddy', href: 'https://www.workbuddy.cn/' },
+      { name: '扣子 Coze', href: 'https://www.coze.cn/' },
+      { name: 'Dify', href: 'https://dify.ai/zh' },
+    ],
+    badges: [{ text: '均有免费额度', type: 'free' }, { text: 'Dify 需梯子', type: 'vpn' }],
+  },
+];
+
+// 工具速查卡数据
 const toolCards = [
   {
     icon: 'message-square',
@@ -135,169 +235,251 @@ const testimonials = [
     </div>
   </section>
 
-  <!-- 模块快捷入口：彩色卡片网格 -->
-  <section class="quick-modules" aria-labelledby="quick-modules-title">
-    <div class="section-head">
-      <p class="section-head__eyebrow" id="quick-modules-title">课程模块</p>
-      <h2 class="section-head__title">10 个模块，从认知到落地</h2>
-      <p class="section-head__sub">不知道从哪里开始？点色块直接跳到你感兴趣的模块。</p>
-    </div>
-    <nav class="quick-modules__grid" aria-label="模块快捷导航">
-      {
-        moduleOrder.map((mid) => {
-          const mod = MODULES[mid];
-          const anchor = mid === 'M7' ? '#m7' : `#m${mid.replace('M', '')}`;
-          return (
-            <a
-              href={anchor}
-              class="quick-modules__card"
-              data-mod={mid}
-              aria-label={`${mod.title}：${mod.subtitle}`}
-            >
-              <span class="quick-modules__tag">{mid === 'M7' ? '日报' : mid}</span>
-              <span class="quick-modules__name">{mod.title}</span>
-              <span class="quick-modules__sub">{mod.subtitle}</span>
-            </a>
-          );
-        })
-      }
-    </nav>
-  </section>
-
-  <!-- 工具速查卡：替代表格 -->
-  <section class="tool-cards" aria-labelledby="tool-cards-title">
-    <div class="section-head">
-      <p class="section-head__eyebrow" id="tool-cards-title">工具速查</p>
-      <h2 class="section-head__title">按你想做的事，直接选工具</h2>
-      <p class="section-head__sub">不用记名字，按场景选，点工具名就能跳转到官网。</p>
-    </div>
-    <div class="tool-cards__grid">
-      {
-        toolCards.map((card) => (
-          <article class="tool-cards__card">
-            <div class="tool-cards__icon">
-              <Icon name={card.icon as any} size={24} />
-            </div>
-            <h3 class="tool-cards__title">{card.title}</h3>
-            <p class="tool-cards__tools">
-              {card.tools.map((t, i) => (
-                <>
-                  <span>{t}</span>
-                  {i < card.tools.length - 1 && <span class="tool-cards__sep">·</span>}
-                </>
-              ))}
-            </p>
-            <span class="tool-cards__note">{card.note}</span>
-          </article>
-        ))
-      }
-    </div>
-    <p class="tool-cards__disclaimer">带「需梯子」的工具，在中国大陆访问需要科学上网环境。</p>
-  </section>
-
-  <!-- 课程目录：模块卡片 -->
-  <section class="catalog" aria-label="课程目录">
-    <div class="section-head section-head--centered">
-      <p class="section-head__eyebrow">课程目录</p>
-      <h2 class="section-head__title">从第一讲开始，一步步来</h2>
-      <p class="section-head__sub">每讲都有真实可操作的模板和练习，看完就能用。</p>
-    </div>
-
-    <div class="catalog__grid">
-      {
-        moduleOrder.map((mid) => {
-          const mod = MODULES[mid];
-          if (mid === 'M7') {
-            return (
-              <article class="catalog__module catalog__module--board" id="m7" data-mod="M7">
-                <div class="catalog__module-head">
-                  <span class="catalog__module-tag">每日更新</span>
-                  <h3 class="catalog__module-name">{mod.title}</h3>
-                  <p class="catalog__module-sub">{mod.subtitle}</p>
+  <!-- 小白 AI 工具汇总：稿定风格编号卡片 -->
+  <section class="gd-section" aria-labelledby="tool-picker-title">
+    <div class="gd-section__card">
+      <div class="gd-section__header">
+        <div class="gd-section__title-wrap">
+          <Icon name="wrench" size={20} />
+          <h2 class="gd-section__title" id="tool-picker-title">小白 AI 工具汇总</h2>
+        </div>
+        <span class="gd-section__badge">TOOLS</span>
+      </div>
+      <div class="gd-section__body">
+        <p class="gd-section__sub">不知道自己该用哪个？按你想做的事直接选，点工具名就能跳转。</p>
+        <ol class="gd-list">
+          {
+            toolPickerRows.map((row, i) => (
+              <li class="gd-list__item">
+                <span class="gd-list__num" aria-hidden="true">{i + 1}</span>
+                <div class="gd-list__content">
+                  <h3 class="gd-list__title">{row.task}</h3>
+                  <p class="gd-list__text">
+                    <span class="gd-list__tag">{row.tag}</span>
+                    {
+                      row.tools.map((t, idx) => (
+                        <>
+                          <a class="gd-list__link" href={t.href} target="_blank" rel="noopener noreferrer">
+                            {t.name}
+                          </a>
+                          {idx < row.tools.length - 1 && <span class="gd-list__sep">·</span>}
+                        </>
+                      ))
+                    }
+                  </p>
+                  <div class="gd-list__badges">
+                    {row.badges.map((b) => (
+                      <span class={`tool-badge ${b.type === 'vpn' ? 'tool-badge--vpn' : 'tool-badge--free'}`}>
+                        {b.text}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <a href={withBase('/m7/')} class="catalog__item catalog__item--board">
-                  <span class="catalog__item-order">今日热点</span>
-                  <span class="catalog__item-title">查看今日 AI 热点日报</span>
-                  <span class="catalog__item-arrow"><Icon name="chevron-right" size={16} /></span>
-                </a>
-              </article>
-            );
+              </li>
+            ))
           }
-          const items = byModule[mid] || [];
-          if (!items.length) return null;
-          return (
-            <article class="catalog__module" id={'m' + mid.replace('M', '')} data-mod={mid}>
-              <div class="catalog__module-head">
-                <span class="catalog__module-tag">{mid}</span>
-                <h3 class="catalog__module-name">{mod.title}</h3>
-                <p class="catalog__module-sub">{mod.subtitle}</p>
-              </div>
-              <ul class="catalog__list">
-                {items.map((l) => (
-                  <li>
-                    <a
-                      href={lessonHref(l)}
-                      class={`catalog__item ${l.id === first.id ? 'is-current' : ''} ${l.data.status === 'draft' ? 'is-draft' : ''}`}
-                    >
-                      <span class="catalog__item-order">第 {l.data.order} 讲</span>
-                      <span class="catalog__item-title">{l.data.title}</span>
-                      {l.data.status === 'draft' && <span class="catalog__item-badge">编写中</span>}
+        </ol>
+        <p class="tool-cards__disclaimer">带「需梯子」的工具，在中国大陆访问需要科学上网环境。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 课程模块：彩色卡片网格 -->
+  <section class="gd-section" aria-labelledby="quick-modules-title">
+    <div class="gd-section__card">
+      <div class="gd-section__header">
+        <div class="gd-section__title-wrap">
+          <Icon name="layout-grid" size={20} />
+          <h2 class="gd-section__title" id="quick-modules-title">10 个模块，从认知到落地</h2>
+        </div>
+        <span class="gd-section__badge">MODULES</span>
+      </div>
+      <div class="gd-section__body">
+        <p class="gd-section__sub">不知道从哪里开始？点色块直接跳到你感兴趣的模块。</p>
+        <nav class="quick-modules__grid" aria-label="模块快捷导航">
+          {
+            moduleOrder.map((mid) => {
+              const mod = MODULES[mid];
+              const anchor = mid === 'M7' ? '#m7' : `#m${mid.replace('M', '')}`;
+              return (
+                <a
+                  href={anchor}
+                  class="quick-modules__card"
+                  data-mod={mid}
+                  aria-label={`${mod.title}：${mod.subtitle}`}
+                >
+                  <span class="quick-modules__tag">{mid === 'M7' ? '日报' : mid}</span>
+                  <span class="quick-modules__name">{mod.title}</span>
+                  <span class="quick-modules__sub">{mod.subtitle}</span>
+                </a>
+              );
+            })
+          }
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- 工具速查卡 -->
+  <section class="gd-section" aria-labelledby="tool-cards-title">
+    <div class="gd-section__card">
+      <div class="gd-section__header">
+        <div class="gd-section__title-wrap">
+          <Icon name="zap" size={20} />
+          <h2 class="gd-section__title" id="tool-cards-title">按你想做的事，直接选工具</h2>
+        </div>
+        <span class="gd-section__badge">QUICK PICK</span>
+      </div>
+      <div class="gd-section__body">
+        <p class="gd-section__sub">不用记名字，按场景选，点工具名就能跳转到官网。</p>
+        <div class="tool-cards__grid">
+          {
+            toolCards.map((card) => (
+              <article class="tool-cards__card">
+                <div class="tool-cards__icon">
+                  <Icon name={card.icon as any} size={24} />
+                </div>
+                <h3 class="tool-cards__title">{card.title}</h3>
+                <p class="tool-cards__tools">
+                  {card.tools.map((t, i) => (
+                    <>
+                      <span>{t}</span>
+                      {i < card.tools.length - 1 && <span class="tool-cards__sep">·</span>}
+                    </>
+                  ))}
+                </p>
+                <span class="tool-cards__note">{card.note}</span>
+              </article>
+            ))
+          }
+        </div>
+        <p class="tool-cards__disclaimer">带「需梯子」的工具，在中国大陆访问需要科学上网环境。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 课程目录 -->
+  <section class="gd-section catalog" aria-label="课程目录">
+    <div class="gd-section__card">
+      <div class="gd-section__header">
+        <div class="gd-section__title-wrap">
+          <Icon name="list" size={20} />
+          <h2 class="gd-section__title">从第一讲开始，一步步来</h2>
+        </div>
+        <span class="gd-section__badge">CATALOG</span>
+      </div>
+      <div class="gd-section__body">
+        <p class="gd-section__sub">每讲都有真实可操作的模板和练习，看完就能用。</p>
+        <div class="catalog__grid">
+          {
+            moduleOrder.map((mid) => {
+              const mod = MODULES[mid];
+              if (mid === 'M7') {
+                return (
+                  <article class="catalog__module catalog__module--board" id="m7" data-mod="M7">
+                    <div class="catalog__module-head">
+                      <span class="catalog__module-tag">每日更新</span>
+                      <h3 class="catalog__module-name">{mod.title}</h3>
+                      <p class="catalog__module-sub">{mod.subtitle}</p>
+                    </div>
+                    <a href={withBase('/m7/')} class="catalog__item catalog__item--board">
+                      <span class="catalog__item-order">今日热点</span>
+                      <span class="catalog__item-title">查看今日 AI 热点日报</span>
                       <span class="catalog__item-arrow"><Icon name="chevron-right" size={16} /></span>
                     </a>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          );
-        })
-      }
-    </div>
+                  </article>
+                );
+              }
+              const items = byModule[mid] || [];
+              if (!items.length) return null;
+              return (
+                <article class="catalog__module" id={'m' + mid.replace('M', '')} data-mod={mid}>
+                  <div class="catalog__module-head">
+                    <span class="catalog__module-tag">{mid}</span>
+                    <h3 class="catalog__module-name">{mod.title}</h3>
+                    <p class="catalog__module-sub">{mod.subtitle}</p>
+                  </div>
+                  <ul class="catalog__list">
+                    {items.map((l) => (
+                      <li>
+                        <a
+                          href={lessonHref(l)}
+                          class={`catalog__item ${l.id === first.id ? 'is-current' : ''} ${l.data.status === 'draft' ? 'is-draft' : ''}`}
+                        >
+                          <span class="catalog__item-order">第 {l.data.order} 讲</span>
+                          <span class="catalog__item-title">{l.data.title}</span>
+                          {l.data.status === 'draft' && <span class="catalog__item-badge">编写中</span>}
+                          <span class="catalog__item-arrow"><Icon name="chevron-right" size={16} /></span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              );
+            })
+          }
+        </div>
 
-    <p class="catalog__foot">
-      共 {totalLessons} 讲 · 已全部上线 · 后续会根据你的反馈持续增补
-    </p>
+        <p class="catalog__foot">
+          共 {totalLessons} 讲 · 已全部上线 · 后续会根据你的反馈持续增补
+        </p>
+      </div>
+    </div>
   </section>
 
-  <!-- 学习者反馈：引用卡片 -->
-  <section class="testimonials" aria-labelledby="testimonials-title">
-    <div class="section-head section-head--centered">
-      <p class="section-head__eyebrow" id="testimonials-title">学习者说</p>
-      <h2 class="section-head__title">看完就能用的课程</h2>
-      <p class="section-head__sub">真实的反馈，来自和你一样从零开始的学习者。</p>
-    </div>
-    <div class="testimonials__grid">
-      {
-        testimonials.map((t) => (
-          <blockquote class="testimonial">
-            <p class="testimonial__quote">「{t.quote}」</p>
-            <footer class="testimonial__foot">
-              <span class="testimonial__avatar" aria-hidden="true">
-                <Icon name="user" size={20} />
-              </span>
-              <span class="testimonial__role">{t.role}</span>
-            </footer>
-          </blockquote>
-        ))
-      }
+  <!-- 学习者反馈 -->
+  <section class="gd-section" aria-labelledby="testimonials-title">
+    <div class="gd-section__card">
+      <div class="gd-section__header">
+        <div class="gd-section__title-wrap">
+          <Icon name="message-circle" size={20} />
+          <h2 class="gd-section__title" id="testimonials-title">学习者说</h2>
+        </div>
+        <span class="gd-section__badge">FEEDBACK</span>
+      </div>
+      <div class="gd-section__body">
+        <p class="gd-section__sub">真实的反馈，来自和你一样从零开始的学习者。</p>
+        <div class="testimonials__grid">
+          {
+            testimonials.map((t) => (
+              <blockquote class="testimonial">
+                <p class="testimonial__quote">「{t.quote}」</p>
+                <footer class="testimonial__foot">
+                  <span class="testimonial__avatar" aria-hidden="true">
+                    <Icon name="user" size={20} />
+                  </span>
+                  <span class="testimonial__role">{t.role}</span>
+                </footer>
+              </blockquote>
+            ))
+          }
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- 底部 CTA -->
-  <section class="footer-cta" aria-labelledby="footer-cta-title">
-    <div class="footer-cta__inner">
-      <div class="footer-cta__copy">
-        <h2 class="footer-cta__title" id="footer-cta-title">准备好开始了吗？</h2>
-        <p class="footer-cta__sub">不需要任何基础，第一讲 5 分钟后你就能让 AI 帮你写第一段文案。</p>
+  <section class="gd-section footer-cta" aria-labelledby="footer-cta-title">
+    <div class="gd-section__card footer-cta__card">
+      <div class="gd-section__header">
+        <div class="gd-section__title-wrap">
+          <Icon name="rocket" size={20} />
+          <h2 class="gd-section__title" id="footer-cta-title">准备好开始了吗？</h2>
+        </div>
+        <span class="gd-section__badge">START</span>
       </div>
-      <div class="footer-cta__actions">
-        <a class="btn btn-primary btn--lg" href={firstHref}>
-          开始第一讲
-          <span class="btn__icon"><Icon name="arrow-right" size={20} /></span>
-        </a>
-        <a class="btn btn-secondary" href={zsxqUrl} target="_blank" rel="noopener noreferrer">
-          加入知识星球
-          <span class="btn__icon"><Icon name="external-link" size={20} /></span>
-        </a>
+      <div class="gd-section__body footer-cta__body">
+        <p class="footer-cta__sub">不需要任何基础，第一讲 5 分钟后你就能让 AI 帮你写第一段文案。</p>
+        <div class="footer-cta__actions">
+          <a class="btn btn-primary btn--lg" href={firstHref}>
+            开始第一讲
+            <span class="btn__icon"><Icon name="arrow-right" size={20} /></span>
+          </a>
+          <a class="btn btn-secondary" href={zsxqUrl} target="_blank" rel="noopener noreferrer">
+            加入知识星球
+            <span class="btn__icon"><Icon name="external-link" size={20} /></span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
