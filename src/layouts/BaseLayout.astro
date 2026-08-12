@@ -192,6 +192,8 @@ const pageTitle = title === siteName ? title : `${title} · ${siteName}`;
         var drawer = document.getElementById('mobile-nav-drawer');
         var backdrop = document.getElementById('mobile-nav-backdrop');
         var closeBtn = document.getElementById('mobile-nav-close');
+        var MOBILE_NAV_STATE = 'mobile-nav-open';
+        var shutDrawer = function () {};
         if (trigger && drawer) {
           var open = function () {
             drawer.classList.add('is-open');
@@ -199,24 +201,53 @@ const pageTitle = title === siteName ? title : `${title} · ${siteName}`;
             trigger.setAttribute('aria-expanded', 'true');
             if (backdrop) backdrop.classList.add('is-open');
             document.body.style.overflow = 'hidden';
+            try { history.pushState({ [MOBILE_NAV_STATE]: true }, ''); } catch (e) {}
           };
-          var shut = function () {
+          shutDrawer = function (opts) {
+            opts = opts || {};
+            if (!drawer.classList.contains('is-open')) return;
             drawer.classList.remove('is-open');
             drawer.setAttribute('aria-hidden', 'true');
             trigger.setAttribute('aria-expanded', 'false');
             if (backdrop) backdrop.classList.remove('is-open');
             document.body.style.overflow = '';
+            if (!opts.skipHistory) {
+              try {
+                if (history.state && history.state[MOBILE_NAV_STATE]) history.back();
+              } catch (e) {}
+            }
           };
           trigger.addEventListener('click', open);
-          if (closeBtn) closeBtn.addEventListener('click', shut);
-          if (backdrop) backdrop.addEventListener('click', shut);
-          Array.prototype.forEach.call(drawer.querySelectorAll('.toc__link'), function (l) {
-            l.addEventListener('click', shut);
-          });
+          if (closeBtn) closeBtn.addEventListener('click', function () { shutDrawer(); });
+          if (backdrop) backdrop.addEventListener('click', function () { shutDrawer(); });
           document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') shut();
+            if (e.key === 'Escape') shutDrawer();
+          });
+          window.addEventListener('popstate', function (e) {
+            if (drawer.classList.contains('is-open') && (!e.state || !e.state[MOBILE_NAV_STATE])) {
+              shutDrawer({ skipHistory: true });
+            }
           });
         }
+
+        // ---------- 同页锚点：用 replaceState 避免污染浏览器历史 ----------
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest('a[href^="#"]');
+          if (!a || a.getAttribute('href') === '#') return;
+          var id = a.getAttribute('href').slice(1);
+          var el = document.getElementById(id);
+          if (!el) return;
+          e.preventDefault();
+          try { history.replaceState(null, '', '#' + id); } catch (err) {}
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // 如果在抽屉里点击锚点，关闭抽屉并尝试清理抽屉 push 的状态
+          if (drawer && drawer.classList.contains('is-open')) {
+            shutDrawer({ skipHistory: true });
+            try {
+              if (history.state && history.state[MOBILE_NAV_STATE]) history.back();
+            } catch (e) {}
+          }
+        });
 
         // ---------- 返回顶部按钮 ----------
         var toTop = document.getElementById('to-top');

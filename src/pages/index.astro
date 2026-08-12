@@ -122,46 +122,6 @@ const toolPickerRows = [
   },
 ];
 
-// 工具速查卡数据
-const toolCards = [
-  {
-    icon: 'message-square',
-    title: '写文案、改话术',
-    tools: ['DeepSeek', 'Kimi', 'ChatGPT'],
-    note: 'ChatGPT 需梯子',
-  },
-  {
-    icon: 'table',
-    title: '做表、算数、BI',
-    tools: ['WPS AI', '飞书多维表', '腾讯文档'],
-    note: '基础版免费',
-  },
-  {
-    icon: 'lightbulb',
-    title: '做 PPT、海报',
-    tools: ['Gamma', '美图 AI PPT', 'Canva'],
-    note: 'Gamma 需梯子',
-  },
-  {
-    icon: 'search',
-    title: '搜信息、整资料',
-    tools: ['ima', 'Perplexity', 'Notion'],
-    note: '部分需梯子',
-  },
-  {
-    icon: 'file-text',
-    title: '写代码、Debug',
-    tools: ['豆包 MarsCode', 'Cursor', 'GitHub Copilot'],
-    note: 'Cursor/Copilot 需梯子',
-  },
-  {
-    icon: 'bookmark',
-    title: '搭个人工作台',
-    tools: ['WorkBuddy', '扣子 Coze', 'Dify'],
-    note: '均有免费额度',
-  },
-];
-
 // 学习者反馈
 const testimonials = [
   {
@@ -316,44 +276,6 @@ const testimonials = [
             })
           }
         </nav>
-      </div>
-    </div>
-  </section>
-
-  <!-- 工具速查卡 -->
-  <section class="gd-section" aria-labelledby="tool-cards-title">
-    <div class="gd-section__card">
-      <div class="gd-section__header">
-        <div class="gd-section__title-wrap">
-          <Icon name="zap" size={20} />
-          <h2 class="gd-section__title" id="tool-cards-title">按你想做的事，直接选工具</h2>
-        </div>
-        <span class="gd-section__badge">QUICK PICK</span>
-      </div>
-      <div class="gd-section__body">
-        <p class="gd-section__sub">不用记名字，按场景选，点工具名就能跳转到官网。</p>
-        <div class="tool-cards__grid">
-          {
-            toolCards.map((card) => (
-              <article class="tool-cards__card">
-                <div class="tool-cards__icon">
-                  <Icon name={card.icon as any} size={24} />
-                </div>
-                <h3 class="tool-cards__title">{card.title}</h3>
-                <p class="tool-cards__tools">
-                  {card.tools.map((t, i) => (
-                    <>
-                      <span>{t}</span>
-                      {i < card.tools.length - 1 && <span class="tool-cards__sep">·</span>}
-                    </>
-                  ))}
-                </p>
-                <span class="tool-cards__note">{card.note}</span>
-              </article>
-            ))
-          }
-        </div>
-        <p class="tool-cards__disclaimer">带「需梯子」的工具，在中国大陆访问需要科学上网环境。</p>
       </div>
     </div>
   </section>
