@@ -136,13 +136,6 @@
   width: 100%;
   max-width: 440px;
   height: auto;
-  /* 把图片自带的白底与页面背景融合，避免出现生硬的白色矩形 */
-  mix-blend-mode: multiply;
-}
-
-[data-theme="dark"] .hero-illustration {
-  mix-blend-mode: normal;
-  filter: brightness(1.08) drop-shadow(0 8px 28px rgba(0, 0, 0, 0.28));
 }
 
 /* ---------- 稿定风格信息卡片（深色标题条 + 白色内容区） ---------- */
