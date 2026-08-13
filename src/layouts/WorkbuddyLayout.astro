@@ -1,0 +1,129 @@
+---
+// WorkbuddyLayout.astro — WorkBuddy 指南阅读页（复用站点 gd-section 卡片 + TOC + 进度条）
+// 与 LessonLayout 共享视觉语言；额外加 MIT 出处署名条（搬运自 AlephAITech/WorkBuddyGuide）。
+import BaseLayout from './BaseLayout.astro';
+import Toc from '../components/Toc.astro';
+import ProgressBar from '../components/ProgressBar.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import MobileNav from '../components/MobileNav.astro';
+import Icon from '../components/Icon.astro';
+import { withBase } from '../lib/course';
+import { WORKBUDDY_SOURCE } from '../lib/workbuddy';
+import type { MarkdownHeading } from 'astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+interface Props {
+  title: string;
+  description?: string;
+  headings: MarkdownHeading[];
+  prev?: { slug: string; title: string };
+  next?: { slug: string; title: string };
+}
+
+const { title, description = title, headings, prev, next } = Astro.props;
+
+const iconPath = path.resolve(process.cwd(), 'src/icons/book-open.svg');
+const bookOpenSvg = fs.readFileSync(iconPath, 'utf-8').replace(/\s*<!--.*?-->/gs, '').trim();
+
+const rawContent = await Astro.slots.render('default');
+
+function wrapSections(html: string): string {
+  const parts = html.split(/(?=<h2\b)/i);
+  if (parts.length <= 1) return html;
+  let result = '';
+  let startIndex = 0;
+  if (!parts[0].trim().match(/^<h2\b/i)) {
+    result += parts[0];
+    startIndex = 1;
+  }
+  for (let i = startIndex; i < parts.length; i++) {
+    const part = parts[i];
+    const closeIdx = part.indexOf('</h2>');
+    if (closeIdx === -1) {
+      result += `<section class="gd-section gd-section--lesson"><div class="gd-section__card">${part}</div></section>`;
+      continue;
+    }
+    const h2Html = part.slice(0, closeIdx + 5);
+    const bodyHtml = part.slice(closeIdx + 5);
+    const headerHtml = h2Html.replace(
+      /^<h2(\b[^>]*)>([\s\S]*)<\/h2>$/i,
+      `<div class="gd-section__title-wrap"><span class="gd-section__icon" aria-hidden="true">${bookOpenSvg}</span><h2$1 class="gd-section__title">$2</h2></div><span class="gd-section__badge">GUIDE</span>`
+    );
+    result += `<section class="gd-section gd-section--lesson"><div class="gd-section__card"><div class="gd-section__header">${headerHtml}</div><div class="gd-section__body">${bodyHtml}</div></div></section>`;
+  }
+  return result;
+}
+
+const processedContent = wrapSections(rawContent);
+---
+
+<BaseLayout title={title} description={description}>
+  <ProgressBar />
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__brand" href={withBase('/')}>
+        <span class="site-header__mark" aria-hidden="true"></span>
+        <span class="site-header__name">AI 小白赋能</span>
+      </a>
+      <div class="site-header__actions">
+        <ThemeToggle />
+        <MobileNav headings={headings} courseTitle={`WorkBuddy 指南 · ${title}`} />
+      </div>
+    </div>
+  </header>
+
+  <div class="lesson" data-mod="workbuddy">
+    <aside class="lesson__toc lesson__toc--desktop">
+      <Toc headings={headings} title="本页目录" />
+    </aside>
+
+    <main class="lesson__main" id="lesson-main">
+      <p class="lesson__eyebrow">
+        <a class="wb-crumb" href={withBase('/workbuddy/')}>WorkBuddy 指南</a>
+      </p>
+      <h1 class="lesson__title">{title}</h1>
+
+      <article class="reader">
+        <Fragment set:html={processedContent} />
+      </article>
+
+      <p class="wb-source">
+        本页内容搬运自
+        <a href={WORKBUDDY_SOURCE.repo} target="_blank" rel="noopener noreferrer">{WORKBUDDY_SOURCE.credit}</a>
+        ，采用 {WORKBUDDY_SOURCE.license} 许可证。原始站点：
+        <a href={WORKBUDDY_SOURCE.site} target="_blank" rel="noopener noreferrer">{WORKBUDDY_SOURCE.site}</a>
+      </p>
+
+      <nav class="lesson__pager" aria-label="相邻章节">
+        {
+          prev ? (
+            <a class="pager__link pager__link--prev" href={prev.slug}>
+              <Icon name="arrow-left" size={16} />
+              <span>
+                <span class="pager__dir">上一篇</span>
+                <span class="pager__title">{prev.title}</span>
+              </span>
+            </a>
+          ) : (
+            <span class="pager__link pager__link--prev pager__link--disabled" aria-disabled="true" />
+          )
+        }
+        {
+          next ? (
+            <a class="pager__link pager__link--next" href={next.slug}>
+              <span>
+                <span class="pager__dir">下一篇</span>
+                <span class="pager__title">{next.title}</span>
+              </span>
+              <Icon name="arrow-right" size={16} />
+            </a>
+          ) : (
+            <span class="pager__link pager__link--next pager__link--disabled" aria-disabled="true" />
+          )
+        }
+      </nav>
+    </main>
+  </div>
+</BaseLayout>

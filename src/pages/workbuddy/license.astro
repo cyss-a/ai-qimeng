@@ -1,0 +1,67 @@
+---
+// WorkBuddy 指南 · 开源许可声明页
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import Icon from '../../components/Icon.astro';
+import { withBase } from '../../lib/course';
+import { WORKBUDDY_SOURCE } from '../../lib/workbuddy';
+---
+
+<BaseLayout
+  title="WorkBuddy 指南 · 开源许可 (MIT)"
+  description="本栏目内容搬运自 WorkBuddy 官方指南（AlephAITech/WorkBuddyGuide），依据 MIT 许可证转载，版权归原作者所有。"
+>
+  <SiteHeader />
+
+  <section class="gd-section" aria-labelledby="license-title">
+    <div class="gd-section__card">
+      <div class="gd-section__header">
+        <div class="gd-section__title-wrap">
+          <Icon name="info" size={20} />
+          <h1 class="gd-section__title" id="license-title">内容来源与 MIT 许可声明</h1>
+        </div>
+        <span class="gd-section__badge">MIT</span>
+      </div>
+      <div class="gd-section__body">
+        <p class="gd-section__sub">
+          本栏目（WorkBuddy 指南）全部内容搬运自开源项目
+          <a href={WORKBUDDY_SOURCE.repo} target="_blank" rel="noopener noreferrer">{WORKBUDDY_SOURCE.credit}</a>
+          （原始站点 <a href={WORKBUDDY_SOURCE.site} target="_blank" rel="noopener noreferrer">{WORKBUDDY_SOURCE.site}</a>），
+          依据 <strong>{WORKBUDDY_SOURCE.license} 许可证</strong> 转载。版权归原作者所有，转载已保留出处与许可声明。
+        </p>
+
+        <h2>MIT License</h2>
+        <p>Copyright © AlephAITech and WorkBuddy Guide contributors.</p>
+        <p>
+          Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+          and associated documentation files (the "Software"), to deal in the Software without restriction,
+          including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+          and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+          subject to the following conditions:
+        </p>
+        <p>
+          The above copyright notice and this permission notice shall be included in all copies or substantial
+          portions of the Software.
+        </p>
+        <p>
+          THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+          LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+          IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+          WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+          SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+        </p>
+
+        <div class="footer-cta__actions">
+          <a class="btn btn-primary" href={WORKBUDDY_SOURCE.repo} target="_blank" rel="noopener noreferrer">
+            查看原始仓库
+            <span class="btn__icon"><Icon name="external-link" size={20} /></span>
+          </a>
+          <a class="btn btn-secondary" href={withBase('/workbuddy/')}>
+            返回指南首页
+            <span class="btn__icon"><Icon name="arrow-left" size={20} /></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,229 @@
+---
+// WorkBuddy 指南落地页：/ai-qimeng/workbuddy/
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import Icon from '../../components/Icon.astro';
+import { getWorkbuddy, groupForLanding, WORKBUDDY_SOURCE } from '../../lib/workbuddy';
+import { withBase } from '../../lib/course';
+
+const entries = await getWorkbuddy();
+const sections = groupForLanding(entries);
+
+// 顶部快速版块（6 大内容区），计数来自分组结果
+const quick = [
+  { id: 'reading-guide', icon: 'book-open', title: '阅读与学习指南', href: withBase('/workbuddy/reading-guide/') },
+  { id: 'bluebook', icon: 'file-text', title: '实战蓝皮书', href: withBase('/workbuddy/bluebook/') },
+  { id: 'cases', icon: 'clipboard-check', title: '社区实战案例', href: withBase('/workbuddy/cases/') },
+  { id: 'scenarios', icon: 'layout-grid', title: '六大场景任务库', href: withBase('/workbuddy/scenarios/') },
+  { id: 'community', icon: 'message-square', title: '社区与共创', href: withBase('/workbuddy/community/') },
+  { id: 'help', icon: 'info', title: '帮助与反馈', href: withBase('/workbuddy/help/') },
+];
+
+const hrefOf = (id: string) => withBase(`/workbuddy/${id}/`);
+const totalPages = entries.length;
+---
+
+<BaseLayout
+  title="WorkBuddy 指南 · 从入门到团队落地"
+  description="全量搬运自 WorkBuddy 官方指南：阅读路线、27 章实战蓝皮书、社区案例、六大场景任务库与共创社区，覆盖从下载安装到多 Agent 系统的完整路径。"
+>
+  <SiteHeader />
+
+  <section class="wb-hero">
+    <div class="wb-hero__inner">
+      <div class="wb-hero__brand"><span class="hero__eyebrow">WorkBuddy · 职场 AI 工作台</span></div>
+      <h1 class="wb-hero__title">
+        WorkBuddy 指南
+        <span class="wb-hero__title-line">从入门到一支 AI 团队</span>
+      </h1>
+      <p class="wb-hero__value">
+        全量搬运自 WorkBuddy 官方学习指南，共 {totalPages} 页：阅读路线、实战蓝皮书、真实案例、场景任务库与共创社区，
+        帮你把"说得清需求"变成"交付得了结果"。
+      </p>
+      <div class="wb-hero__cta">
+        <a class="btn btn-primary" href={withBase('/workbuddy/reading-guide/')}>
+          从阅读指南开始
+          <span class="btn__icon"><Icon name="arrow-right" size={20} /></span>
+        </a>
+        <a class="btn btn-secondary" href={withBase('/')}>
+          返回课程首页
+          <span class="btn__icon"><Icon name="arrow-left" size={20} /></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="gd-section" aria-labelledby="wb-quick-title">
+    <div class="gd-section__card">
+      <div class="gd-section__header">
+        <div class="gd-section__title-wrap">
+          <Icon name="layout-grid" size={20} />
+          <h2 class="gd-section__title" id="wb-quick-title">六大内容版块</h2>
+        </div>
+        <span class="gd-section__badge">SECTIONS</span>
+      </div>
+      <div class="gd-section__body">
+        <nav class="quick-modules__grid" aria-label="内容版块快捷导航">
+          {
+            quick.map((q) => (
+              <a href={q.href} class="quick-modules__card" data-mod="workbuddy" aria-label={q.title}>
+                <span class="quick-modules__tag"><Icon name={q.icon} size={20} /></span>
+                <span class="quick-modules__name">{q.title}</span>
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  {
+    sections.map((sec) => (
+      <section class="gd-section" aria-labelledby={`sec-${sec.id}`}>
+        <div class="gd-section__card">
+          <div class="gd-section__header">
+            <div class="gd-section__title-wrap">
+              <Icon name={sec.icon} size={20} />
+              <h2 class="gd-section__title" id={`sec-${sec.id}`}>{sec.title}</h2>
+            </div>
+            <span class="gd-section__badge">{sec.entries.length} 页</span>
+          </div>
+          <div class="gd-section__body">
+            {sec.blurb && <p class="gd-section__sub">{sec.blurb}</p>}
+            <ul class="wb-linklist">
+              {sec.entries.map((e) => (
+                <li>
+                  <a href={hrefOf(e.id)} class={`wb-linklist__item ${e.isIndex ? 'wb-linklist__item--index' : ''}`}>
+                    <span class="wb-linklist__title">{e.title}</span>
+                    {e.description && <span class="wb-linklist__desc">{e.description}</span>}
+                    <span class="wb-linklist__arrow"><Icon name="chevron-right" size={16} /></span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="gd-section footer-cta" aria-labelledby="wb-license-title">
+    <div class="gd-section__card footer-cta__card">
+      <div class="gd-section__header">
+        <div class="gd-section__title-wrap">
+          <Icon name="info" size={20} />
+          <h2 class="gd-section__title" id="wb-license-title">内容来源与许可</h2>
+        </div>
+        <span class="gd-section__badge">MIT</span>
+      </div>
+      <div class="gd-section__body footer-cta__body">
+        <p class="footer-cta__sub">
+          本栏目全部内容搬运自
+          <a href={WORKBUDDY_SOURCE.repo} target="_blank" rel="noopener noreferrer">{WORKBUDDY_SOURCE.credit}</a>
+          ，依据 {WORKBUDDY_SOURCE.license} 许可证转载。版权归原作者所有，转载已保留出处与许可声明。
+          原始站点：<a href={WORKBUDDY_SOURCE.site} target="_blank" rel="noopener noreferrer">{WORKBUDDY_SOURCE.site}</a>。
+        </p>
+        <div class="footer-cta__actions">
+          <a class="btn btn-primary" href={WORKBUDDY_SOURCE.repo} target="_blank" rel="noopener noreferrer">
+            查看原始仓库
+            <span class="btn__icon"><Icon name="external-link" size={20} /></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .wb-hero {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 56px 20px 8px;
+  }
+  .wb-hero__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .wb-hero__brand {
+    margin-bottom: 2px;
+  }
+  .wb-hero__title {
+    font-size: clamp(30px, 5vw, 46px);
+    line-height: 1.12;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .wb-hero__title-line {
+    color: var(--accent, #2563eb);
+  }
+  .wb-hero__value {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-soft, #475569);
+    max-width: 720px;
+    margin: 0;
+  }
+  .wb-hero__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 6px;
+  }
+  .wb-linklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .wb-linklist__item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: 'title arrow' 'desc arrow';
+    align-items: center;
+    gap: 2px 12px;
+    padding: 12px 14px;
+    border: 1px solid var(--border, #e2e8f0);
+    border-radius: 12px;
+    background: var(--surface, #fff);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .wb-linklist__item:hover {
+    border-color: var(--accent, #2563eb);
+    transform: translateX(2px);
+    box-shadow: 0 6px 20px -12px rgba(37, 99, 235, 0.5);
+  }
+  .wb-linklist__item--index {
+    background: color-mix(in srgb, var(--accent, #2563eb) 6%, var(--surface, #fff));
+    border-color: color-mix(in srgb, var(--accent, #2563eb) 30%, var(--border, #e2e8f0));
+  }
+  .wb-linklist__title {
+    grid-area: title;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .wb-linklist__desc {
+    grid-area: desc;
+    font-size: 13px;
+    color: var(--text-soft, #64748b);
+    line-height: 1.5;
+  }
+  .wb-linklist__arrow {
+    grid-area: arrow;
+    color: var(--text-soft, #94a3b8);
+  }
+  .wb-linklist__item:hover .wb-linklist__arrow {
+    color: var(--accent, #2563eb);
+  }
+  .quick-modules__tag :global(svg) {
+    width: 20px;
+    height: 20px;
+  }
+</style>

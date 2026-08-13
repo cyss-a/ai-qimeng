@@ -4,8 +4,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import Icon from '../components/Icon.astro';
 import { MODULES, getLessons, lessonHref, withBase, type ModuleId } from '../lib/course';
+import { getWorkbuddy } from '../lib/workbuddy';
 
 const lessons = await getLessons();
+const wbTotal = (await getWorkbuddy()).length;
 // 「开始第一讲」指向首个教学讲次（跳过 M7 每日日报）
 const first = lessons.find((l) => l.data.module !== 'M7') ?? lessons[0];
 const firstHref = lessonHref(first);
@@ -247,6 +249,35 @@ const testimonials = [
           }
         </ol>
         <p class="tool-cards__disclaimer">带「需梯子」的工具，在中国大陆访问需要科学上网环境。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 新增栏目入口：WorkBuddy 指南（全量搬运） -->
+  <section class="gd-section" aria-labelledby="wb-entry-title">
+    <div class="gd-section__card">
+      <div class="gd-section__header">
+        <div class="gd-section__title-wrap">
+          <Icon name="book-open" size={20} />
+          <h2 class="gd-section__title" id="wb-entry-title">新栏目 · WorkBuddy 指南</h2>
+        </div>
+        <span class="gd-section__badge">NEW</span>
+      </div>
+      <div class="gd-section__body">
+        <p class="gd-section__sub">
+          全量搬运自 WorkBuddy 官方学习指南：阅读路线、27 章实战蓝皮书、社区案例、六大场景任务库与共创社区，
+          覆盖从下载安装到多 Agent 系统落地的完整路径。共 {wbTotal} 页。
+        </p>
+        <div class="footer-cta__actions">
+          <a class="btn btn-primary" href={withBase('/workbuddy/')}>
+            进入 WorkBuddy 指南
+            <span class="btn__icon"><Icon name="arrow-right" size={20} /></span>
+          </a>
+          <a class="btn btn-secondary" href={withBase('/workbuddy/reading-guide/')}>
+            从阅读指南开始
+            <span class="btn__icon"><Icon name="book-open" size={20} /></span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
