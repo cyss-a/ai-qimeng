@@ -58,7 +58,7 @@ const wbScenarios = [
 const first = lessons.find((l) => l.data.module !== 'M7') ?? lessons[0];
 const firstHref = lessonHref(first);
 // 模块顺序：M7（AI 热点日报）置顶且不带 M 编号，其余顺延
-const moduleOrder = ['M7', 'M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M8', 'M11', 'M9', 'M10'] as ModuleId[];
+const moduleOrder = ['M7', 'M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M8', 'M11', 'M9', 'M10', 'M12'] as ModuleId[];
 
 const byModule: Record<string, typeof lessons> = {};
 for (const l of lessons) {
@@ -364,7 +364,7 @@ const testimonials = [
       <div class="gd-section__header">
         <div class="gd-section__title-wrap">
           <Icon name="layout-grid" size={20} />
-          <h2 class="gd-section__title" id="quick-modules-title">11 个模块，从认知到落地</h2>
+          <h2 class="gd-section__title" id="quick-modules-title">12 个模块，从认知到落地</h2>
         </div>
         <span class="gd-section__badge">MODULES</span>
       </div>
