@@ -169,6 +169,99 @@
 }
 .reader th { background: var(--surface-warm); font-weight: var(--weight-emphasize); }
 
+/* ---------- 「难度地图」表格：深色表头 + 交替行 + 左侧方块标题 ---------- */
+.reader h2.difficulty-map-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  border-left: none;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  margin: var(--space-10) 0 var(--space-4);
+  font-size: var(--text-2xl);
+  color: var(--fg);
+}
+.reader h2.difficulty-map-title::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.reader table.difficulty-map-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-sm);
+  line-height: 1.55;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-raised);
+}
+.reader table.difficulty-map-table th,
+.reader table.difficulty-map-table td {
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  vertical-align: top;
+}
+.reader table.difficulty-map-table thead th {
+  background: var(--fg);
+  color: #fff;
+  font-weight: var(--weight-emphasize);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+  border-bottom: none;
+}
+.reader table.difficulty-map-table tbody tr:nth-child(odd) { background: var(--surface); }
+.reader table.difficulty-map-table tbody tr:nth-child(even) { background: var(--accent-bg); }
+.reader table.difficulty-map-table tbody tr:last-child td { border-bottom: none; }
+
+/* 深色模式：偶数行保持半透明 accent 底，与奇数行 surface 形成明确区分 */
+[data-theme="dark"] .reader table.difficulty-map-table tbody tr:nth-child(even) { background: var(--accent-bg); }
+
+/* 移动端横向滚动容器：小屏下表格不挤压换行 */
+.difficulty-map-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md);
+}
+.difficulty-map-scroll::-webkit-scrollbar { height: 6px; }
+.difficulty-map-scroll::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* 深色模式：表头用深色 surface，文字用浅色；交替行保持可读 */
+[data-theme="dark"] .reader table.difficulty-map-table thead th {
+  background: var(--surface-warm);
+  color: var(--fg);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .reader h2.difficulty-map-title {
+    font-size: var(--text-xl);
+    margin: var(--space-8) 0 var(--space-3);
+  }
+  .reader table.difficulty-map-table {
+    min-width: 520px;
+    font-size: var(--text-xs);
+  }
+  .reader table.difficulty-map-table th,
+  .reader table.difficulty-map-table td {
+    padding: var(--space-2) var(--space-3);
+  }
+}
+
 /* ---------- 模块色映射（课程页跟随当前模块） ---------- */
 .lesson[data-mod="M1"] { --mod: var(--m1); --mod-ink: var(--m1-ink); --mod-bg: var(--m1-bg); }
 .lesson[data-mod="M2"] { --mod: var(--m2); --mod-ink: var(--m2-ink); --mod-bg: var(--m2-bg); }
