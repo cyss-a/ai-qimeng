@@ -42,6 +42,7 @@
   --m8: #0891B2; --m8-ink: #155E75; --m8-bg: #E6F5F8;   /* 日报卡片第 8 色（青） */
   --m9: #059669; --m9-ink: #047857; --m9-bg: #E6F5EE;   /* M9 用 AI 做网站（翠绿） */
   --m10: #9333EA; --m10-ink: #7E22CE; --m10-bg: #F3E8FD; /* 日报卡片第 10 色（紫） */
+  --m11: #DC2626; --m11-ink: #B91C1C; --m11-bg: #FDECEC; /* M11 上线篇（红，警示/真实教训） */
 
   /* ---------- 思维导图分支色（多彩但统一规范，避免所有色块一个样） ---------- */
   --mindmap-b1: #7C3AED; --mindmap-b1-soft: #F1EAFD; --mindmap-b1-ink: #5B21B6; --mindmap-b1-line: #A78BFA;
@@ -165,6 +166,7 @@
   --m8: #22D3EE; --m8-ink: #A5F3FC; --m8-bg: rgba(34,211,238,0.14);
   --m9: #34D399; --m9-ink: #6EE7B7; --m9-bg: rgba(52,211,153,0.14);
   --m10: #C4B5FD; --m10-ink: #DDD6FE; --m10-bg: rgba(196,181,253,0.14);
+  --m11: #F87171; --m11-ink: #FCA5A5; --m11-bg: rgba(248,113,113,0.14);
 
   --mindmap-b1: #A78BFA; --mindmap-b1-soft: rgba(167,139,250,0.18); --mindmap-b1-ink: #DDD6FE; --mindmap-b1-line: #8B5CF6;
   --mindmap-b2: #60A5FA; --mindmap-b2-soft: rgba(96,165,250,0.18); --mindmap-b2-ink: #BFDBFE; --mindmap-b2-line: #3B82F6;

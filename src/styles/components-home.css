@@ -393,6 +393,8 @@
 .catalog__module[data-mod="M9"] { --mod: var(--m9); --mod-ink: var(--m9-ink); --mod-bg: var(--m9-bg); }
 .quick-modules__card[data-mod="M10"],
 .catalog__module[data-mod="M10"] { --mod: var(--m10); --mod-ink: var(--m10-ink); --mod-bg: var(--m10-bg); }
+.quick-modules__card[data-mod="M11"],
+.catalog__module[data-mod="M11"] { --mod: var(--m11); --mod-ink: var(--m11-ink); --mod-bg: var(--m11-bg); }
 
 /* ---------- 工具速查卡 ---------- */
 .tool-cards__grid {
