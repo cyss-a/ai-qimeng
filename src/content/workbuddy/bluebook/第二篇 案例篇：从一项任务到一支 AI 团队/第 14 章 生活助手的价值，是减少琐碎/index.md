@@ -44,13 +44,21 @@
 不要登录、预订、付款或代替我接受退改条款。
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2014%20%E7%AB%A0%20%E7%94%9F%E6%B4%BB%E5%8A%A9%E6%89%8B%E7%9A%84%E4%BB%B7%E5%80%BC%EF%BC%8C%E6%98%AF%E5%87%8F%E5%B0%91%E7%90%90%E7%A2%8E/assets/001_image_AmSUbvzAjo.png)
+
 WorkBuddy 在执行过程中并不是一来就直接帮你做决定，而是尽可能详尽的再向你询问一些问题，确保真的像个专属导游那样帮你规划行程。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2014%20%E7%AB%A0%20%E7%94%9F%E6%B4%BB%E5%8A%A9%E6%89%8B%E7%9A%84%E4%BB%B7%E5%80%BC%EF%BC%8C%E6%98%AF%E5%87%8F%E5%B0%91%E7%90%90%E7%A2%8E/assets/002_image_HJNdbxfvOo.png)
 
 ### 执行链与交付物
 
 偏好问卷 → 两个路线草案 → 人工选方向 → 地图优化 → 天气与开放信息核验 → 预算与行李 → 可分享行程页。真正可用的交付物应包含了地图行程规划、合理的游玩和交通时间规划、数据来源与真实的车次，而不只是一张漂亮日程表。
 
 预订前由人再次确认库存、价格、签证、证件、保险和退改政策。涉及老人、儿童、孕妇、慢性病或无障碍需求时，要把限制明确写入任务，不能由模型自行推断。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2014%20%E7%AB%A0%20%E7%94%9F%E6%B4%BB%E5%8A%A9%E6%89%8B%E7%9A%84%E4%BB%B7%E5%80%BC%EF%BC%8C%E6%98%AF%E5%87%8F%E5%B0%91%E7%90%90%E7%A2%8E/assets/003_image_IO4lbaAS1o.png)
+
+
 
 ## 场景二：旅行结束后，把照片和账单变成可复用记录
 
@@ -91,7 +99,13 @@ WorkBuddy 还可以在旅行后完成照片按日期地点整理、票据分类�
 只提示我联系当地医疗机构或急救服务，不继续在线推演。
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2014%20%E7%AB%A0%20%E7%94%9F%E6%B4%BB%E5%8A%A9%E6%89%8B%E7%9A%84%E4%BB%B7%E5%80%BC%EF%BC%8C%E6%98%AF%E5%87%8F%E5%B0%91%E7%90%90%E7%A2%8E/assets/004_image_JEOObotZfo.png)
+
 以上是我从网上找的一份就诊记录，当我把这份不太详尽的就诊记录同步给WorkBuddy，他会帮我分析并生成就医材料。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2014%20%E7%AB%A0%20%E7%94%9F%E6%B4%BB%E5%8A%A9%E6%89%8B%E7%9A%84%E4%BB%B7%E5%80%BC%EF%BC%8C%E6%98%AF%E5%87%8F%E5%B0%91%E7%90%90%E7%A2%8E/assets/005_image_TCPXbvZ9Bo.png)
+
+
 
 ## 场景四：健康习惯与饮食计划，可以做得更日常
 
@@ -105,7 +119,15 @@ WorkBuddy 还可以在旅行后完成照片按日期地点整理、票据分类�
 改为列出需要向医生或注册营养专业人员确认的问题。
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2014%20%E7%AB%A0%20%E7%94%9F%E6%B4%BB%E5%8A%A9%E6%89%8B%E7%9A%84%E4%BB%B7%E5%80%BC%EF%BC%8C%E6%98%AF%E5%87%8F%E5%B0%91%E7%90%90%E7%A2%8E/assets/006_image_Fu9EbJOqWo.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2014%20%E7%AB%A0%20%E7%94%9F%E6%B4%BB%E5%8A%A9%E6%89%8B%E7%9A%84%E4%BB%B7%E5%80%BC%EF%BC%8C%E6%98%AF%E5%87%8F%E5%B0%91%E7%90%90%E7%A2%8E/assets/007_image_CYQ7b2c1Ho.png)
+
 同样的在执行过程中会仔细询问我的饮食结构和目前厨房里可用的厨具，给出真正的属于我自己的晚餐计划，而不是一份看似精确但对我个人并不适配的医疗饮食方案。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2014%20%E7%AB%A0%20%E7%94%9F%E6%B4%BB%E5%8A%A9%E6%89%8B%E7%9A%84%E4%BB%B7%E5%80%BC%EF%BC%8C%E6%98%AF%E5%87%8F%E5%B0%91%E7%90%90%E7%A2%8E/assets/008_image_WNlYbFucxo.png)
+
+
 
 ## 场景五：算命、星盘与卜卦，怎样写得有趣又不越界
 
@@ -123,6 +145,12 @@ WorkBuddy 还可以在旅行后完成照片按日期地点整理、票据分类�
 结尾把每个结论改写成可验证的自我提问，并提供至少一个反例角度。
 不要长期保存出生时间和地点，任务结束后提醒我清理输入。
 ```
+
+
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2014%20%E7%AB%A0%20%E7%94%9F%E6%B4%BB%E5%8A%A9%E6%89%8B%E7%9A%84%E4%BB%B7%E5%80%BC%EF%BC%8C%E6%98%AF%E5%87%8F%E5%B0%91%E7%90%90%E7%A2%8E/assets/009_image_AS0HbQeP7o.png)
+
+
 
 ## 场景六：穿搭、家庭清单和消费比较
 
@@ -148,6 +176,10 @@ WorkBuddy 还可以在旅行后完成照片按日期地点整理、票据分类�
 不要代替我下单或接受服务条款。
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2014%20%E7%AB%A0%20%E7%94%9F%E6%B4%BB%E5%8A%A9%E6%89%8B%E7%9A%84%E4%BB%B7%E5%80%BC%EF%BC%8C%E6%98%AF%E5%87%8F%E5%B0%91%E7%90%90%E7%A2%8E/assets/010_image_IOAgbitrRo.png)
+
+
+
 ## 场景七：情绪记录与现实支持
 
 WorkBuddy 可以帮助记录情绪触发点、睡眠、事件和应对方式，生成复盘问题或与咨询师沟通的摘要。它不会冒充心理医生，也不会让用户只依赖 Agent。
@@ -159,6 +191,10 @@ WorkBuddy 可以帮助记录情绪触发点、睡眠、事件和应对方式，�
 如果内容出现自伤、他伤或即时危险信号，停止普通复盘，
 提示我立即联系当地紧急服务、专业机构或身边可信赖的人。
 ```
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2014%20%E7%AB%A0%20%E7%94%9F%E6%B4%BB%E5%8A%A9%E6%89%8B%E7%9A%84%E4%BB%B7%E5%80%BC%EF%BC%8C%E6%98%AF%E5%87%8F%E5%B0%91%E7%90%90%E7%A2%8E/assets/011_image_Oar6b1pIjo.png)
+
+
 
 ## 生活 Skill 安装前的四项检查
 

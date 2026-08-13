@@ -22,6 +22,8 @@ GEO 不是让 AI 帮你写一篇品牌软文，而是回答一个更基础的问
 
 GEO 诊断 Skill 上架到了 WorkBuddy 的专家市场，变成一个可以直接召唤的「品牌 GEO 诊断专家」，已经封装好一套诊断流程：从品牌输入、问题集设计、平台测试，到可见度、基建、竞品、舆情、路线图输出。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2021%20%E7%AB%A0%20WorkBuddy%E4%B9%9F%E8%83%BD%E5%81%9AGEO%E4%B8%93%E5%AE%B6/assets/001_geo-expert-market_Aq5vbw1zpo.png)
+
 ### 这个专家适合谁用
 
 - **产品团队**：想知道产品在 AI 搜索里的可见度、竞品压力和内容短板。
@@ -61,6 +63,10 @@ flowchart LR
 | 4 | 分析 AIVO、用户画像、竞品、基建、舆情和收录。 | 每个分数能不能追溯到样本和证据。 |
 | 5 | 输出 HTML / 飞书文档报告和优化路线图。 | 哪些行动先做，哪些结论需要人工复核。 |
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2021%20%E7%AB%A0%20WorkBuddy%E4%B9%9F%E8%83%BD%E5%81%9AGEO%E4%B8%93%E5%AE%B6/assets/002_geo-wesight-input_Igu2bhBHto.jpg)
+
+
+
 ### 提示词示例：产品 GEO 诊断
 
 ```text
@@ -73,6 +79,10 @@ flowchart LR
 无法重复验证的结果标为“样本观察”，不要写成绝对事实。
 ```
 
+
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2021%20%E7%AB%A0%20WorkBuddy%E4%B9%9F%E8%83%BD%E5%81%9AGEO%E4%B8%93%E5%AE%B6/assets/003_geo-wesight-running-report_NPbHbLzS1o.jpg)
+
 **可得到的结果**：不是一句“GEO 做得好不好”，而是一份能拆解问题的报告。案例中，WeSight 的问题不是产品没有差异化，而是在测试样本里 AI 搜索可见度和竞品对比优势偏弱，导致综合得分被拖低。
 
 
@@ -80,6 +90,8 @@ flowchart LR
 ### 报告模块一：诊断概览与风险提示
 
 诊断概览的作用是先给经营者一个全局判断：当前品牌总体表现如何、最主要风险是什么、哪些问题应该立刻处理。它不应该只给一个分数，而要解释分数从哪里来。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2021%20%E7%AB%A0%20WorkBuddy%E4%B9%9F%E8%83%BD%E5%81%9AGEO%E4%B8%93%E5%AE%B6/assets/004_geo-overview-risk_F7TdbI1vDo.png)
 
 | 概览里要看 | 为什么重要 | 如何复核 |
 |-|-|-|
@@ -94,6 +106,8 @@ flowchart LR
 ### 报告模块二：AIVO 评分，看清短板在哪
 
 把 GEO 拆成四个维度：AI 搜索可见度、基建完善度、竞品对比优势、舆情健康度。这个拆法比单一总分更有价值，因为它能告诉你到底是“没人提你”，还是“有人提你但说不准”，或者“竞品资料更强”。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2021%20%E7%AB%A0%20WorkBuddy%E4%B9%9F%E8%83%BD%E5%81%9AGEO%E4%B8%93%E5%AE%B6/assets/005_geo-aivo-score_IeIfb25yLo.png)
 
 | 维度 | 它衡量什么 | 低分时先做什么 |
 |-|-|-|
@@ -110,21 +124,31 @@ WeSight 的案例中，综合得分约 38 分；舆情健康度相对较好，�
 
 很多品牌做内容时只写自己想表达的卖点，但 GEO 更关心用户真实怎么问。公众号案例中，专家发现用户在大模型里更容易提出“有没有能统一管理多个 AI Agent 的桌面软件”这类问题。这意味着用户关心的是场景和任务，而不一定知道你的品牌名。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2021%20%E7%AB%A0%20WorkBuddy%E4%B9%9F%E8%83%BD%E5%81%9AGEO%E4%B8%93%E5%AE%B6/assets/006_geo-user-profile_D9E2bdtMfo.png)
+
 ### 报告模块四：搜索可见性，提及率就是新的排名
 
 在传统搜索里，用户至少还会看到一页链接；在 AI 搜索里，用户往往只看一段回答。品牌是否被提及、在什么位置被提及、是否被作为推荐项出现，就成了新的“搜索排名”。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2021%20%E7%AB%A0%20WorkBuddy%E4%B9%9F%E8%83%BD%E5%81%9AGEO%E4%B8%93%E5%AE%B6/assets/007_geo-search-visibility_DlL8bB228o.png)
 
 ### 报告模块五：数字基建，先让 AI 有可信资料可读
 
 GEO 不是只靠“发声量”。生成式 AI 需要可引用、可验证、相互印证的可信来源。把基建评估拆成三类：官网评估、自媒体矩阵、权威媒体背书。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2021%20%E7%AB%A0%20WorkBuddy%E4%B9%9F%E8%83%BD%E5%81%9AGEO%E4%B8%93%E5%AE%B6/assets/008_geo-infrastructure_EGT9bx2q1o.png)
+
 ### 报告模块六：竞品分析，争的是语义心智份额
 
 GEO 的竞品分析不是简单列出市场竞品，而是看同一条用户问题下，AI 把推荐位给了谁。你和竞品争夺的不是网页排名，而是语义心智份额。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2021%20%E7%AB%A0%20WorkBuddy%E4%B9%9F%E8%83%BD%E5%81%9AGEO%E4%B8%93%E5%AE%B6/assets/009_geo-competitor-analysis_DXc8bIG86o.png)
+
 ### 报告模块七：收录效果，最终看 AI 回答里有没有你
 
 收录效果可以理解为 GEO 的结果指标。前面的官网、内容矩阵、舆情、竞品分析最终都要落到一个问题：AI 回答里有没有你。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2021%20%E7%AB%A0%20WorkBuddy%E4%B9%9F%E8%83%BD%E5%81%9AGEO%E4%B8%93%E5%AE%B6/assets/010_geo-inclusion-effect_Wtr5bIQjXo.png)
 
 这里最容易犯的错误，是只测品牌名。品牌名能被搜到，不代表用户问场景问题时会出现你。正确做法是把问题分层：
 
@@ -134,6 +158,8 @@ GEO 的竞品分析不是简单列出市场竞品，而是看同一条用户问�
 - **对比问题**：A 和 B 有什么区别，哪个更适合某类用户。
 
 ### 报告模块八：舆情分接绕开。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2021%20%E7%AB%A0%20WorkBuddy%E4%B9%9F%E8%83%BD%E5%81%9AGEO%E4%B8%93%E5%AE%B6/assets/011_geo-sentiment-analysis_PGplbNBQFo.png)
 
 | 舆情类型 | 处理方式 | 注意事项 |
 |-|-|-|
@@ -147,6 +173,8 @@ GEO 的竞品分析不是简单列出市场竞品，而是看同一条用户问�
 ## 个人 IP 也可以做 GEO 诊断
 
 GEO 不只适合产品和企业，也适合个人 IP。用“苍何”做个人 IP 诊断，得到约 72 分，并用元宝做了额外搜索验证。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2021%20%E7%AB%A0%20WorkBuddy%E4%B9%9F%E8%83%BD%E5%81%9AGEO%E4%B8%93%E5%AE%B6/assets/012_geo-personal-ip-score_ImWjbM8HSo.jpg)
 
 ### 个人 IP 诊断要额外注意什么
 
@@ -182,6 +210,10 @@ GEO 不只适合产品和企业，也适合个人 IP。用“苍何”做个人 
 ### 从诊断到行动：不要追求一次性刷高分
 
 一份 GEO 报告如果不能转成行动，就只是漂亮仪表盘。给出快速赢利点、优先行动建议和阶段路线图，比如补齐 GEO 曝光、处理舆情、优化可信来源等。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2021%20%E7%AB%A0%20WorkBuddy%E4%B9%9F%E8%83%BD%E5%81%9AGEO%E4%B8%93%E5%AE%B6/assets/013_geo-action-suggestions_MiImbUk7Io.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2021%20%E7%AB%A0%20WorkBuddy%E4%B9%9F%E8%83%BD%E5%81%9AGEO%E4%B8%93%E5%AE%B6/assets/014_geo-roadmap_TlOTbehsFo.png)
 
 | 阶段 | 优先行动 | 复测方式 |
 |-|-|-|

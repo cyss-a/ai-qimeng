@@ -50,16 +50,33 @@ function isLocal(url) {
 
 function toPublic(url, relDir) {
   const rel = resolveRel(relDir, url);
-  return rel.includes('/assets/') || /\/assets$/.test(rel)
+  const pub = rel.includes('/assets/') || /\/assets$/.test(rel)
     ? `${BASE_URL}/workbuddy-assets/${rel}`
     : `${BASE_URL}/workbuddy/${rel}`;
+  // 资产路径含空格/中文会破坏 Markdown 图片解析，逐段编码（先 decode 避免二次编码），静态服务器解码回原文件名。
+  return encodeUrlSafe(pub);
+}
+function encodeUrlSafe(url) {
+  const idx = url.indexOf('://');
+  const start = idx >= 0 ? url.indexOf('/', idx + 3) : 0;
+  const head = url.slice(0, start);
+  const tail = url.slice(start);
+  return (
+    head +
+    tail
+      .split('/')
+      .map((seg) => {
+        try { return encodeURIComponent(decodeURIComponent(seg)); } catch { return encodeURIComponent(seg); }
+      })
+      .join('/')
+  );
 }
 
 function normalize(text, relDir) {
   // ---- artifacts 清理 ----
   text = text.replace(/!?\[#\]\(#[^)]*\)/g, '');            // 锚点图标链接（含前导 !）
   text = text.replace(/\[Skip to content\]\(#VPContent\)/gi, '');
-  text = text.replace(/\[[\s 　\u200b-\u200f]*\]\(([^)]*)\)/g, ''); // 零宽/空白编辑锚点
+  text = text.replace(/(?<!!)\[[\s 　\u200b-\u200f]*\]\(([^)]*)\)/g, ''); // 零宽/空白编辑锚点（负向 lookbehind 避免吞掉空 alt 图片 ![](...)）
   text = text.replace(/^[ \t]*:::.*$/gm, '');               // VitePress ::: 容器
   text = text.replace(/^\s*![\s ]*$/gm, '');                // 独立成行的 "!" 残留
 

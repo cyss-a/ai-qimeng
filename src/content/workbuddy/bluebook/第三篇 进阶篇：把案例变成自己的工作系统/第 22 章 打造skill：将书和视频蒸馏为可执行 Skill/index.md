@@ -4,6 +4,8 @@
 
 可以使用[cangjie-skill](https://github.com/kangarooking/cangjie-skill)把知识蒸馏成skill。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/001_image_WcJzb4b7Yo.png)
+
 cangjie-skill 开源项目（v1 蒸馏书，v2 增加视频蒸馏），以及 Andrej Karpathy 关于 LLM 个人知识库的思路。
 
 本章回答：如何将书本和视频中的方法论转化为 Agent 可自动调用的 Skill，以及这与 RAG 检索的本质差别在哪里。
@@ -15,6 +17,8 @@ AI 在训练时已经摄入了大量经典著作，但在实际问答中，它�
 人类读者面临同样的问题。读完一本书，笔记做了、金句划了，合上书以为升级了。两周后遇到真实问题，那些方法论却抓不住。知识在记忆里，但激活路径不清晰。
 
 知识精馏要解决的，就是这个"学了用不上"的问题。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/002_image_M0YFbAywgo.png)
 
 ## 知识精馏的定义
 
@@ -43,7 +47,13 @@ flowchart TD
     E --> F[阶段 5：压力测试]
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/003_image_N5i2bw6V5o.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/004_image_FiYybAIEQo.png)
+
 以蒸馏《文案创作完全手册》为例
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/005_image_NaOwbuAcQo.png)
 
 ### 阶段 0：整书 / 整片理解
 
@@ -55,6 +65,12 @@ flowchart TD
 - 作者自身的局限与盲点在哪里。
 
 这一步决定后续提取的质量上限。跳过这一步直接提取，容易把作者反对的观点当成他支持的方法论。
+
+
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/006_image_F5Ngb4vd5o.png)
+
+
 
 ### 阶段 1：五个 Agent 并行提取
 
@@ -70,6 +86,8 @@ flowchart TD
 
 五个角度并行，避免单线阅读中的视角遗漏。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/007_image_QMdJbhsm0o.png)
+
 ### 阶段 1.5：三重验证筛选
 
 每个候选知识单元必须通过三关，未通过直接淘汰：
@@ -82,6 +100,8 @@ flowchart TD
 
 宁缺毋滥。一本书通常有 50–100 个候选单元，通过三重验证后保留 10–25 个。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/008_image_D7z7b4DWvo.png)
+
 ### 阶段 2：构造 Skill
 
 每个通过验证的知识单元被构造成一个 Skill，核心是设计触发条件：
@@ -93,6 +113,8 @@ flowchart TD
 
 触发条件的设计是最难也最关键的一步。没有触发条件的 Skill，在实际使用中无法被 Agent 正确识别和调用。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/009_image_XXrkbXOymo.png)
+
 ### 阶段 4：链接
 
 找出 Skill 之间的关系，形成知识网络：
@@ -103,15 +125,21 @@ flowchart TD
 
 链接层让 Agent 在遇到复杂问题时，能够选择一组 Skill 而不只是单个 Skill。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/010_image_BXYeb8ld7o.png)
+
 ### 阶段 5：压力测试
 
 **诱饵测试**：故意给不该触发的场景，检验 Skill 是否能忍住不激活。一个没有边界的 Skill，在错误场景下调用反而帮倒忙。
 
 **执行验证**：给出真实问题，验证 Skill 是否能输出可落地的步骤而不是正确的废话。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/011_image_NwvvbJkuco.png)
+
 ## 蒸馏产物结构
 
 一本书蒸馏完成后，产物是一套 Skill 集合：
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/012_image_LEKGbkn2Go.png)
 
 ```text
 book-skill/
@@ -127,6 +155,10 @@ book-skill/
 ```
 
 每个 Skill 文件包含：触发条件、执行步骤、输出格式、边界限制、测试用例。测试用例格式兼容 darwin-skill（自动 Skill 进化工具），蒸馏产物可以持续自动优化。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/013_image_Mp0ZbEmn7o.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/014_image_C1aCbJYz3o.png)
 
 ## 知识精馏 vs RAG
 
@@ -165,6 +197,8 @@ cangjie-skill 的阶段 0（整书理解）和阶段 1（并行提取）吸收�
 ## 视频蒸馏工作流（v2 新增）
 
 cangjie-skill v2 在书本蒸馏基础上增加了视频蒸馏能力（借助[video-downloader skill](https://github.com/kangarooking/kangarooking-skills/tree/main/video-downloader)）。视频与书的区别在于：需要先完成"视频 → 文字"的转换，再进入六阶段 SOP。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/015_image_MG56bW6jlo.png)
 
 ### 视频获取与转写
 
@@ -288,6 +322,8 @@ darwin-skill 是自动 Skill 进化工具：将 Skill 喂给它，它会自动�
 - 蒸馏耗时：约 1 小时
 - 产出：25 个 Skill
 - 特点：全部为时效性内容，AI 未经训练，蒸馏后可直接在对应场景下被 Agent 调用
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2022%20%E7%AB%A0%20%E6%89%93%E9%80%A0skill%EF%BC%9A%E5%B0%86%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91%E8%92%B8%E9%A6%8F%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%20Skill/assets/016_image_HoW7bnRYFo.png)
 
 ## 总结：知识精馏在技能包体系中的位置
 

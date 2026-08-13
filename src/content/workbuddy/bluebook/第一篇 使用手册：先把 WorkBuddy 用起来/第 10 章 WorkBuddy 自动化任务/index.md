@@ -82,13 +82,25 @@ WorkBuddy 的不同之处，是把“定时调度”与 Agent 的理解、工具
 
 点击“自动化”，
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%2010%20%E7%AB%A0%20WorkBuddy%20%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BB%BB%E5%8A%A1/assets/001_image_RklAba93No.png)
+
 “添加自动化”，就可以自定义你的任务
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%2010%20%E7%AB%A0%20WorkBuddy%20%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BB%BB%E5%8A%A1/assets/002_image_MhojbPRsOo.png)
+
 比如，每日AI资讯新闻推送，定时8点发送
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%2010%20%E7%AB%A0%20WorkBuddy%20%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BB%BB%E5%8A%A1/assets/003_image_Ff6fbYuGoo.png)
+
+
 
 ## 不想从零写 Prompt，可以先用模板
 
 官方任务模板覆盖新闻推送、周报生成、体检预约和学习计划等常见场景。模板的价值是提供基本字段和任务结构，但它不是最终答案。选用后仍应修改数据来源、时间范围、输出位置、验收标准和禁止动作。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%2010%20%E7%AB%A0%20WorkBuddy%20%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BB%BB%E5%8A%A1/assets/004_%E8%87%AA%E5%8A%A8%E5%8C%96-%E4%BB%BB%E5%8A%A1%E6%A8%A1%E6%9D%BF_FYNwbDWqbo.png)
+
+
 
 ## 更多值得尝试的自动化场景
 

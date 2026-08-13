@@ -18,6 +18,10 @@ AI 内容领域更新速度快，每天需要从多个信息源中筛选当日�
 
 手动运行一次这个任务，WorkBuddy 会同时调用四个数据源，整合输出一份当日 AI 热点清单，供博主快速判断和筛选。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2025%20%E7%AB%A0%20%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7/assets/001_image_FGBhb1udco.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2025%20%E7%AB%A0%20%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7/assets/002_image_Yuucbmf9So.png)
+
 跑通一次后，下一步是把它设置为定时自动化任务：每天早上 9:00 自动运行，结果推送到指定位置，无需每天手动触发。
 
 本章围绕这个场景，说明从"能用"到"可靠自动化"需要处理哪些问题。
@@ -45,7 +49,13 @@ AI 内容领域更新速度快，每天需要从多个信息源中筛选当日�
 
 WorkBuddy 会将当前 Prompt 和数据源配置保存为定时任务，按设定时间自动执行。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2025%20%E7%AB%A0%20%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7/assets/003_image_RNrFb50Tqo.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2025%20%E7%AB%A0%20%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7/assets/004_image_IPtlb5D3Zo.png)
+
 设置完成后，每天早上 9:00，WorkBuddy 自动调用四个数据源，整合结果并推送。博主打开通知，直接开始筛选选题，不需要手动触发。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2025%20%E7%AB%A0%20%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7/assets/005_image_A6Jmbe0tao.png)
 
 ## 把自动化任务设计成状态机
 

@@ -31,7 +31,7 @@ function rewriteUrl(url) {
 function normalize(text) {
   // 1. 剥离 artifacts
   text = text.replace(/\[Skip to content\]\(#VPContent\)/gi, '');
-  text = text.replace(/\[[\s 　\u200b-\u200f]*\]\(([^)]*)\)/g, ''); // 零宽/空白编辑锚点
+  text = text.replace(/(?<!!)\[[\s 　\u200b-\u200f]*\]\(([^)]*)\)/g, ''); // 零宽/空白编辑锚点（负向 lookbehind 避免吞掉空 alt 图片 ![](...)）
   text = text.replace(/\[#\]\(#[^)]*\)/g, ''); // [#](#anchor) 锚点图标
   text = text.replace(/^[ \t]*:::.*$/gm, ''); // VitePress ::: 容器标记
 

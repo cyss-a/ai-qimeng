@@ -4,6 +4,8 @@
 
 ## 小程序远程控制电脑
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2013%20%E7%AB%A0%20%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6%E4%BD%A0%E7%9A%84%E7%94%B5%E8%84%91%EF%BC%8C%E4%B8%8D%E7%94%A8%E5%8F%91%E6%84%81%E4%B8%8D%E5%9C%A8%E7%94%B5%E8%84%91%E5%89%8D/assets/001_26MfTlZV_KWt4b43Mbo.jpg)
+
 传统远程办公通常有两种方式：一种是把电脑屏幕投到手机上，自己点鼠标；另一种是把文件先传到云端，再在手机上处理。
 
 WorkBuddy 的远程方式介于二者之间：用户不直接操控鼠标，而是把任务说清楚；电脑端 WorkBuddy 根据授权范围读取本地文件、调用 Skill 或本地工具，把中间结果和最终产物回传到手机端。
@@ -22,6 +24,8 @@ WorkBuddy 的远程方式介于二者之间：用户不直接操控鼠标，而�
 移动端适合在通勤、出差、跨设备办公时继续推进任务。但在使用前，必须先判断任务究竟应该跑在云端，还是跑在本机。
 
 这个判断会直接影响它能否读取电脑文件、是否需要电脑在线，以及数据是否适合进入云端环境。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2013%20%E7%AB%A0%20%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6%E4%BD%A0%E7%9A%84%E7%94%B5%E8%84%91%EF%BC%8C%E4%B8%8D%E7%94%A8%E5%8F%91%E6%84%81%E4%B8%8D%E5%9C%A8%E7%94%B5%E8%84%91%E5%89%8D/assets/002_workbuddy-local-cloud-mode_CsMMbNpDWo.jpg)
 
 | 判断问题 | 云端模式 | 本机模式 |
 |-|-|-|
@@ -53,9 +57,17 @@ WorkBuddy 的远程方式介于二者之间：用户不直接操控鼠标，而�
 你帮我看一下，我电脑上在我这个local long GPT里边有一个关于xx公司的一些PPT，然后你整理一下内容发给我。
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2013%20%E7%AB%A0%20%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6%E4%BD%A0%E7%9A%84%E7%94%B5%E8%84%91%EF%BC%8C%E4%B8%8D%E7%94%A8%E5%8F%91%E6%84%81%E4%B8%8D%E5%9C%A8%E7%94%B5%E8%84%91%E5%89%8D/assets/003_workbuddy-remote-ppt-search_TKo1bTVF0o.jpg)
+
+
+
 ## 微信文件直接处理，不必先搬来搬去
 
 很多任务不是从电脑文件夹开始，而是从微信聊天里突然冒出来：客户发来一个合同 PDF，朋友发来一张票据照片，同事丢来一个 Excel，供应商转来一个压缩包。传统流程是先下载到手机，再传电脑，再找目录，再打开软件。小程序更适合把“微信上下文里的文件”直接变成 WorkBuddy 的输入。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2013%20%E7%AB%A0%20%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6%E4%BD%A0%E7%9A%84%E7%94%B5%E8%84%91%EF%BC%8C%E4%B8%8D%E7%94%A8%E5%8F%91%E6%84%81%E4%B8%8D%E5%9C%A8%E7%94%B5%E8%84%91%E5%89%8D/assets/004_p8IJTS7o_AFVJb6OkJo.jpg)
+
+
 
 ## 远程监控长任务，让手机成为任务看板
 
@@ -74,6 +86,10 @@ WorkBuddy 的远程方式介于二者之间：用户不直接操控鼠标，而�
 请启动这个批量处理任务，并把手机端当作进度看板。
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2013%20%E7%AB%A0%20%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6%E4%BD%A0%E7%9A%84%E7%94%B5%E8%84%91%EF%BC%8C%E4%B8%8D%E7%94%A8%E5%8F%91%E6%84%81%E4%B8%8D%E5%9C%A8%E7%94%B5%E8%84%91%E5%89%8D/assets/005_workbuddy-remote-task-execute_Aw3vbvuLho.jpg)
+
 ```Plain Text
 你控制摄像头拍张照片，描述一下电脑前面的画面
 ```
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2013%20%E7%AB%A0%20%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6%E4%BD%A0%E7%9A%84%E7%94%B5%E8%84%91%EF%BC%8C%E4%B8%8D%E7%94%A8%E5%8F%91%E6%84%81%E4%B8%8D%E5%9C%A8%E7%94%B5%E8%84%91%E5%89%8D/assets/006_image_GvG6bCfUyo.png)

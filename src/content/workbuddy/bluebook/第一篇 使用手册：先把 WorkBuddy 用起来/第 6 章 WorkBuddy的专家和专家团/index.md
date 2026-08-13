@@ -43,9 +43,17 @@ WorkBuddy 本身是一个通用 Agent，什么任务都能接。但通用不意�
 
 1. 打开“专家·技能·连接器”，选择“专家”；
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%206%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%93%E5%AE%B6%E5%92%8C%E4%B8%93%E5%AE%B6%E5%9B%A2/assets/001_image_T8L2bOcbBo.png)
+
+
+
 2. 点击“召唤专家”；以“高考我帮你”专家举例
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%206%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%93%E5%AE%B6%E5%92%8C%E4%B8%93%E5%AE%B6%E5%9B%A2/assets/002_image_TlTJbNIQOo.png)
+
 3. 提供任务内容，比如“帮我查一下2026年高考数学真题”
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%206%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%93%E5%AE%B6%E5%92%8C%E4%B8%93%E5%AE%B6%E5%9B%A2/assets/003_image_Hfv9bPfcIo.png)
 
 4. 等待结果
 
@@ -55,11 +63,19 @@ WorkBuddy 本身是一个通用 Agent，什么任务都能接。但通用不意�
 
 点击我的专家，创建专家，即可
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%206%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%93%E5%AE%B6%E5%92%8C%E4%B8%93%E5%AE%B6%E5%9B%A2/assets/004_20260708204254_Nvfjb5QwFo.gif)
+
 比如创建一个公众号创作专家，
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%206%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%93%E5%AE%B6%E5%92%8C%E4%B8%93%E5%AE%B6%E5%9B%A2/assets/005_image_Bzc4b6Ukko.png)
 
 生成结束，可以测试
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%206%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%93%E5%AE%B6%E5%92%8C%E4%B8%93%E5%AE%B6%E5%9B%A2/assets/006_image_Oz4wbqMTqo.png)
+
 在我的专家中，也可以找到。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%206%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%93%E5%AE%B6%E5%92%8C%E4%B8%93%E5%AE%B6%E5%9B%A2/assets/007_image_TDP4b0emBo.png)
 
 ## 召唤一个专家团
 
@@ -68,3 +84,7 @@ WorkBuddy 本身是一个通用 Agent，什么任务都能接。但通用不意�
 
 
 打开“专家·技能·连接器”，选择“专家团”，点击召唤
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%206%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%93%E5%AE%B6%E5%92%8C%E4%B8%93%E5%AE%B6%E5%9B%A2/assets/008_image_MHngbV84ro.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%206%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%93%E5%AE%B6%E5%92%8C%E4%B8%93%E5%AE%B6%E5%9B%A2/assets/009_image_LUaZbwcddo.png)

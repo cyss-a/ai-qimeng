@@ -52,9 +52,15 @@ Skill 的作用是补上其中一个环节，不是接管账号判断。下面�
 不要把阅读量高直接解释成选题一定适合我。
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/001_image_TBeUbtO5Uo.png)
+
 ### 执行流程与结果
 
 WorkBuddy 先生成跨平台样本表，再把评论聚成问题簇，最后把“热度、账号匹配、新增价值、证据充足度、制作成本”分别评分。交付物是一张可以人工删选的选题看板。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/002_image_UsfnbdO18o.png)
+
+
 
 ### **有时候光找热门还不够，我们还需要去找低粉爆款。**
 
@@ -66,9 +72,17 @@ WorkBuddy 先生成跨平台样本表，再把评论聚成问题簇，最后把�
 
 比如获取公众号最近7天的AI领域低粉爆款文章。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/003_image_D9dBbor45o.png)
+
 筛选X上的低粉爆款
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/004_image_SgdBbN3bXo.png)
+
 以及YouTube的低粉爆款
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/005_image_IrhFbSsgxo.png)
+
+
 
 ## 场景二：想要爆款标题，但不想标题党
 
@@ -93,17 +107,25 @@ WorkBuddy 先生成跨平台样本表，再把评论聚成问题簇，最后把�
 不要自动选择最终标题，先让我确认内容承诺。
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/006_image_OmoDbu7rBo.png)
+
 ### 验收方法
 
 把标题单独给一个不了解正文的人看，请他写出“我预计点进去会得到什么”。再与正文核对。预期与实际不一致，标题分数再高也不能用。
 
 workbuddy通过这几个skill，生成的标题还真有那味儿。特别是小红书的标题，很有小红书的感觉。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/007_image_YCTubyoc3o.png)
+
 可以进行 A/B 测试，但一次只改变一个主要变量，例如“问题式”与“结果式”。不要同时改标题、封面、发布时间和正文开头，否则数据无法解释。
 
 
 
 再推荐一个标题skill：[**viral-**](https://github.com/kangarooking/kangarooking-skills/tree/main/viral-title)[**title**](https://github.com/kangarooking/kangarooking-skills/tree/main/viral-title)**，很适合用来给公众号起标题**
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/008_image_Cezibb1uao.png)
+
+
 
 ## 场景三：公众号封面每次从空白画布开始
 
@@ -127,6 +149,8 @@ workbuddy通过这几个skill，生成的标题还真有那味儿。特别是小
 ```
 
 ### 结果是否可用
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/009_image_YB8xbAm4Zo.png)
 
 生成的封面还不错，有汉字、封面负责表达的主题也比较贴切，如果换成更强的生图模型，效果应该会更好。
 
@@ -157,6 +181,10 @@ workbuddy通过这几个skill，生成的标题还真有那味儿。特别是小
 先返回逐页文案、视觉层级和预计字数，我确认后再调用封面与长图 Skill。
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/010_image_FUCAbuw08o.png)
+
+
+
 ## 场景五：一段长文怎样变成可拍的短视频
 
 “改成 60 秒口播”通常只是把文章压缩成更快的朗读稿，没有镜头、节奏、证据画面和停顿，也没有说明谁能拍、需要什么素材。
@@ -177,6 +205,8 @@ workbuddy通过这几个skill，生成的标题还真有那味儿。特别是小
 同时列出必须实拍、可用产品截图、可由 AI 生成的画面，禁止伪造用户反馈。
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/011_image_VrCsbV8TPo.png)
+
 生成的口播文案，效果还不错哦。
 
 
@@ -193,6 +223,14 @@ workbuddy通过这几个skill，生成的标题还真有那味儿。特别是小
 
 发布链建议停在草稿箱：事实检查 → 引用与版权 → 品牌与合规 → 链接检查 → 手机预览 → 人工确认账号 → 发布。自动点赞、批量私信、刷评论、绕过平台风控和未经确认的群发，不属于本书推荐的效率场景。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/012_image_WzaxbhMT7o.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/013_image_KqQsbAw8Ho.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/014_image_GUBtbiSfao.png)
+
+
+
 ## 场景七：发布后不复盘，下一篇仍从零开始
 
 复盘主要是把AI写的和人工修改后的终稿进行对比，让skill自动进化，下一次，它将写出更好的内容。
@@ -208,6 +246,14 @@ workbuddy通过这几个skill，生成的标题还真有那味儿。特别是小
 ```
 
 把AI最开始产出的文案和终稿都丢进去，最终产出复盘报告和style-guide.md，下次AI写的东西就能离你的期望更进一步啦～
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/015_image_QHmHbuB4Ro.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2020%20%E7%AB%A0%20%E8%87%AA%E5%AA%92%E4%BD%93%E4%B8%8D%E5%8F%AA%E6%98%AF%E9%9D%A0%E5%8A%AA%E5%8A%9B%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%9D%A1%E5%A2%9E%E9%95%BF%E9%97%AD%E7%8E%AF/assets/016_image_NtnjbhJRHo.png)
+
+
+
+
 
 ## 一套够用的自媒体 Skill 栈
 

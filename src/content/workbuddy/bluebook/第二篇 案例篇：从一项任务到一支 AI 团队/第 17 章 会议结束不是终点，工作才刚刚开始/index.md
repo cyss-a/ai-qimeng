@@ -82,9 +82,15 @@ ps：以上提示词可以根据自己的会议修改。
 下载或保存前说明文件类型、大小、目标目录和保留期限。
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2017%20%E7%AB%A0%20%E4%BC%9A%E8%AE%AE%E7%BB%93%E6%9D%9F%E4%B8%8D%E6%98%AF%E7%BB%88%E7%82%B9%EF%BC%8C%E5%B7%A5%E4%BD%9C%E6%89%8D%E5%88%9A%E5%88%9A%E5%BC%80%E5%A7%8B/assets/001_image_AXyxbhbcqo.png)
+
 在这个过程中需要连接腾讯会议连接器，按照提示在连接管理器中找到“腾讯会议”，并授权连接就行。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2017%20%E7%AB%A0%20%E4%BC%9A%E8%AE%AE%E7%BB%93%E6%9D%9F%E4%B8%8D%E6%98%AF%E7%BB%88%E7%82%B9%EF%BC%8C%E5%B7%A5%E4%BD%9C%E6%89%8D%E5%88%9A%E5%88%9A%E5%BC%80%E5%A7%8B/assets/002_image_AqEYbLlgUo.png)
+
 腾讯会议能力通常需要先把 9 位会议号转换成内部 `meeting_id`，再查询详情、录制和转写。这个过程由 Skill 完成，不需手工转换，但保留会议号、会议 ID、录制 ID、查询时间和权限状态，方便排错。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2017%20%E7%AB%A0%20%E4%BC%9A%E8%AE%AE%E7%BB%93%E6%9D%9F%E4%B8%8D%E6%98%AF%E7%BB%88%E7%82%B9%EF%BC%8C%E5%B7%A5%E4%BD%9C%E6%89%8D%E5%88%9A%E5%88%9A%E5%BC%80%E5%A7%8B/assets/003_image_N3UabeCFBo.png)
 
 录制与转写的边界
 
@@ -122,6 +128,10 @@ ps：以上提示词可以根据自己的会议修改。
 不得根据语气猜测负责人或截止时间。
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2017%20%E7%AB%A0%20%E4%BC%9A%E8%AE%AE%E7%BB%93%E6%9D%9F%E4%B8%8D%E6%98%AF%E7%BB%88%E7%82%B9%EF%BC%8C%E5%B7%A5%E4%BD%9C%E6%89%8D%E5%88%9A%E5%88%9A%E5%BC%80%E5%A7%8B/assets/004_image_Ne3BbzhZco.png)
+
+
+
 ### 第五步：纪要里的待办，不能直接静默写入任务系统
 
 为什么要两步确认
@@ -135,6 +145,8 @@ ps：以上提示词可以根据自己的会议修改。
 先按负责人分组让我确认；确认后再写入指定任务清单。
 写入完成后返回成功、失败、跳过和重复四个清单，不发送催办消息。
 ```
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2017%20%E7%AB%A0%20%E4%BC%9A%E8%AE%AE%E7%BB%93%E6%9D%9F%E4%B8%8D%E6%98%AF%E7%BB%88%E7%82%B9%EF%BC%8C%E5%B7%A5%E4%BD%9C%E6%89%8D%E5%88%9A%E5%88%9A%E5%BC%80%E5%A7%8B/assets/005_image_YK5Ebuvyto.png)
 
 这里由于我这次的会议主要是为了演示用，所以待办项的相关责任人都是待确认状态。
 
@@ -152,6 +164,8 @@ B. 发给管理层：三句话结论、关键风险和需要支持的决定。
 只生成草稿，不发送。
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2017%20%E7%AB%A0%20%E4%BC%9A%E8%AE%AE%E7%BB%93%E6%9D%9F%E4%B8%8D%E6%98%AF%E7%BB%88%E7%82%B9%EF%BC%8C%E5%B7%A5%E4%BD%9C%E6%89%8D%E5%88%9A%E5%88%9A%E5%BC%80%E5%A7%8B/assets/006_image_DYjgbWFlGo.png)
+
 批量重命名要保留映射表；同名冲突不覆盖；合同、财务和人事文件按组织规则处理，不能只按文件名猜分类。
 
 ## 会后延伸：把会议纪要变成汇报 PPT
@@ -165,6 +179,8 @@ B. 发给管理层：三句话结论、关键风险和需要支持的决定。
 每页只表达一个结论；数字来自状态表，决定来自纪要；
 不使用无法解释的装饰图表。先返回页级大纲和证据映射，确认后再生成 PPT。
 ```
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2017%20%E7%AB%A0%20%E4%BC%9A%E8%AE%AE%E7%BB%93%E6%9D%9F%E4%B8%8D%E6%98%AF%E7%BB%88%E7%82%B9%EF%BC%8C%E5%B7%A5%E4%BD%9C%E6%89%8D%E5%88%9A%E5%88%9A%E5%BC%80%E5%A7%8B/assets/011_image_CIeub9uEro.png)
 
 ## 一套基础办公 Skill 栈
 

@@ -4,6 +4,8 @@
 
 面向 人力资源、行政、运营、销售、研发等不同职场角色，是一款能够像真正同事一样思考、执行任务并交付结果的 AI 办公应用。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%201%20%E7%AB%A0%20%E5%88%9D%E8%AF%86%20WorkBuddy/assets/001_image_Ve9kbu40Eo.png)
+
 ## 从“回答问题”到“交付结果”
 
 与传统 AI 助手不同，WorkBuddy 不只是陪用户聊天、回答问题或者给出建议。
@@ -27,6 +29,8 @@ flowchart LR
 
 例如，用户可以直接告诉 WorkBuddy，分析这个文件夹中的销售数据，并生成一份汇报 PPT。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%201%20%E7%AB%A0%20%E5%88%9D%E8%AF%86%20WorkBuddy/assets/002_image_IaB9bqqj6o.png)
+
 WorkBuddy 会自主读取相关文件，理解数据内容，完成分析和总结，并生成最终可以查看和修改的工作成果。
 
 整个过程中，用户不需要手动上传每一个文件，也不需要一步一步告诉 AI 下一步应该做什么。
@@ -42,3 +46,5 @@ WorkBuddy 面向的是完整的工作任务。
 同时，针对本地文件操作、终端执行等场景，WorkBuddy 还提供高危指令拦截和权限控制机制，降低 AI 自主执行过程中的风险。
 
 想对workbuddy打分，可以去[观猹](https://watcha.cn/)，写出你对workbuddy的真实评价～
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%201%20%E7%AB%A0%20%E5%88%9D%E8%AF%86%20WorkBuddy/assets/003_image_Idhdsahdl.png)

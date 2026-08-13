@@ -10,6 +10,8 @@ WorkBuddy 内置了多款国产大模型。每日签到领取的积分基本能�
 
 如果拿不准做什么，WorkBuddy 已经按应用场景预设了模板，选一个直接开始即可。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2023%20%E7%AB%A0%20%E5%85%B6%E4%BB%96%E7%94%A8%E6%B3%95%E8%A1%A5%E5%85%85%EF%BC%9AWorkBuddy%20%E5%AE%9E%E6%93%8D%E6%A1%88%E4%BE%8B%E9%9B%86/assets/001_01_app_templates_To5yb29RMo.gif)
+
 ## 短任务实战：Excel 可视化与数据清洗
 
 HY3 在短任务上表现突出。PPT 生成、数据清洗、Excel 图表可视化分析都能直接完成。
@@ -28,6 +30,10 @@ HY3 在短任务上表现突出。PPT 生成、数据清洗、Excel 图表可视
 ```
 
 执行过程可能较慢，但最终产出的可视化效果通常超出预期——包括图表、趋势分析和文字总结。数据清洗和 PPT 生成同理。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2023%20%E7%AB%A0%20%E5%85%B6%E4%BB%96%E7%94%A8%E6%B3%95%E8%A1%A5%E5%85%85%EF%BC%9AWorkBuddy%20%E5%AE%9E%E6%93%8D%E6%A1%88%E4%BE%8B%E9%9B%86/assets/002_image_F4BfbagcFo.png)
+
+
 
 ## 设计创意：用提示词生成完整网站
 
@@ -51,7 +57,7 @@ Build a full-screen hero section for a creative portfolio using React, Vite, Tai
 6. prefers-reduced-motion 下禁用所有动画。
 ```
 
-<video controls preload="metadata" src="/ai-qimeng/workbuddy-assets/bluebook/第三篇 进阶篇：把案例变成自己的工作系统/第 23 章 其他用法补充：WorkBuddy 实操案例集/assets/003_asset_HE1Nb74Hfo.mp4"></video>
+<video controls preload="metadata" src="/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2023%20%E7%AB%A0%20%E5%85%B6%E4%BB%96%E7%94%A8%E6%B3%95%E8%A1%A5%E5%85%85%EF%BC%9AWorkBuddy%20%E5%AE%9E%E6%93%8D%E6%A1%88%E4%BE%8B%E9%9B%86/assets/003_asset_HE1Nb74Hfo.mp4"></video>
 
 
 
@@ -75,6 +81,10 @@ Build a full-screen hero landing page for a creative agency called "Mainframe" u
 
 以上两个模板全程使用 HY3 模型完成。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2023%20%E7%AB%A0%20%E5%85%B6%E4%BB%96%E7%94%A8%E6%B3%95%E8%A1%A5%E5%85%85%EF%BC%9AWorkBuddy%20%E5%AE%9E%E6%93%8D%E6%A1%88%E4%BE%8B%E9%9B%86/assets/004_03_website_design_WX9gb8dBMo.gif)
+
+
+
 ## Skill 联动：跨服务的智能推荐
 
 WorkBuddy 的 Skill 系统允许 Agent 连接日常使用的各类服务。这种跨服务联动是 Skill 生态的核心价值——不是替代某个 App，而是成为多个 App 之间的连接层。
@@ -93,5 +103,7 @@ WorkBuddy 的 Skill 系统允许 Agent 连接日常使用的各类服务。这�
 3. 在 QQ 音乐中匹配风格相近的歌单；
 4. 输出推荐理由和歌单链接。
 ```
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2023%20%E7%AB%A0%20%E5%85%B6%E4%BB%96%E7%94%A8%E6%B3%95%E8%A1%A5%E5%85%85%EF%BC%9AWorkBuddy%20%E5%AE%9E%E6%93%8D%E6%A1%88%E4%BE%8B%E9%9B%86/assets/005_04_skill_music_GxX3brlGeo.png)
 
 微信读书 Skill 的安装链接可以在官方页面获取：`https://weread.qq.com/r/weread-skills`。

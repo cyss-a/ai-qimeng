@@ -2,6 +2,8 @@
 
 一人公司产品宣传部实践（HyperFrames + 多 Agent）、WorkBuddy 专家团产品。本章以产品宣传片专家团的实际案例，回答：多 Agent 系统如何设计分工、如何串联产物、何时值得拆分。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2024%20%E7%AB%A0%20%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%A4%9A%20Agent%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/assets/001_image_AkBibtRBOo.png)
+
 ## 单 Agent 和多 Agent 的真正差别
 
 | 维度 | 单 Agent | 多 Agent |
@@ -14,6 +16,8 @@
 | 风险 | 一处错误影响整体 | 错误可能在角色间传播 |
 
 多 Agent 的价值来自专业分工、并行、权限隔离或独立评审，不来自角色数量。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2024%20%E7%AB%A0%20%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%A4%9A%20Agent%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/assets/002_image_WdfWbMN9Do.png)
 
 ## 任务是否值得拆分
 
@@ -33,6 +37,8 @@
 ### 任务背景
 
 HyperFrames 是 HeyGen 开源的视频渲染框架（截至案例时 GitHub 17.7K Star），核心特点是对 AI Agent 友好：Agent 可以自动生成基于 HTML 的视频帧并渲染输出。产品宣传片具有相对固定的套路——无需口播和演员，主要由产品展示、概念字幕和 BGM 构成。这类任务适合 Agent 团队分工处理。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2024%20%E7%AB%A0%20%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%A4%9A%20Agent%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/assets/003_image_NhwLbBH33o.png)
 
 ### 工序设计
 
@@ -68,6 +74,8 @@ flowchart TD
 我希望你做一个产品宣传片，具体的话，是宣传腾讯的workbuddy最新的专家团，主打opc场景。当前空间下我放了一些素材，成片风格可以偏apple风格、真实软件界面。整个过程全自动
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2024%20%E7%AB%A0%20%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%A4%9A%20Agent%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/assets/004_image_MdzDbUKmlo.png)
+
 团长先接到任务：把"做一支宣传片"拆成了一串子任务：先得搞清楚 WorkBuddy 专家团到底是什么、卖给谁、核心价值是什么；再决定叙事结构、镜头数量、节奏；然后再分头去做素材、剪辑、配乐。
 
 
@@ -90,11 +98,13 @@ brief 角色先开工：去把 WorkBuddy 官网、产品介绍、专家团列表
 
 最后由 团长 把所有产物整合，跑最后一道剪辑，输出成片。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2024%20%E7%AB%A0%20%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%A4%9A%20Agent%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/assets/005_image_QASabZlKzo.png)
+
 整个过程我基本就是个旁观者：偶尔在关键节点拍一下板，比如分镜要不要这么排、BGM 喜不喜欢、字幕文案要不要改。
 
 最后出来的片子，还挺不错的。
 
-<video controls preload="metadata" src="/ai-qimeng/workbuddy-assets/bluebook/第三篇 进阶篇：把案例变成自己的工作系统/第 24 章 如何进行多 Agent 系统设计/assets/006_asset_Um2SbSClHo.mp4"></video>
+<video controls preload="metadata" src="/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2024%20%E7%AB%A0%20%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%A4%9A%20Agent%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/assets/006_asset_Um2SbSClHo.mp4"></video>
 
 
 
@@ -156,7 +166,13 @@ WorkBuddy 专家团将上述分工产品化：团长负责任务拆解和分配�
 
 创建专家团也很简单在专家->我的专家->创建专家
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2024%20%E7%AB%A0%20%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%A4%9A%20Agent%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/assets/007_image_BNYQbIE2no.png)
+
 就会跳转到workbuddy的对话框，根据它给定的格式即可快速创建属于自己的专家。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2024%20%E7%AB%A0%20%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%A4%9A%20Agent%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/assets/008_image_KXwlbyY7Oo.png)
+
+
 
 当前专家团覆盖的典型场景：
 
@@ -167,6 +183,8 @@ WorkBuddy 专家团将上述分工产品化：团长负责任务拆解和分配�
 | 商业分析 | 深度研究、投资分析、数据分析 |
 | 业务支持 | SEO、销售、营销、财税合规、HR |
 | 法律合规 | 中文法律 |
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%B8%89%E7%AF%87%20%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%9A%E6%8A%8A%E6%A1%88%E4%BE%8B%E5%8F%98%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%2024%20%E7%AB%A0%20%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%A4%9A%20Agent%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/assets/009_image_HDlMbAHGTo.png)
 
 ### 两种路径的选择
 

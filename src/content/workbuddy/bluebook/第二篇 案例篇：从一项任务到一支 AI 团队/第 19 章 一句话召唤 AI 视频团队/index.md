@@ -2,6 +2,10 @@
 
 在 WorkBuddy 里把短视频工作拆成两支 AI 专家团：一支负责自动生产视频，一支负责拆解爆款视频。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/001_video-work-is-hard_Jn32bhqaho.png)
+
+
+
 | 团队 | 负责什么 | 适合什么任务 |
 |-|-|-|
 | **视频生成团队** | 从主题出发，完成热点采集、选题筛选、脚本、分镜、配音、渲染、字幕和发布。 | AI 周报、产品更新、知识科普、行业分析、产品评测。 |
@@ -9,7 +13,11 @@
 
 这两个团队并不是互相替代的关系。视频生成团队解决“今天怎么做一条出来”，爆款拆解团队解决“为什么别人那条能火，我能学到什么”。一个负责生产，一个负责学习，组合起来才有持续迭代的可能。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/002_two-ai-video-teams_SXcUb9mpMo.png)
+
 ## 如何召唤：从一句话开始，但不要停在一句话
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/003_summon-expert-team-pc_FHrNbNCiBo.png)
 
 ```text
 召唤视频生成团队，制作一条 46 秒 AI 周报短视频。
@@ -18,6 +26,8 @@
 ## 第一支团队：视频生成团队
 
 视频生成团队里有四个核心角色：视频生成团队主理人凌导、信息采集员灵阅、内容策划师灵枢、视频制作师灵映。它们不是四个换名字的聊天窗口，而是一条有上下游交接关系的视频生产线。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/004_video-team-roles_ZOJ8b7aQ7o.png)
 
 | 角色 | 定位 | 交付物 |
 |-|-|-|
@@ -28,13 +38,19 @@
 
 这才是多 Agent 的关键：不是角色越多越好，而是每个角色都有清晰输入和输出。信息采集员不直接写成片脚本，策划师不重新编造热点，制作师不重写事实，团长负责让流程不断档。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/005_multi-agent-team-overview_NzPHbTGH2o.png)
+
 ### 底层生产引擎：HyperFrames
 
 文章提到，这条视频流水线基于 HyperFrames 搭建。它的核心思路是用 HTML 渲染视频，天然适合 Agent 生成结构化工程，再交给渲染工具输出 MP4。它还带有 CLI 工具链、TTS、字幕、去背景和视频组件模板。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/006_hyperframes-engine_Uj4hbc6Tzo.png)
+
 ### 生成流程一：信息采集员先让热点有来源
 
 做视频最耗时间的往往不是剪辑，而是“今天到底拍什么”。所以视频生成团队先让信息采集员灵阅抓 RSS、搜新闻、扫社媒、聚合 AI 热点，并去重输出结构化摘要。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/007_collection-report_KPn1bXgYQo.png)
 
 这个阶段的产物至少应该包含：标题、来源、发布时间、事件发生时间、原始链接、热度线索、为什么值得关注。热度只能帮助排序，不能替代事实核验。
 
@@ -42,11 +58,17 @@
 
 选题有了之后，真正费脑子的是“这条视频怎么讲”。内容策划师灵枢负责选题评估、脚本写作、分镜设计、旁白文案、镜头节奏，以及转场建议、素材清单、BGM 节奏、字幕停顿和情绪节点。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/008_planner-full_YPM3boyNTo.png)
+
 这里建议设置第一次人工检查：开头 3 秒是否有钩子，46 秒是否塞入过多信息，旁白是否准确，画面是否真的支撑观点。脚本不过关时，不要进入配音和渲染。
 
 ### 生成流程三：视频制作师把分镜变成成片
 
 灵映会把确认后的脚本转成 HTML，再调用 HyperFrames 渲染 MP4。文章里提到，系统会自动完成 Azure TTS 配音、Whisper 字幕对齐、动画与转场生成、素材拼接、字幕叠加和视频渲染。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/009_video-producer_PohnbE1jKo.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/010_workbuddy-flow_FSJzb5xLQo.png)
 
 成片验收不要只看“能不能播放”。至少检查旁白与字幕是否一致、镜头时长是否匹配、文字是否遮挡主体、BGM 是否可用、素材是否有版权风险、画面是否适合目标平台安全区。
 
@@ -54,11 +76,19 @@
 
 发布 Agent 自动生成标题、自动打标签、自动上传封面，并通过云手机发布到抖音、视频号和 B 站。这是很强的自动化能力，但蓝皮书建议默认不要直接自动发布，除非账号、素材、标题和合规边界都已经过人工确认。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/011_publish-demo_DdTYbbBxLo.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/012_publish-result_Qpz2bvBwTo.png)
+
 ## 第二支团队：爆款视频拆解团队
 
 光会生成还不够。
 
 内容创作者真正需要的是理解“为什么别人能爆”，把一条爆款视频拆成可以参考的操作手册：提取视频、转录文案、分析景别运镜、剪辑节奏、色调风格，并给出仿拍建议。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/013_anatomy-team_OI1Ubltu1o.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/014_anatomy-demo_PJuybCsQao.png)
 
 | 角色 | 职责 | 工具 / 技术 |
 |-|-|-|
@@ -70,15 +100,25 @@
 
 爆款拆解的第一步是拿到视频。文章里专门提到，最复杂的是视频下载，所以设计了一套三层降级策略：官方 API、Playwright、yt-dlp。只要有一层成功，流程就继续。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/015_anatomy-flow_CuFcbaM9Ao.png)
+
 这里必须加上边界：视频下载和分析要遵守平台条款、版权授权和合理使用范围。拆解的目的应该是学习结构和方法，不是搬运原视频。
 
 ### 拆解流程二：音频提取与文案转写
 
 视频下载完成后，小凯用 ffmpeg 提取音频，把 video.mp4 转成 audio.mp3，再调用语音识别 API 自动转录完整口播文案。以前一句句听、一句句敲的工作，现在可以被稳定自动化。
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/016_audio-extract_EijVbt25mo.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/017_transcript-result_Zyc0bjAhTo.png)
+
 ### 拆解流程三：视频理解与镜头语言分析
 
 接下来是最有意思的一步：视频理解。小淼会分析整条视频的景别、运镜、转场、剪辑节奏、色调、镜头时长。很多看起来“有感觉”的爆款视频，背后其实有稳定的镜头规律。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/018_video-understand_VwxLb62b1o.png)
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2019%20%E7%AB%A0%20%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8F%AC%E5%94%A4%20AI%20%E8%A7%86%E9%A2%91%E5%9B%A2%E9%98%9F/assets/019_clip-cut_HAWrbELZIo.png)
 
 ## 两支团队如何形成闭环
 

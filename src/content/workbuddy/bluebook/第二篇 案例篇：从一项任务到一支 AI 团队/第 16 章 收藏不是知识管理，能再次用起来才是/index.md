@@ -30,6 +30,10 @@
 把下面内容记入“灵感收件箱”，保留我的原话，不扩写、不评价：“AI 工具真正的门槛不是提示词，而是验收结果。”
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2016%20%E7%AB%A0%20%E6%94%B6%E8%97%8F%E4%B8%8D%E6%98%AF%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%EF%BC%8C%E8%83%BD%E5%86%8D%E6%AC%A1%E7%94%A8%E8%B5%B7%E6%9D%A5%E6%89%8D%E6%98%AF/assets/001_image_M29JbJQ3po.png)
+
+
+
 ## 场景二：微信收藏很多，真正写作时还是搜不到
 
 - [微信收藏知识库](https://skillhub.cn/skills/wechat-favorite)：导出、分类，并可选择进入 ima、Obsidian 或 Notion；
@@ -40,6 +44,10 @@
 处理本周微信收藏，只读，不删除原收藏。
 ```
 
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2016%20%E7%AB%A0%20%E6%94%B6%E8%97%8F%E4%B8%8D%E6%98%AF%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%EF%BC%8C%E8%83%BD%E5%86%8D%E6%AC%A1%E7%94%A8%E8%B5%B7%E6%9D%A5%E6%89%8D%E6%98%AF/assets/002_byKl8HZ2_TtombzmOwo.jpg)
+
+
+
 ## 场景三：ima 作为移动知识入口
 
 ima 的优势不是“问答更聪明”，而是手机收集、知识库读写和微信上下文衔接。使用 [ima-skills](https://skillhub.cn/skills/ima-skills) 时，先明确目标知识库和写入规则。
@@ -47,6 +55,8 @@ ima 的优势不是“问答更聪明”，而是手机收集、知识库读写�
 ```text
 将我刚选择的 3 份文件放入 ima“WorkBuddy 案例库”的收件箱。
 ```
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2016%20%E7%AB%A0%20%E6%94%B6%E8%97%8F%E4%B8%8D%E6%98%AF%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%EF%BC%8C%E8%83%BD%E5%86%8D%E6%AC%A1%E7%94%A8%E8%B5%B7%E6%9D%A5%E6%89%8D%E6%98%AF/assets/003_image_D0c8blIsEo.png)
 
 ## 场景四：Obsidian 不是文件夹，而是可维护的 Wiki
 
@@ -58,3 +68,5 @@ ima 的优势不是“问答更聪明”，而是手机收集、知识库读写�
 ```
 
 WorkBuddy 能识别文章正文和作者，并生成 Markdown 条目。
+
+![](/ai-qimeng/workbuddy-assets/bluebook/%E7%AC%AC%E4%BA%8C%E7%AF%87%20%E6%A1%88%E4%BE%8B%E7%AF%87%EF%BC%9A%E4%BB%8E%E4%B8%80%E9%A1%B9%E4%BB%BB%E5%8A%A1%E5%88%B0%E4%B8%80%E6%94%AF%20AI%20%E5%9B%A2%E9%98%9F/%E7%AC%AC%2016%20%E7%AB%A0%20%E6%94%B6%E8%97%8F%E4%B8%8D%E6%98%AF%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%EF%BC%8C%E8%83%BD%E5%86%8D%E6%AC%A1%E7%94%A8%E8%B5%B7%E6%9D%A5%E6%89%8D%E6%98%AF/assets/004_test_SSsAbxS8po.jpg)
