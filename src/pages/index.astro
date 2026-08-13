@@ -310,9 +310,8 @@ const testimonials = [
         <span class="gd-section__badge">WORKBUDDY</span>
       </div>
       <div class="gd-section__body">
-        <p class="gd-section__sub">
-          全量搬运自 WorkBuddy 官方实战蓝皮书：阅读路线、27 章实战手册、真实案例、六大场景与共创社区，
-          覆盖从下载安装到多 Agent 系统落地的完整路径。共 {wbTotal} 页。
+        <p class="gd-section__sub wb-hub__sub">
+          全量搬运自 WorkBuddy 官方实战蓝皮书：阅读路线、27 章实战手册、真实案例、六大场景与共创社区，覆盖从下载安装到多 Agent 系统落地的完整路径。共 {wbTotal} 页。
         </p>
 
         <!-- 块一：四段路径，按你的目标进入 -->
@@ -354,16 +353,6 @@ const testimonials = [
           </div>
         </div>
 
-        <div class="wb-hub__foot">
-          <a class="btn btn-primary" href={withBase('/workbuddy/')}>
-            进入完整指南
-            <span class="btn__icon"><Icon name="arrow-right" size={20} /></span>
-          </a>
-          <a class="btn btn-secondary" href={withBase('/workbuddy/reading-guide/')}>
-            从阅读指南开始
-            <span class="btn__icon"><Icon name="book-open" size={20} /></span>
-          </a>
-        </div>
       </div>
     </div>
   </section>
@@ -532,13 +521,13 @@ const testimonials = [
 
   <style>
     /* ---------- WorkBuddy 指南首页聚合（四段路径 + 六大场景） ---------- */
-    .wb-hub__block { margin-top: var(--space-8); }
+    .wb-hub__block { margin-top: var(--space-6); }
     .wb-hub__h3 {
       font-family: var(--font-family-display);
       font-size: var(--text-xl);
-      font-weight: var(--weight-announce);
+      font-weight: 700;
       letter-spacing: var(--tracking-display);
-      color: var(--fg);
+      color: var(--accent);
       margin: 0;
     }
     .wb-hub__lead {
@@ -546,6 +535,10 @@ const testimonials = [
       font-size: var(--text-sm);
       margin: var(--space-2) 0 var(--space-5);
       max-width: 56ch;
+    }
+    .wb-hub__sub {
+      max-width: none;
+      margin-bottom: var(--space-4);
     }
 
     /* 四段路径卡片 */
@@ -597,8 +590,8 @@ const testimonials = [
       grid-area: title;
       font-family: var(--font-family-display);
       font-size: var(--text-lg);
-      font-weight: var(--weight-announce);
-      color: var(--fg);
+      font-weight: 700;
+      color: var(--accent);
       line-height: 1.3;
       margin-top: var(--space-2);
       padding-right: var(--space-6);
@@ -696,15 +689,6 @@ const testimonials = [
       color: var(--meta);
     }
     .wb-scenario:hover .wb-scenario__arrow { color: var(--accent); }
-
-    .wb-hub__foot {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-      margin-top: var(--space-8);
-      padding-top: var(--space-6);
-      border-top: 1px solid var(--border-soft);
-    }
 
     @media (max-width: 720px) {
       .wb-paths { grid-template-columns: 1fr; }
