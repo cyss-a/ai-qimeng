@@ -3,6 +3,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import Icon from '../components/Icon.astro';
+import HeroIllustration from '../components/HeroIllustration.astro';
 import { MODULES, getLessons, lessonHref, withBase, type ModuleId } from '../lib/course';
 import { getWorkbuddy } from '../lib/workbuddy';
 
@@ -237,16 +238,7 @@ const testimonials = [
       </div>
 
       <div class="hero__media" aria-hidden="true">
-        <img
-          class="hero-illustration"
-          src={withBase('/images/hero-illustration.jpg')}
-          alt="AI 工具与数据 3D 插图"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-          width="880"
-          height="495"
-        />
+        <HeroIllustration />
       </div>
     </div>
   </section>
