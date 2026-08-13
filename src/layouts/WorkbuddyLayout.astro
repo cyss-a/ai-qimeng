@@ -19,9 +19,10 @@ interface Props {
   headings: MarkdownHeading[];
   prev?: { slug: string; title: string };
   next?: { slug: string; title: string };
+  landing?: boolean;
 }
 
-const { title, description = title, headings, prev, next } = Astro.props;
+const { title, description = title, headings, prev, next, landing = false } = Astro.props;
 
 const iconPath = path.resolve(process.cwd(), 'src/icons/book-open.svg');
 const bookOpenSvg = fs.readFileSync(iconPath, 'utf-8').replace(/\s*<!--.*?-->/gs, '').trim();
@@ -55,7 +56,8 @@ function wrapSections(html: string): string {
   return result;
 }
 
-const processedContent = wrapSections(rawContent);
+// 目录落地页：各篇总览/附录是无图纯链接列表，跳过 h2 分卡包裹，直接裸渲染（便于毛玻璃卡片网格化）
+const processedContent = landing ? rawContent : wrapSections(rawContent);
 ---
 
 <BaseLayout title={title} description={description}>
@@ -69,15 +71,19 @@ const processedContent = wrapSections(rawContent);
       </a>
       <div class="site-header__actions">
         <ThemeToggle />
-        <MobileNav headings={headings} courseTitle={`WorkBuddy 指南 · ${title}`} />
+        {!landing && (
+          <MobileNav headings={headings} courseTitle={`WorkBuddy 指南 · ${title}`} />
+        )}
       </div>
     </div>
   </header>
 
-  <div class="lesson" data-mod="workbuddy">
-    <aside class="lesson__toc lesson__toc--desktop">
-      <Toc headings={headings} title="本页目录" />
-    </aside>
+  <div class:list={['lesson', landing && 'lesson--landing']} data-mod="workbuddy">
+    {!landing && (
+      <aside class="lesson__toc lesson__toc--desktop">
+        <Toc headings={headings} title="本页目录" />
+      </aside>
+    )}
 
     <main class="lesson__main" id="lesson-main">
       <p class="lesson__eyebrow">

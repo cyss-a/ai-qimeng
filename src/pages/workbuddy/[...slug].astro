@@ -26,8 +26,11 @@ const { entry, prev, next } = Astro.props;
 const { Content, headings } = await render(entry);
 const title = titleFromEntry(entry);
 const description = (entry.data.description as string | undefined) || title;
+
+// 目录落地页：蓝皮书各篇总览 + 附录（无图、纯章节链接列表）→ 去除 TOC、居中、毛玻璃渐变
+const landing = /^bluebook\/(part\d+|appendix)$/.test(entry.id);
 ---
 
-<WorkbuddyLayout title={title} description={description} headings={headings} prev={prev} next={next}>
+<WorkbuddyLayout title={title} description={description} headings={headings} prev={prev} next={next} landing={landing}>
   <Content />
 </WorkbuddyLayout>
