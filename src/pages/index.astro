@@ -59,7 +59,7 @@ const wbScenarios = [
 const first = lessons.find((l) => l.data.module !== 'M7') ?? lessons[0];
 const firstHref = lessonHref(first);
 // 模块顺序：M7（AI 热点日报）置顶且不带 M 编号，其余顺延
-const moduleOrder = ['M7', 'M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M8', 'M11', 'M9', 'M10', 'M12'] as ModuleId[];
+const moduleOrder = ['M7', 'M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M8', 'M9', 'M10', 'M11', 'M12'] as ModuleId[];
 
 const byModule: Record<string, typeof lessons> = {};
 for (const l of lessons) {
@@ -68,7 +68,6 @@ for (const l of lessons) {
 
 const totalLessons = lessons.filter((l) => l.data.module !== 'M7').length;
 const publishedCount = lessons.filter((l) => l.data.status === 'published').length;
-const zsxqUrl = 'https://t.zsxq.com';
 
 // 小白 AI 工具汇总（稿定风格编号条目）
 const toolPickerRows = [
@@ -230,10 +229,6 @@ const testimonials = [
             开始第一讲
             <span class="btn__icon"><Icon name="arrow-right" size={20} /></span>
           </a>
-          <a class="btn btn-secondary" href={zsxqUrl} target="_blank" rel="noopener noreferrer">
-            在知识星球继续阅读
-            <span class="btn__icon"><Icon name="external-link" size={20} /></span>
-          </a>
         </div>
       </div>
 
@@ -288,6 +283,11 @@ const testimonials = [
           }
         </ol>
         <p class="tool-cards__disclaimer">带「需梯子」的工具，在中国大陆访问需要科学上网环境。</p>
+        <p class="tool-cards__disclaimer">
+          科学上网推荐：
+          <a href="https://wmsxwd-3.men/#/register?code=RUoH4EjE" target="_blank" rel="noopener noreferrer">wmsxwd-3.men</a>
+          —— 多年老站，稳定，不跑路，自用7年。
+        </p>
       </div>
     </div>
   </section>
@@ -502,10 +502,6 @@ const testimonials = [
           <a class="btn btn-primary btn--lg" href={firstHref}>
             开始第一讲
             <span class="btn__icon"><Icon name="arrow-right" size={20} /></span>
-          </a>
-          <a class="btn btn-secondary" href={zsxqUrl} target="_blank" rel="noopener noreferrer">
-            加入知识星球
-            <span class="btn__icon"><Icon name="external-link" size={20} /></span>
           </a>
         </div>
       </div>

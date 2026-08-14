@@ -21,7 +21,7 @@ export type ModuleId = keyof typeof MODULES;
 export type LessonEntry = CollectionEntry<'lessons'>;
 
 // M7（AI 热点日报）置顶、其余顺延；M7 展示时不带 M 编号
-const MODULE_ORDER: ModuleId[] = ['M7', 'M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M8', 'M11', 'M9', 'M10'];
+const MODULE_ORDER: ModuleId[] = ['M7', 'M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M8', 'M9', 'M10', 'M11', 'M12'];
 
 // 内容层（Astro 7）下 entry.id 取自首字的 frontmatter `slug`（如 m1/1-1-renzhi），
 // 已含模块前缀，直接用做作业 URL。
