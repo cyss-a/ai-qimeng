@@ -2,7 +2,7 @@
 title: "交付体系 + 团队扩张 + 思维转变"
 module: M6
 order: 5
-slug: "m6/6-5-delivery-scale"
+slug: m6/6-5-delivery-scale
 description: "讲清怎么把第一个项目沉淀成可复用交付体系，团队扩张的铁律是「业务量撑大团队」，以及从闭门造车到拥抱市场的思维转变。"
 duration: "约 18 分钟"
 tags: ["交付体系", "规模化", "思维转变"]

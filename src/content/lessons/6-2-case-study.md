@@ -2,7 +2,7 @@
 title: "一个真实案例：二手车商与行业复制"
 module: M6
 order: 2
-slug: "m6/6-2-case-study"
+slug: m6/6-2-case-study
 description: "从一个二手车商随手拍图变展厅级图的真实案例，讲清楚「打包成易用功能再卖同行」的变现逻辑，以及怎么选可复制的行业。"
 duration: "约 18 分钟"
 tags: ["案例", "变现", "行业复制"]

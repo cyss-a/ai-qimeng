@@ -2,7 +2,7 @@
 title: "获客三路径 + 客户筛选"
 module: M6
 order: 4
-slug: "m6/6-4-get-clients"
+slug: m6/6-4-get-clients
 description: "讲清获客的三条路径（试水、行业渠道、社群需求池），以及怎么筛掉「花小钱办大事」却赔本的个体户老板，把精力留给能 vibe coding 出来的单子。"
 duration: "约 18 分钟"
 tags: ["获客", "客户筛选", "变现"]

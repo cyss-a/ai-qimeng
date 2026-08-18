@@ -2,7 +2,7 @@
 title: "智能体到底是什么"
 module: M6
 order: 1
-slug: "m6/6-1-what-is-agent"
+slug: m6/6-1-what-is-agent
 description: "澄清「智能体」的真实含义：它多半是工作流打包加一个 AI 监工，帮你把分散的模型能力连成一条自动流水线。"
 duration: "约 18 分钟"
 tags: ["智能体", "工作流", "变现"]

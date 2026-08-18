@@ -2,7 +2,7 @@
 title: "技术栈全景：门槛比你以为的低"
 module: M6
 order: 3
-slug: "m6/6-3-tech-stack"
+slug: m6/6-3-tech-stack
 description: "拆开看支撑智能体变现的工具链：搭建平台、MCP 连接能力、以及为什么两三天就能上手——因为大部分操作可以让 AI 手把手教你。"
 duration: "约 18 分钟"
 tags: ["技术栈", "MCP", "工具"]
