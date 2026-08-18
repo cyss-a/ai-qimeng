@@ -25,15 +25,32 @@ status: published
 
 这一组最宽松，甚至允许你**闭源商用**——只要保留原作者的声明就行。对打工人和开发者来说，堪称"良心之选"。你拿去改、拿去做成产品卖，基本都没问题，记得留名即可。
 
-### 严谨组：对商业化 / 开源共享有严格规则
+### 严谨组：有"传染性"规则（Copyleft）
 
-另一组许可证（比如大家常听到的 GPL 系列）限制就多得多，尤其对"商业化"和"改完必须继续开源"有硬性要求。日常使用得多留个心眼，别踩了合规的线。
+另一组许可证限制就多得多，核心是一条"传染性"：**你改了别人的代码拿去发布，你的修改也得开源。** 常见的几种：
+
+- **GPL**：最典型的"强传染"。用了 GPL 代码，整个软件分发时都得开源。
+- **LGPL**：稍温和，允许你以"库"的形式调用它，闭源软件也能用，但你改了库本身还是要开源。
+- **AGPL**：比 GPL 更严，连"只在服务器上跑、不发给用户"的网络服务都要开源——做 SaaS 的要特别留意。
+- **MPL（Mozilla）**：按"文件"传染，你只改了带 MPL 的文件才需开源，自己新建的文件可以闭源。
 
 <aside class="callout callout--warn" role="note">
   <span class="callout__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
   <div class="callout__body">
-    <p class="callout__title">实用建议</p>
-    <div class="callout__content"><p>心里拿不准时，就认准宽松组的 MIT / Apache / BSD，基本闭眼用。涉及严谨组项目，先查清楚再动，别等商业化之后收到律师函。</p></div>
+    <p class="callout__title">怎么选：七种许可证速查</p>
+    <div class="callout__content">
+      <p>视频里说的"七种常见许可证"，按开放程度从松到严排好队：</p>
+      <ul>
+        <li><strong>MIT</strong>：最省心，闭源商用随便用，留个署名即可，也就是绝大多数个人项目选它。</li>
+        <li><strong>Apache-2.0</strong>：比 MIT 多了"专利授权"保护，大厂法务更认，也就是想显得正规、涉及专利选它。</li>
+        <li><strong>BSD</strong>：和 MIT 类似，更短更精简。</li>
+        <li><strong>MPL-2.0</strong>：按文件传染，适合"开源核心 + 闭源扩展"。</li>
+        <li><strong>LGPL</strong>：适合你做"被别人调用的库"。</li>
+        <li><strong>GPL</strong>：想强制所有衍生都开源时用。</li>
+        <li><strong>AGPL</strong>：做了网络服务（SaaS）还想强制开源时用。</li>
+      </ul>
+      <p>一句话：拿不准就选 MIT；碰到严谨组（GPL 系）项目，先查清楚再商用。</p>
+    </div>
   </div>
 </aside>
 
@@ -41,8 +58,9 @@ status: published
 
 | 阵营 | 代表许可证 | 能改 | 能闭源商用 | 改完要公开 |
 | --- | --- | --- | --- | --- |
-| 宽松组 | MIT / Apache / BSD | 能 | 能（留署名） | 不必 |
-| 严谨组 | GPL 等 | 能 | 受限 | 通常要 |
+| 宽松组 | MIT / Apache-2.0 / BSD | 能 | 能（留署名） | 不必 |
+| 弱传染 | MPL-2.0 / LGPL | 能 | 部分可以 | 改了相关文件要 |
+| 强传染 | GPL / AGPL | 能 | 受限（AGPL 连网络服务都要开源） | 通常要 |
 
 ## 四种把项目拿到手的方法
 

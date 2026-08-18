@@ -26,10 +26,10 @@ status: published
 ## 右侧：三个关键按钮
 
 - **Watch（关注）**：相当于"动态通知"。点亮后，只要这个项目有变化（有人提了 Issue、发了新版本），就会来通知你。适合你参与了开发、或者特别真爱某个项目的情况。
+- **Fork（复刻）**：这一讲的"大招"。点一下，它会把整个项目的源代码和开发历史，**完整复制一份到你自己的 GitHub 账号里**。复制完之后，项目名后面会多一个 Fork 图标，下面还有原项目的回链。
 - **Star（星标）**：上一讲讲过，支持和收藏。
-- **Fork（复刻）**：这一讲的"大招"。点一下，它会把整个项目的源代码和开发历史，**完整复制一份到你自己的 GitHub 账号里**。
 
-复制完之后，项目名后面会多一个 Fork 图标，下面还有原项目的回链。这意味着：你可以拿这份源码给 AI，让它帮你做二次开发，改成专属于你自己的版本；改好了，还能通过 Pull Request 把成果申请合并回原项目。
+这意味着：你可以拿这份 Fork 来的源码给 AI，让它帮你做二次开发，改成专属于你自己的版本；改好了，还能通过 Pull Request 把成果申请合并回原项目。
 
 ## 核心工作逻辑：Branch / Tag / PR
 
@@ -72,6 +72,30 @@ status: published
   <div class="callout__body">
     <p class="callout__title">给小白的提醒</p>
     <div class="callout__content"><p>README 是你看懂一个项目最快的入口，比直接翻代码省力十倍。拿到任何开源项目，先读 README，再决定要不要下载或用代码。</p></div>
+  </div>
+</aside>
+
+## 两个小白最容易踩的坑
+
+### 坑一：Fork 之后，原项目更新了你收不到
+
+你 Fork 的是原项目"某一刻的快照"。原项目作者之后又改了东西、发了新功能，**你 Fork 的那份不会自动跟着更新**。
+
+- 想手动同步：去你 Fork 的仓库页面，点 **Sync fork**（旧版叫 "Fetch upstream"），就能把原项目的最新改动拉进你的副本。
+- 嫌麻烦：把仓库地址丢给 AI，说"帮我把上游（upstream）的最新代码合并进来"，让它操作。
+
+### 坑二：别被"高 Star"骗了，先看它还活不活
+
+Star 多只代表"曾经火"，不代表"现在还在维护"。下载前顺手看一眼：
+
+- **最近一次提交（last commit）的时间**：如果停在两三年前，基本是停更的"恐龙项目"，新系统上很可能跑不起来。
+- **Commits / Insights 的更新频率**：长期稳定更新的，才值得你长期跟着用。
+
+<aside class="callout callout--info" role="note">
+  <span class="callout__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
+  <div class="callout__body">
+    <p class="callout__title">一句话记牢</p>
+    <div class="callout__content"><p>Fork 是"分身不是镜子"——它不会自动跟着原项目变；Star 是"人气不是体检"——下载前先确认项目还活着。</p></div>
   </div>
 </aside>
 

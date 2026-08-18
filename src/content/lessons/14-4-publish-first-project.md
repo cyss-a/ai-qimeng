@@ -13,7 +13,7 @@ status: published
 
 ## 第一步：用 AI 编程工具生成项目
 
-先打开一个 AI 编程工具（视频里演示用的是 Glice，你也可以用 Cursor、Trae、通义灵码等任意同类工具，思路完全一样）。
+先打开一个 AI 编程工具（视频里演示用的是一款 AI 编程工具，语音识别记为"Glice"，听感接近 Cursor / Trae 这类主流产品；换成 Cursor、Trae、通义灵码、CodeBuddy 等任意同类工具，操作思路完全一样）。
 
 新建一个项目，给它起个名，然后让 AI 做一个简单的小网页。比如："帮我做一个待办清单网页，能添加、勾选、删除任务。" 稍等片刻，AI 就给你做好了。你当场试一下：添加三个任务、勾选一个、再删除一个——基本按键都能用，项目就成型了。
 
@@ -32,6 +32,15 @@ status: published
 ### 1. README：项目的门面
 
 README 是你的项目说明书，GitHub 会直接把它放到首页最显眼的位置。用户打开不到五秒，就决定要不要给你点 Star。所以一定要写好。
+
+一份让人一眼就懂的 README，至少包含这几块（让 AI 按这个骨架写）：
+
+- **项目简介**：一句话说清它是干什么的，配一张效果截图。
+- **功能特性**：用列表列出它能做什么。
+- **安装 / 运行**：分步写清怎么跑起来（命令、依赖）。
+- **使用方法**：最简单的上手示例。
+- **License**：指向你的开源协议。
+- **（可选）贡献指南**：欢迎别人提 Issue、PR。
 
 给 AI 的提示词，要包含这三块信息：**项目是干什么的、怎么安装使用、输入输出有什么条件**，让用户一眼看懂。
 
@@ -87,6 +96,14 @@ README 是你的项目说明书，GitHub 会直接把它放到首页最显眼的
   </div>
 </aside>
 
+<aside class="callout callout--info" role="note">
+  <span class="callout__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
+  <div class="callout__body">
+    <p class="callout__title">顺手让 AI 生成 .gitignore</p>
+    <div class="callout__content"><p>推送之前，让 AI 帮你在项目根目录加一个 <code>.gitignore</code> 文件。它能挡掉 <code>node_modules</code>、本地缓存、编辑器配置，以及你不小心放进去的密钥——避免把一堆垃圾或敏感文件推到公开仓库。一句"帮我生成适合这个项目的 .gitignore"即可。</p></div>
+  </div>
+</aside>
+
 ## 第三步：把项目推到 GitHub
 
 三件套齐了，项目还躺在你的本地电脑上。想公开，就得真正推到 GitHub。这一步继续让 AI 帮忙：
@@ -105,6 +122,8 @@ README 是你的项目说明书，GitHub 会直接把它放到首页最显眼的
 - 检查当前是否适合发布 `V0.1.0`；
 - 合适的话，写一份简洁的发布说明；
 - 创建并推送标签（Tag）。
+
+补充一个常识：版本号 `0.x` 表示"还不稳定、可能随时改"，等做到功能完整、敢承诺长期维护，再升到 `1.0.0` 这个"正式毕业"的版本。所以 `V0.1.0` 对你的第一个小项目来说，正合适。
 
 这样，你的第一个版本就诞生了，别人也能打包下载使用。
 
