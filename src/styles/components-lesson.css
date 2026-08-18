@@ -276,6 +276,7 @@
 .lesson[data-mod="M11"] { --mod: var(--m11); --mod-ink: var(--m11-ink); --mod-bg: var(--m11-bg); }
 .lesson[data-mod="M12"] { --mod: var(--m12); --mod-ink: var(--m12-ink); --mod-bg: var(--m12-bg); }
 .lesson[data-mod="M13"] { --mod: var(--m13); --mod-ink: var(--m13-ink); --mod-bg: var(--m13-bg); }
+.lesson[data-mod="M14"] { --mod: var(--m14); --mod-ink: var(--m14-ink); --mod-bg: var(--m14-bg); }
 
 /* 课程 eyebrow → 彩色胶囊（视觉冲击 + 色块） */
 .lesson__eyebrow {

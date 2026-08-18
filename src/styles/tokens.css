@@ -45,6 +45,7 @@
   --m11: #DC2626; --m11-ink: #B91C1C; --m11-bg: #FDECEC; /* M11 上线篇（红，警示/真实教训） */
   --m12: #22C55E; --m12-ink: #15803D; --m12-bg: #DCFCE7; /* M12 自生长知识库（草绿，成长意象） */
   --m13: #CA8A04; --m13-ink: #A16207; --m13-bg: #FEF9C3; /* M13 短视频创作篇（金/暖黄，区别于 M4 琥珀、M12 草绿） */
+  --m14: #334155; --m14-ink: #1E293B; --m14-bg: #E2E8F0; /* M14 GitHub 开源篇（石板灰，区别于其它饱和色，贴合开发者工具调性） */
 
   /* ---------- 思维导图分支色（多彩但统一规范，避免所有色块一个样） ---------- */
   --mindmap-b1: #7C3AED; --mindmap-b1-soft: #F1EAFD; --mindmap-b1-ink: #5B21B6; --mindmap-b1-line: #A78BFA;
@@ -171,6 +172,7 @@
   --m11: #F87171; --m11-ink: #FCA5A5; --m11-bg: rgba(248,113,113,0.14);
   --m12: #4ADE80; --m12-ink: #86EFAC; --m12-bg: rgba(74,222,128,0.14);
   --m13: #EAB308; --m13-ink: #FDE047; --m13-bg: rgba(234,179,8,0.14);
+  --m14: #94A3B8; --m14-ink: #CBD5E1; --m14-bg: rgba(148,163,184,0.14);
 
   --mindmap-b1: #A78BFA; --mindmap-b1-soft: rgba(167,139,250,0.18); --mindmap-b1-ink: #DDD6FE; --mindmap-b1-line: #8B5CF6;
   --mindmap-b2: #60A5FA; --mindmap-b2-soft: rgba(96,165,250,0.18); --mindmap-b2-ink: #BFDBFE; --mindmap-b2-line: #3B82F6;
